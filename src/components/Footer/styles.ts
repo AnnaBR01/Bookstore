@@ -5,6 +5,7 @@ import { Media } from "../../ui/media";
 const StyledInput = styled.footer`
   display: flex;
   justify-content: space-between;
+  align-items: center;
   padding-block: 36px;
   border-top: 1px solid ${Color.Secondary};
 

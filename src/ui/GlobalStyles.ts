@@ -1,4 +1,5 @@
 import { createGlobalStyle } from "styled-components";
+import { Color } from "./colors";
 import { Media } from "./media";
 
 export const GlobalStyles = createGlobalStyle`
@@ -280,6 +281,8 @@ template {
 
 body{
 font-family: 'Helios', Arial, Helvetica, sans-serif;
+background: ${Color.White};
+color: ${Color.Primary}
 }
 
 h1{
@@ -311,6 +314,31 @@ line-height: 32px;
 
 }
 
+html[theme='ligth']{
+  --primary: #313037;
+  --primary-light: #5B5A62;
+  --secondary: #A8A8A8;
+  --white: #FFFFFF;
+  --gray: #E7E7E7;
+  --light: #F7F7F7;
+  --red: #FC857F;
+  --blue: #D7E4FD;
+  --green: #CAEFF0;
+  --orange: #FEE9E2;
+  --purple: #F4EEFD;
+}
 
-
+html[theme='dark']{
+  --primary: #E7E7E7;
+  --primary-light: #F7F7F7;
+  --secondary: #FFFFFF;
+  --white: #A8A8A8;
+  --gray: #313037;
+  --light:  #5B5A62;
+  --red: #FC857F;
+  --blue: #D7E4FD;
+  --green: #CAEFF0;
+  --orange: #FEE9E2;
+  --purple: #F4EEFD;
+}
 `;

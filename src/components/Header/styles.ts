@@ -2,13 +2,15 @@ import styled from "styled-components";
 import { Color } from "../../ui/colors";
 import { Media } from "../../ui/media";
 import searchLogo from "./../../assets/icons/search.svg";
+import sunLogo from "./../../assets/icons/sun.svg";
+import moonLogo from "./../../assets/icons/moon.svg";
 import favoritesLogo from "./../../assets/icons/favorites.svg";
 import cartLogo from "./../../assets/icons/cart.svg";
 import usertLogo from "./../../assets/icons/user.svg";
 
 const StyledHeader = styled.nav`
   display: grid;
-  grid-template-columns: 20% 60% 20%;
+  grid-template-columns: 20% 55% 5% 20%;
   align-items: center;
   padding-block: 24px;
   border-bottom: 1px solid ${Color.Secondary};
@@ -28,6 +30,23 @@ const Search = styled.div`
 
   ${Media.SM} {
     min-width: 271px;
+  }
+`;
+
+const Theme = styled.button<{ $isDark: boolean }>`
+  background: none;
+  border: none;
+  background-image: ${({ $isDark }) =>
+    $isDark ? `url(${sunLogo})` : `url(${moonLogo})`};
+  background-size: 60%;
+  background-repeat: no-repeat;
+  background-position: center;
+  height: 56px;
+  width: 56px;
+  cursor: pointer;
+
+  :hover {
+    box-shadow: 1px 1px 15px ${Color.Green};
   }
 `;
 
@@ -90,6 +109,7 @@ const UserLogo = styled.button`
 export {
   StyledHeader,
   Search,
+  Theme,
   List,
   Item,
   SearchLogo,

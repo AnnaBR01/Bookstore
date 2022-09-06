@@ -7,15 +7,39 @@ import {
   Search,
   SearchLogo,
   StyledHeader,
+  Theme,
   UserLogo,
 } from "./styles";
 import { ReactComponent as Logo } from "../../assets/icons/logo.svg";
 import { SearchInput } from "../SearchInput/SearchInput";
-import { Link } from "react-router-dom";
 import { ROUTE } from "../../routes";
 import { CustomLink } from "../CustomLink/CustomLink";
+import { changeTheme } from "../../store/features/userSlice";
+import { useToggle } from "../../hooks/useToggle";
+import { useAppDispatch, useAppSelector } from "../../store/hooks";
 
 export const Header = () => {
+  const { theme } = useAppSelector((state) => state.user);
+  const dispatch = useAppDispatch();
+  const [isDark, toggleIsInstallDark] = useToggle();
+
+  const setAttributeTheme = (themeValue: "ligth" | "dark") => {
+    document.documentElement.setAttribute("theme", `${themeValue}`);
+  };
+
+  setAttributeTheme(theme);
+
+  const handleTheme = () => {
+    if (theme === "dark") {
+      dispatch(changeTheme("ligth"));
+    } else {
+      dispatch(changeTheme("dark"));
+    }
+
+    setAttributeTheme(theme);
+    toggleIsInstallDark();
+  };
+
   return (
     <StyledHeader>
       <CustomLink to={ROUTE.HOME}>
@@ -28,6 +52,8 @@ export const Header = () => {
           <SearchLogo />
         </CustomLink>
       </Search>
+
+      <Theme onClick={handleTheme} $isDark={isDark} />
 
       <List>
         <Item>
