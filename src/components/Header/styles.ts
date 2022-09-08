@@ -8,7 +8,7 @@ import favoritesLogo from "./../../assets/icons/favorites.svg";
 import cartLogo from "./../../assets/icons/cart.svg";
 import usertLogo from "./../../assets/icons/user.svg";
 
-const StyledHeader = styled.nav`
+const StyledHeader = styled.header`
   display: grid;
   grid-template-columns: 20% 55% 5% 20%;
   align-items: center;
@@ -38,7 +38,7 @@ const Theme = styled.button<{ $isDark: boolean }>`
   border: none;
   background-image: ${({ $isDark }) =>
     $isDark ? `url(${sunLogo})` : `url(${moonLogo})`};
-  background-size: 60%;
+  background-size: 50%;
   background-repeat: no-repeat;
   background-position: center;
   height: 56px;
@@ -54,7 +54,7 @@ const List = styled.ul`
   justify-self: end;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 8px;
+  grid-gap: 8px;
 `;
 
 const Item = styled.li``;

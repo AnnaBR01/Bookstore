@@ -2,26 +2,32 @@ import React from "react";
 import { Outlet } from "react-router-dom";
 import { Footer } from "../Footer/Footer";
 import { Header } from "../Header/Header";
-import { Container, StyledMainTemplate, StyledOutlet, Wrapper } from "./styles";
+import {
+  Container,
+  StyledMainTemplate,
+  StyledOutlet,
+  WrapperHeader,
+  WrapperFooter,
+} from "./styles";
 
 export const MainTemplate = () => {
   return (
     <StyledMainTemplate>
-      <Wrapper>
+      <WrapperHeader>
         <Container>
           <Header />
         </Container>
-      </Wrapper>
+      </WrapperHeader>
       <StyledOutlet>
         <Container>
           <Outlet />
         </Container>
       </StyledOutlet>
-      <Wrapper>
+      <WrapperFooter>
         <Container>
           <Footer />
         </Container>
-      </Wrapper>
+      </WrapperFooter>
     </StyledMainTemplate>
   );
 };

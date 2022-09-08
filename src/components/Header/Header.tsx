@@ -10,7 +10,7 @@ import {
   Theme,
   UserLogo,
 } from "./styles";
-import { ReactComponent as Logo } from "../../assets/icons/logo.svg";
+import { ReactComponent as LogoIcon } from "../../assets/icons/logo.svg";
 import { SearchInput } from "../SearchInput/SearchInput";
 import { ROUTE } from "../../routes";
 import { CustomLink } from "../CustomLink/CustomLink";
@@ -43,7 +43,7 @@ export const Header = () => {
   return (
     <StyledHeader>
       <CustomLink to={ROUTE.HOME}>
-        <Logo />
+        <LogoIcon />
       </CustomLink>
 
       <Search>

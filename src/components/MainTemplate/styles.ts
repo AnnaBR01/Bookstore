@@ -8,8 +8,16 @@ const StyledMainTemplate = styled.div`
   flex-direction: column;
 `;
 
-const Wrapper = styled.div`
+const WrapperHeader = styled.div`
   background: ${Color.Light};
+  position: sticky;
+  top: 0;
+`;
+
+const WrapperFooter = styled.div`
+  background: ${Color.Light};
+  position: sticky;
+  bottom: 0;
 `;
 
 const Container = styled.div`
@@ -29,4 +37,10 @@ const StyledOutlet = styled.div`
   flex-grow: 1;
 `;
 
-export { StyledMainTemplate, Wrapper, Container, StyledOutlet };
+export {
+  StyledMainTemplate,
+  WrapperHeader,
+  WrapperFooter,
+  Container,
+  StyledOutlet,
+};
