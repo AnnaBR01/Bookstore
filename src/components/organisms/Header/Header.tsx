@@ -42,7 +42,6 @@ export const Header = () => {
 
   const handleBurger = (): void => {
     toggleIsOpen();
-    // event.stopPropagation(); // TODO Добавить onClick на блюр
   };
 
   return (

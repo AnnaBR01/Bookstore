@@ -49,6 +49,7 @@ const Theme = styled.button<{ $isDark: boolean }>`
   :hover {
     box-shadow: 1px 1px 15px ${Color.Green};
   }
+
   ${Media.MD} {
     margin-left: auto;
   }

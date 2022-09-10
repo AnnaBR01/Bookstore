@@ -2,29 +2,29 @@ import styled from "styled-components";
 import { Color, Media } from "../../../ui";
 
 const StyledBurgerMenu = styled.div<{ $isOpen: boolean }>`
-  display: none;
-
-  ${Media.MD} {
-    display: block;
-    width: 100%;
-    height: 100vh;
-    backdrop-filter: blur(2px);
-    position: absolute;
-    transition: all 1s ease 0s;
-    top: ${({ $isOpen }) => ($isOpen ? `0` : `-100%`)};
-  }
+  position: absolute;
+  left: 0;
+  top: ${({ $isOpen }) => ($isOpen ? `0` : `-100%`)};
+  width: 100%;
+  height: 100vh;
+  backdrop-filter: blur(2px);
+  transition: all 1s ease 0s;
 `;
 
 const WrapperContent = styled.div`
-  box-shadow: 1px 1px 15px ${Color.Green};
-  margin-left: auto;
-  width: 50%;
-  background: ${Color.Light};
   display: grid;
-  align-content: flex-start;
-  grid-gap: 25%;
-  padding-inline: 40px;
+  align-content: start;
+  grid-gap: 13%;
+  grid-template-rows: repeat(auto-fill, 1fr);
+  width: 50%;
+
   height: inherit;
+  margin-left: auto;
+  margin-right: 40px;
+  padding-inline: 40px;
+  background: ${Color.Light};
+  box-shadow: 1px 1px 15px ${Color.Green};
+  transition: all 1s ease 0s;
 
   ${Media.SM} {
     width: 100%;
@@ -32,14 +32,22 @@ const WrapperContent = styled.div`
 `;
 
 const BurgerHeader = styled.div`
-  padding-block: 35px;
-  border-bottom: 1px solid ${Color.Secondary};
   display: flex;
   justify-content: end;
+  padding-block: 35px;
+  border-bottom: 1px solid ${Color.Secondary};
 
   ${Media.MD} {
     width: 100%;
   }
 `;
 
-export { StyledBurgerMenu, WrapperContent, BurgerHeader };
+const Description = styled.p`
+  text-align: center;
+  font-family: "Bebas Neue";
+  font-weight: 700;
+  font-size: 32px;
+  line-height: 44px;
+`;
+
+export { StyledBurgerMenu, WrapperContent, BurgerHeader, Description };

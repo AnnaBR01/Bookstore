@@ -17,6 +17,10 @@ const WrapperFooter = styled.div`
   background: ${Color.Light};
   position: sticky;
   bottom: 0;
+
+  ${Media.MD} {
+    position: static;
+  }
 `;
 
 const Container = styled.div`

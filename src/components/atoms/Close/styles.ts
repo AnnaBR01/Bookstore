@@ -8,6 +8,7 @@ const StyledClose = styled.button`
   background-size: 50%;
   height: 56px;
   width: 56px;
+
   :hover {
     box-shadow: 1px 1px 15px ${Color.Green};
   }

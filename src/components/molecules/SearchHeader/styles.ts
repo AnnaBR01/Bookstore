@@ -12,6 +12,7 @@ const Search = styled.div`
 
   ${Media.MD} {
     min-width: 287px;
+    width: 100%;
   }
 
   ${Media.SM} {
