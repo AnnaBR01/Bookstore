@@ -1,5 +1,5 @@
 import { StyledSearchInput } from "./styles";
 
 export const SearchInput = () => {
-  return <StyledSearchInput />;
+  return <StyledSearchInput placeholder="Search..." />;
 };

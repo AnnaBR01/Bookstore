@@ -1,27 +1,27 @@
 import React from "react";
 import {
-  CartLogo,
-  FavoritesLogo,
+  BurgerIcon,
+  CartIcon,
+  FavoritesIcon,
   Item,
   List,
-  Search,
-  SearchLogo,
+  LogoIcon,
   StyledHeader,
   Theme,
-  UserLogo,
+  UserIcon,
 } from "./styles";
-import { ReactComponent as LogoIcon } from "../../assets/icons/logo.svg";
-import { SearchInput } from "../SearchInput/SearchInput";
-import { ROUTE } from "../../routes";
-import { CustomLink } from "../CustomLink/CustomLink";
-import { changeTheme } from "../../store/features/userSlice";
-import { useToggle } from "../../hooks/useToggle";
-import { useAppDispatch, useAppSelector } from "../../store/hooks";
+import { ROUTE } from "../../../routes";
+import { changeTheme, useAppDispatch, useAppSelector } from "../../../store";
+import { useToggle, useWindowSize } from "../../../hooks";
+import { BurgerMenu, CustomLink, SearchHeader } from "../../index";
+import { Breackpoint } from "../../../ui";
 
 export const Header = () => {
   const { theme } = useAppSelector((state) => state.user);
   const dispatch = useAppDispatch();
   const [isDark, toggleIsInstallDark] = useToggle();
+  const { width = 0 } = useWindowSize();
+  const [isOpen, toggleIsOpen] = useToggle();
 
   const setAttributeTheme = (themeValue: "ligth" | "dark") => {
     document.documentElement.setAttribute("theme", `${themeValue}`);
@@ -40,40 +40,44 @@ export const Header = () => {
     toggleIsInstallDark();
   };
 
+  const handleBurger = (): void => {
+    toggleIsOpen();
+    // event.stopPropagation(); // TODO Добавить onClick на блюр
+  };
+
   return (
     <StyledHeader>
       <CustomLink to={ROUTE.HOME}>
         <LogoIcon />
       </CustomLink>
 
-      <Search>
-        <SearchInput />
-        <CustomLink to={ROUTE.SEARCH}>
-          <SearchLogo />
-        </CustomLink>
-      </Search>
+      {width > Breackpoint.MD && <SearchHeader />}
 
       <Theme onClick={handleTheme} $isDark={isDark} />
 
       <List>
         <Item>
           <CustomLink to={ROUTE.FAVORITES}>
-            <FavoritesLogo />
+            <FavoritesIcon />
           </CustomLink>
         </Item>
 
         <Item>
           <CustomLink to={ROUTE.CART}>
-            <CartLogo />
+            <CartIcon />
           </CustomLink>
         </Item>
 
         <Item>
           <CustomLink to={ROUTE.SIGN_IN}>
-            <UserLogo />
+            <UserIcon />
           </CustomLink>
         </Item>
       </List>
+
+      <BurgerIcon onClick={handleBurger} />
+
+      {isOpen && <BurgerMenu handleBurger={handleBurger} isOpen={isOpen} />}
     </StyledHeader>
   );
 };

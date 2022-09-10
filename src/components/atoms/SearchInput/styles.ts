@@ -1,6 +1,5 @@
 import styled from "styled-components";
-import { Color } from "../../ui/colors";
-import { Media } from "../../ui/media";
+import { Color, Media } from "../../../ui";
 
 const StyledSearchInput = styled.input`
   border: none;

@@ -1,19 +1,20 @@
 import React from "react";
 import { Provider } from "react-redux";
 import { Route, Routes } from "react-router-dom";
-import { MainTemplate } from "./components/MainTemplate/MainTemplate";
-import { RequareAuth } from "./components/RequareAuth/RequareAuth";
-import { AccountPage } from "./pages/AccountPage";
-import { BookInfoPage } from "./pages/BookInfoPage";
-import { CartPage } from "./pages/CartPage";
-import { FavoritesPage } from "./pages/FavoritesPage";
-import { HomePage } from "./pages/HomePage";
-import { NotFoundPage } from "./pages/NotFoundPage";
-import { SearchPage } from "./pages/SearchPage";
-import { SignInPage } from "./pages/SignInPage";
-import { SignUpPage } from "./pages/SignUpPage";
+import { MainTemplate, RequareAuth } from "./components";
+import {
+  AccountPage,
+  BookInfoPage,
+  CartPage,
+  FavoritesPage,
+  HomePage,
+  NotFoundPage,
+  SearchPage,
+  SignInPage,
+  SignUpPage,
+} from "./pages";
 import { ROUTE } from "./routes";
-import { store } from "./store/store";
+import { store } from "./store";
 
 export const App = () => {
   return (

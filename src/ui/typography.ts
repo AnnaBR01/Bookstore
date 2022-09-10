@@ -1,5 +1,5 @@
 import { css } from "styled-components";
-import { Media } from "./media";
+import { Media } from ".";
 
 const H1 = css`
   font-family: "Bebas Neue";

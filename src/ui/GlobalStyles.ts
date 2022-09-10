@@ -17,7 +17,8 @@ ${BODY2}
 body{
 font-family: 'Helios', Arial, Helvetica, sans-serif;
 background: ${Color.White};
-color: ${Color.Primary}
+color: ${Color.Primary};
+transition: all 1s ease 0s;
 }
 
 html[theme='ligth']{
