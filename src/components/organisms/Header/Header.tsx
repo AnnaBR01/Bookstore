@@ -13,7 +13,7 @@ import {
 import { ROUTE } from "../../../routes";
 import { changeTheme, useAppDispatch, useAppSelector } from "../../../store";
 import { useToggle, useWindowSize } from "../../../hooks";
-import { BurgerMenu, CustomLink, SearchHeader } from "../../index";
+import { BurgerMenu, HeaderCustomLink, SearchHeader } from "../../index";
 import { Breackpoint } from "../../../ui";
 
 export const Header = () => {
@@ -46,9 +46,9 @@ export const Header = () => {
 
   return (
     <StyledHeader>
-      <CustomLink to={ROUTE.HOME}>
+      <HeaderCustomLink to={ROUTE.HOME}>
         <LogoIcon />
-      </CustomLink>
+      </HeaderCustomLink>
 
       {width > Breackpoint.MD && <SearchHeader />}
 
@@ -56,21 +56,21 @@ export const Header = () => {
 
       <List>
         <Item key="1">
-          <CustomLink to={ROUTE.FAVORITES}>
+          <HeaderCustomLink to={ROUTE.FAVORITES}>
             <FavoritesIcon />
-          </CustomLink>
+          </HeaderCustomLink>
         </Item>
 
         <Item key="2">
-          <CustomLink to={ROUTE.CART}>
+          <HeaderCustomLink to={ROUTE.CART}>
             <CartIcon />
-          </CustomLink>
+          </HeaderCustomLink>
         </Item>
 
         <Item key="3">
-          <CustomLink to={ROUTE.SIGN_IN}>
+          <HeaderCustomLink to={ROUTE.SIGN_IN}>
             <UserIcon />
-          </CustomLink>
+          </HeaderCustomLink>
         </Item>
       </List>
 

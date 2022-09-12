@@ -24,7 +24,7 @@ export const BookCard = ({ title, subtitle, image, price, isbn13 }: IProps) => {
   price !== "$0.00" ? (bookPrice = price) : (bookPrice = "for FREE");
 
   return (
-    <StyledBookCard key={isbn13}>
+    <StyledBookCard>
       <WrapperImage>
         <Image src={image} alt="New book" />
       </WrapperImage>

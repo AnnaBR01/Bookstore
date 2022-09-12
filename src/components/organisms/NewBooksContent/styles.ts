@@ -18,4 +18,9 @@ const BooksWrapper = styled.ul`
   }
 `;
 
-export { StyledNewBooksContent, BooksWrapper };
+const StyledError = styled.div`
+  align-self: center;
+  margin-top: 20%;
+`;
+
+export { StyledNewBooksContent, BooksWrapper, StyledError };

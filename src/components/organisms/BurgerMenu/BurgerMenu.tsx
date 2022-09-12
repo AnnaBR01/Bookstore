@@ -1,6 +1,6 @@
 import React from "react";
 import { MouseEvent } from "react";
-import { Button, Close, CustomLink, SearchHeader } from "../..";
+import { Button, Close, HeaderCustomLink, SearchHeader } from "../..";
 import { ROUTE } from "../../../routes";
 import {
   BurgerHeader,
@@ -29,13 +29,13 @@ export const BurgerMenu = ({ isOpen, handleBurger }: IProps) => {
         <SearchHeader />
         {isAuth ? (
           <>
-            <CustomLink to={ROUTE.FAVORITES}>
+            <HeaderCustomLink to={ROUTE.FAVORITES}>
               <Description onClick={handleBurger}>Favorites</Description>
-            </CustomLink>
+            </HeaderCustomLink>
 
-            <CustomLink to={ROUTE.CART}>
+            <HeaderCustomLink to={ROUTE.CART}>
               <Description onClick={handleBurger}>Cart</Description>
-            </CustomLink>
+            </HeaderCustomLink>
 
             <Button
               type="button"
@@ -45,13 +45,13 @@ export const BurgerMenu = ({ isOpen, handleBurger }: IProps) => {
           </>
         ) : (
           // TODO настроить выход из аккаунта
-          <CustomLink to={ROUTE.SIGN_IN}>
+          <HeaderCustomLink to={ROUTE.SIGN_IN}>
             <Button
               type="button"
               value="Sign In"
               onClick={handleBurger}
             ></Button>
-          </CustomLink>
+          </HeaderCustomLink>
         )}
       </WrapperContent>
     </StyledBurgerMenu>

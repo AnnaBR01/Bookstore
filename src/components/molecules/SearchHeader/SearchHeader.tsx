@@ -1,5 +1,5 @@
 import React from "react";
-import { CustomLink, SearchInput } from "../..";
+import { HeaderCustomLink, SearchInput } from "../..";
 import { ROUTE } from "../../../routes";
 import { Search, SearchIcon } from "./styles";
 
@@ -8,9 +8,9 @@ export const SearchHeader = () => {
     <>
       <Search>
         <SearchInput />
-        <CustomLink to={ROUTE.SEARCH}>
+        <HeaderCustomLink to={ROUTE.SEARCH}>
           <SearchIcon />
-        </CustomLink>
+        </HeaderCustomLink>
       </Search>
     </>
   );

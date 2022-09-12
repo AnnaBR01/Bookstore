@@ -5,9 +5,10 @@ import {
   useAppDispatch,
   useAppSelector,
 } from "../../../store";
+import { Error } from "../..";
 
-import { BookCard, Spinner, Title, Error } from "../../index";
-import { BooksWrapper, StyledNewBooksContent } from "./styles";
+import { BookCard, Spinner, Title } from "../../index";
+import { BooksWrapper, StyledError, StyledNewBooksContent } from "./styles";
 
 export const NewBooksContent = () => {
   const dispatch = useAppDispatch();
@@ -23,7 +24,9 @@ export const NewBooksContent = () => {
       {isLoading ? (
         <Spinner />
       ) : error ? (
-        <Error value={error}></Error>
+        <StyledError>
+          <Error value={error} />
+        </StyledError>
       ) : (
         <BooksWrapper>
           {books.map((book) => {

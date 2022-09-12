@@ -1,4 +1,4 @@
-import { CustomLink } from "./molecules/CustomLink/CustomLink";
+import { HeaderCustomLink } from "./molecules/HeaderCustomLink/HeaderCustomLink";
 import { Footer } from "./organisms/Footer/Footer";
 import { Header } from "./organisms/Header/Header";
 import { SearchInput } from "./atoms/SearchInput/SearchInput";
@@ -13,9 +13,12 @@ import { BookCard } from "./molecules/BookCard/BookCard";
 import { NewBooksContent } from "./organisms/NewBooksContent/NewBooksContent";
 import { Spinner } from "./atoms/Spinner/Spinner";
 import { Error } from "./atoms/Error/Error";
+import { Registration } from "./organisms/Registration/Registration";
+import { RegistrationCustomLink } from "./molecules/RegistrationCustomLink/RegistrationCustomLink";
 
 export {
-  CustomLink,
+  HeaderCustomLink,
+  RegistrationCustomLink,
   Footer,
   Header,
   SearchInput,
@@ -30,4 +33,5 @@ export {
   NewBooksContent,
   Spinner,
   Error,
+  Registration,
 };

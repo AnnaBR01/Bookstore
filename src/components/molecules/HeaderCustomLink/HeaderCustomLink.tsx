@@ -8,7 +8,7 @@ interface IProps {
   to: ROUTE;
 }
 
-export const CustomLink = ({ to, children }: IProps) => {
+export const HeaderCustomLink = ({ to, children }: IProps) => {
   const isActive = useMatch(to);
 
   return (

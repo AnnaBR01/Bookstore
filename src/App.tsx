@@ -1,7 +1,8 @@
 import React from "react";
 import { Provider } from "react-redux";
 import { Route, Routes } from "react-router-dom";
-import { MainTemplate, RequareAuth } from "./components";
+import { MainTemplate, Registration, RequareAuth } from "./components";
+
 import {
   AccountPage,
   BookInfoPage,
@@ -25,9 +26,12 @@ export const App = () => {
           <Route path={ROUTE.SEARCH} element={<SearchPage />} />
           <Route path={ROUTE.BOOK_INFO} element={<BookInfoPage />} />
 
+          <Route path="/" element={<Registration />}>
+            <Route path={ROUTE.SIGN_IN} element={<SignInPage />} />
+            <Route path={ROUTE.SIGN_UP} element={<SignUpPage />} />
+          </Route>
+
           <Route path={ROUTE.ACCOUNT} element={<AccountPage />} />
-          <Route path={ROUTE.SIGN_IN} element={<SignInPage />} />
-          <Route path={ROUTE.SIGN_UP} element={<SignUpPage />} />
           <Route path={ROUTE.NOT_FOUND} element={<NotFoundPage />} />
 
           <Route element={<RequareAuth />}>
