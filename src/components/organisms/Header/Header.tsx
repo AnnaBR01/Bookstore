@@ -55,19 +55,19 @@ export const Header = () => {
       <Theme onClick={handleTheme} $isDark={isDark} />
 
       <List>
-        <Item>
+        <Item key="1">
           <CustomLink to={ROUTE.FAVORITES}>
             <FavoritesIcon />
           </CustomLink>
         </Item>
 
-        <Item>
+        <Item key="2">
           <CustomLink to={ROUTE.CART}>
             <CartIcon />
           </CustomLink>
         </Item>
 
-        <Item>
+        <Item key="3">
           <CustomLink to={ROUTE.SIGN_IN}>
             <UserIcon />
           </CustomLink>

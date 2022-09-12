@@ -1,10 +1,10 @@
 import { configureStore } from "@reduxjs/toolkit";
-import userReducer from "./features/userSlice";
+import { booksReducer, userReducer } from ".";
 
 const store = configureStore({
   reducer: {
     user: userReducer,
-    // books: "",
+    books: booksReducer,
     // favorites: "",
     // cart: "",
   },

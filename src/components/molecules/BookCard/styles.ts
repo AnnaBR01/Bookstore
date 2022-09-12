@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { BODY2, Color, H3, Media } from "../../../ui";
 
-const StyledBookCard = styled.div`
+const StyledBookCard = styled.li`
   display: flex;
   flex-direction: column;
   justify-content: space-between;

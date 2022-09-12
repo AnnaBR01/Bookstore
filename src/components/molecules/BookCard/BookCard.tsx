@@ -13,20 +13,24 @@ interface IProps {
   subtitle: string;
   price: string;
   image: string;
+  isbn13: string;
 }
 
-export const BookCard = ({ title, subtitle, image, price }: IProps) => {
+export const BookCard = ({ title, subtitle, image, price, isbn13 }: IProps) => {
   let bookDescription;
   subtitle ? (bookDescription = subtitle) : (bookDescription = "Other");
 
+  let bookPrice;
+  price !== "$0.00" ? (bookPrice = price) : (bookPrice = "for FREE");
+
   return (
-    <StyledBookCard>
+    <StyledBookCard key={isbn13}>
       <WrapperImage>
         <Image src={image} alt="New book" />
       </WrapperImage>
       <BookName>{title}</BookName>
       <BookDescription>{bookDescription}</BookDescription>
-      <Price>{price}</Price>
+      <Price>{bookPrice}</Price>
     </StyledBookCard>
   );
 };

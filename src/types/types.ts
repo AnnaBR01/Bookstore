@@ -6,3 +6,9 @@ export interface IBook {
   image: string;
   url: string;
 }
+
+export interface IBooks {
+  error: string;
+  total: string;
+  books: IBook[];
+}

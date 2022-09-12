@@ -7,7 +7,7 @@ const StyledNewBooksContent = styled.main`
   justify-content: space-between;
 `;
 
-const BooksWrapper = styled.div`
+const BooksWrapper = styled.ul`
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(272px, 1fr));
   grid-gap: 48px;

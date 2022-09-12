@@ -1,13 +1,11 @@
 import { createGlobalStyle } from "styled-components";
 import { Color } from "./colors";
-import { fonts } from "./fonts";
 import { resetCSS } from "./reset";
 import { H1, H2, H3, S1, BODY2 } from "./typography";
 
 export const GlobalStyles = createGlobalStyle`
 
 ${resetCSS}
-${fonts}
 ${H1}
 ${H2}
 ${H3}
@@ -15,7 +13,7 @@ ${S1}
 ${BODY2}
 
 body{
-font-family: 'Helios', Arial, Helvetica, sans-serif;
+font-family: 'Nunito Sans', sans-serif;
 background: ${Color.White};
 color: ${Color.Primary};
 transition: all 1s ease 0s;

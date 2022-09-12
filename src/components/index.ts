@@ -11,6 +11,8 @@ import { SearchHeader } from "./molecules/SearchHeader/SearchHeader";
 import { Title } from "./atoms/Title/Title";
 import { BookCard } from "./molecules/BookCard/BookCard";
 import { NewBooksContent } from "./organisms/NewBooksContent/NewBooksContent";
+import { Spinner } from "./atoms/Spinner/Spinner";
+import { Error } from "./atoms/Error/Error";
 
 export {
   CustomLink,
@@ -26,4 +28,6 @@ export {
   Title,
   BookCard,
   NewBooksContent,
+  Spinner,
+  Error,
 };
