@@ -10,6 +10,12 @@ import {
 } from "../../../assets";
 import { Color, Icon, Media } from "../../../ui";
 
+const WrapperHeader = styled.div`
+  background: ${Color.Light};
+  position: sticky;
+  top: 0;
+`;
+
 const StyledHeader = styled.header`
   display: grid;
   grid-template-columns: 20% 55% 5% 20%;
@@ -127,4 +133,5 @@ export {
   CartIcon,
   UserIcon,
   BurgerIcon,
+  WrapperHeader,
 };

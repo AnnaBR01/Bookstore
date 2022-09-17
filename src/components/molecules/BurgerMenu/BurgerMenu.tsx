@@ -2,6 +2,7 @@ import React from "react";
 import { MouseEvent } from "react";
 import { Button, Close, HeaderCustomLink, SearchHeader } from "../..";
 import { ROUTE } from "../../../routes";
+import { getUserInfo, useAppSelector } from "../../../store";
 import {
   BurgerHeader,
   Description,
@@ -15,7 +16,7 @@ interface IProps {
 }
 
 export const BurgerMenu = ({ isOpen, handleBurger }: IProps) => {
-  const isAuth = true; // TODO: исправить после авторизации
+  const { isAuth } = useAppSelector(getUserInfo);
 
   return (
     <StyledBurgerMenu $isOpen={isOpen} onClick={handleBurger}>

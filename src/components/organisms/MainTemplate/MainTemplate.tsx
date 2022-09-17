@@ -1,31 +1,20 @@
 import { Outlet } from "react-router-dom";
+import { Container } from "../../../ui";
 import { Footer, Header } from "../../index";
-import {
-  Container,
-  StyledMainTemplate,
-  StyledOutlet,
-  WrapperHeader,
-  WrapperFooter,
-} from "./styles";
+import { StyledMainTemplate, StyledOutlet } from "./styles";
 
 export const MainTemplate = () => {
   return (
     <StyledMainTemplate>
-      <WrapperHeader>
-        <Container>
-          <Header />
-        </Container>
-      </WrapperHeader>
+      <Header />
+
       <StyledOutlet>
         <Container>
           <Outlet />
         </Container>
       </StyledOutlet>
-      <WrapperFooter>
-        <Container>
-          <Footer />
-        </Container>
-      </WrapperFooter>
+
+      <Footer />
     </StyledMainTemplate>
   );
 };

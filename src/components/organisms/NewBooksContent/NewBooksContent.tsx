@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { CSSProperties, useEffect } from "react";
 import {
   fetchBooks,
   getBooks,
@@ -7,8 +7,14 @@ import {
 } from "../../../store";
 import { Error } from "../..";
 
-import { BookCard, Spinner, Title } from "../../index";
+import { BookCard, Title } from "../../index";
 import { BooksWrapper, StyledError, StyledNewBooksContent } from "./styles";
+import Spinner from "react-spinners/ClipLoader";
+import { Color } from "../../../ui";
+
+const override: CSSProperties = {
+  margin: "200px auto",
+};
 
 export const NewBooksContent = () => {
   const dispatch = useAppDispatch();
@@ -22,7 +28,12 @@ export const NewBooksContent = () => {
     <StyledNewBooksContent>
       <Title value={"New releases book"} />
       {isLoading ? (
-        <Spinner />
+        <Spinner
+          color={Color.Primary}
+          loading={isLoading}
+          cssOverride={override}
+          size={60}
+        />
       ) : error ? (
         <StyledError>
           <Error value={error} />

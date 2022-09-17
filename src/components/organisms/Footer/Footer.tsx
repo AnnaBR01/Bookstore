@@ -1,11 +1,16 @@
 import React from "react";
-import { FooterDescription, StyledFooter } from "./styles";
+import { Container } from "../../../ui";
+import { FooterDescription, StyledFooter, WrapperFooter } from "./styles";
 
 export const Footer = () => {
   return (
-    <StyledFooter>
-      <FooterDescription>©2022 Bookstore</FooterDescription>
-      <FooterDescription>All rights reserved</FooterDescription>
-    </StyledFooter>
+    <WrapperFooter>
+      <Container>
+        <StyledFooter>
+          <FooterDescription>©2022 Bookstore</FooterDescription>
+          <FooterDescription>All rights reserved</FooterDescription>
+        </StyledFooter>
+      </Container>
+    </WrapperFooter>
   );
 };

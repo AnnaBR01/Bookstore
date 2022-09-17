@@ -29,6 +29,9 @@ const Image = styled.img`
 const BookName = styled.h3`
   margin-bottom: 8px;
   ${H3}
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 `;
 
 const BookDescription = styled.p`

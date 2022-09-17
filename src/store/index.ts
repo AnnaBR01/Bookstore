@@ -5,6 +5,8 @@ import { useAppDispatch, useAppSelector } from "./hooks/hooks";
 import { store } from "./store";
 import { fetchBooks } from "./features/booksSlice";
 import { getBooks } from "./selectors/bookSelectors";
+import { fetchSignUpUser } from "./features/userSlice";
+import { getUserInfo } from "./selectors/userSelectors";
 
 export {
   changeTheme,
@@ -15,4 +17,6 @@ export {
   booksReducer,
   fetchBooks,
   getBooks,
+  fetchSignUpUser,
+  getUserInfo,
 };

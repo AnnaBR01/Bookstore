@@ -6,15 +6,17 @@ import { MainTemplate } from "./organisms/MainTemplate/MainTemplate";
 import { RequareAuth } from "./molecules/RequareAuth/RequareAuth";
 import { Close } from "./atoms/Close/Close";
 import { Button } from "./atoms/Button/Button";
-import { BurgerMenu } from "./organisms/BurgerMenu/BurgerMenu";
+import { BurgerMenu } from "./molecules/BurgerMenu/BurgerMenu";
 import { SearchHeader } from "./molecules/SearchHeader/SearchHeader";
 import { Title } from "./atoms/Title/Title";
 import { BookCard } from "./molecules/BookCard/BookCard";
 import { NewBooksContent } from "./organisms/NewBooksContent/NewBooksContent";
-import { Spinner } from "./atoms/Spinner/Spinner";
 import { Error } from "./atoms/Error/Error";
 import { Registration } from "./organisms/Registration/Registration";
 import { RegistrationCustomLink } from "./molecules/RegistrationCustomLink/RegistrationCustomLink";
+import { Input } from "./atoms/Input/Input";
+import { SignInForm } from "./molecules/SignInForm/SignInForm";
+import { SignUpForm } from "./molecules/SignUpForm/SignUpForm";
 
 export {
   HeaderCustomLink,
@@ -31,7 +33,9 @@ export {
   Title,
   BookCard,
   NewBooksContent,
-  Spinner,
   Error,
   Registration,
+  Input,
+  SignInForm,
+  SignUpForm,
 };

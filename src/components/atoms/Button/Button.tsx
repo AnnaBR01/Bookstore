@@ -2,12 +2,12 @@ import React from "react";
 import { StyledButton } from "./styles";
 
 interface IProps {
-  type: "button" | "submit" | "reset" | undefined;
+  type: "button" | "submit" | "reset";
   value: string;
-  onClick: () => void;
+  onClick?: () => void;
 }
 
-export const Button = ({ type, value, onClick }: IProps) => {
+export const Button = ({ type = "button", value, onClick }: IProps) => {
   return (
     <StyledButton type={type} onClick={onClick}>
       {value}
