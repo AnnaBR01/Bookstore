@@ -1,4 +1,4 @@
-import React from "react";
+import { IBook } from "../../../types/types";
 import {
   StyledBookCard,
   WrapperImage,
@@ -9,28 +9,20 @@ import {
 } from "./styles";
 
 interface IProps {
-  title: string;
-  subtitle: string;
-  price: string;
-  image: string;
-  isbn13: string;
+  book: IBook;
 }
 
-export const BookCard = ({ title, subtitle, image, price, isbn13 }: IProps) => {
-  let bookDescription;
-  subtitle ? (bookDescription = subtitle) : (bookDescription = "Other");
-
-  let bookPrice;
-  price !== "$0.00" ? (bookPrice = price) : (bookPrice = "for FREE");
-
+export const BookCard = ({ book }: IProps) => {
   return (
     <StyledBookCard>
       <WrapperImage>
-        <Image src={image} alt="New book" />
+        <Image src={book.image} alt={book.title} />
       </WrapperImage>
-      <BookName>{title}</BookName>
-      <BookDescription>{bookDescription}</BookDescription>
-      <Price>{bookPrice}</Price>
+      <BookName>{book.title}</BookName>
+      <BookDescription>
+        {book.subtitle ? book.subtitle : "Other"}
+      </BookDescription>
+      <Price>{book.price === "$0.00" ? "for FREE" : book.price}</Price>
     </StyledBookCard>
   );
 };

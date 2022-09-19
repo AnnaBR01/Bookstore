@@ -1,16 +1,20 @@
-import React from "react";
-import { HeaderCustomLink, SearchInput } from "../..";
-import { ROUTE } from "../../../routes";
-import { Search, SearchIcon } from "./styles";
+import { Link } from "react-router-dom";
+import { SearchInput } from "../..";
+import { SearchIcon } from "../../../assets";
+import { ROUTE } from "../../../routes/routes";
+import { Color } from "../../../ui";
+import { Search, ButtonSearch } from "./styles";
 
 export const SearchHeader = () => {
   return (
     <>
       <Search>
         <SearchInput />
-        <HeaderCustomLink to={ROUTE.SEARCH}>
-          <SearchIcon />
-        </HeaderCustomLink>
+        <Link to={ROUTE.SEARCH}>
+          <ButtonSearch>
+            <SearchIcon width="20" fill={Color.Secondary} />
+          </ButtonSearch>
+        </Link>
       </Search>
     </>
   );

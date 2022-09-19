@@ -13,7 +13,7 @@ interface UserState {
   error: null | FirebaseError;
   creationTime: string;
   lastSignInTime: string;
-  theme: "ligth" | "dark";
+  theme: "light" | "dark";
 }
 
 const initialState: UserState = {
@@ -23,7 +23,7 @@ const initialState: UserState = {
   error: null, // TODO в будущем ошибки не класть в localstorage
   creationTime: "",
   lastSignInTime: "",
-  theme: "ligth",
+  theme: "light",
 };
 
 export const fetchSignUpUser = createAsyncThunk<
@@ -55,7 +55,7 @@ const userSlice = createSlice({
   name: "user",
   initialState,
   reducers: {
-    changeTheme(state, { payload }: PayloadAction<"ligth" | "dark">) {
+    changeTheme(state, { payload }: PayloadAction<"light" | "dark">) {
       state.theme = payload;
     },
   },

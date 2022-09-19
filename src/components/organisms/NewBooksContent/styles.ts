@@ -9,11 +9,13 @@ const StyledNewBooksContent = styled.main`
 
 const BooksWrapper = styled.ul`
   display: grid;
+  justify-content: center;
+  align-content: center;
   grid-template-columns: repeat(auto-fill, minmax(272px, 1fr));
   grid-gap: 48px;
   margin-top: 48px;
 
-  ${Media.SM} {
+  ${Media.MD} {
     margin-top: 36px;
   }
 `;

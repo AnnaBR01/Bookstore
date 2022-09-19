@@ -1,16 +1,14 @@
 import styled from "styled-components";
-import { closeIcon } from "../../../assets";
-import { Color, Icon } from "../../../ui";
+import { Color } from "../../../ui";
 
 const StyledClose = styled.button`
-  ${Icon}
-  background-image: url(${closeIcon});
-  background-size: 50%;
-  height: 56px;
-  width: 56px;
+  padding: 16px;
+  background: none;
+  border: none;
+  cursor: pointer;
 
   :hover {
-    box-shadow: 1px 1px 15px ${Color.Green};
+    box-shadow: 1px 1px 15px ${Color.Gray};
   }
 `;
 

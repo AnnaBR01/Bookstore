@@ -3,13 +3,14 @@ import { Media } from "./index";
 
 const Container = styled.div`
   max-width: 1120px;
+  width: 100%;
   margin: 0 auto;
 
-  ${Media.MD} {
+  ${Media.LG} {
     padding-inline: 40px;
   }
 
-  ${Media.SM} {
+  ${Media.MD} {
     padding-inline: 24px;
   }
 `;

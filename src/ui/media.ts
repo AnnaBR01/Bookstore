@@ -1,9 +1,9 @@
-export enum Breackpoint {
-  MD = 1280,
-  SM = 768,
+export enum Breakpoint {
+  LG = 1280,
+  MD = 768,
 }
 
-export enum Media {
-  MD = "@media screen and (max-width: 1280px)",
-  SM = "@media screen and (max-width: 768px)",
-}
+export const Media = {
+  LG: `@media screen and (max-width: ${Breakpoint.LG}px)`,
+  MD: `@media screen and (max-width: ${Breakpoint.MD}px)`,
+};

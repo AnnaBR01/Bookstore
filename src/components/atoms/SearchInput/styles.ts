@@ -16,11 +16,11 @@ const StyledSearchInput = styled.input`
 
   min-width: 480px;
 
-  ${Media.MD} {
+  ${Media.LG} {
     min-width: 225px;
   }
 
-  ${Media.SM} {
+  ${Media.MD} {
     min-width: 200px;
   }
 `;

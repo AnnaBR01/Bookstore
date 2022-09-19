@@ -1,21 +1,29 @@
-import React from "react";
 import {
-  BurgerIcon,
-  CartIcon,
+  LogoIcon,
+  SunIcon,
+  MoonIcon,
   FavoritesIcon,
+  CartIcon,
+  UserIcon,
+  BurgerIcon,
+} from "../../../assets";
+import {
+  ButtonBurger,
+  ButtonFavorites,
+  ButtonCart,
+  ButtonLogo,
+  ButtonUser,
   Item,
   List,
-  LogoIcon,
   StyledHeader,
-  Theme,
-  UserIcon,
+  ButtonTheme,
   WrapperHeader,
 } from "./styles";
-import { ROUTE } from "../../../routes";
+import { ROUTE } from "../../../routes/routes";
 import { changeTheme, useAppDispatch, useAppSelector } from "../../../store";
 import { useToggle, useWindowSize } from "../../../hooks";
 import { BurgerMenu, HeaderCustomLink, SearchHeader } from "../../index";
-import { Breackpoint, Container } from "../../../ui";
+import { Breakpoint, Color, Container } from "../../../ui";
 
 export const Header = () => {
   const { theme } = useAppSelector((state) => state.user);
@@ -24,7 +32,7 @@ export const Header = () => {
   const { width = 0 } = useWindowSize();
   const [isOpen, toggleIsOpen] = useToggle();
 
-  const setAttributeTheme = (themeValue: "ligth" | "dark") => {
+  const setAttributeTheme = (themeValue: "light" | "dark") => {
     document.documentElement.setAttribute("theme", `${themeValue}`);
   };
 
@@ -32,7 +40,7 @@ export const Header = () => {
 
   const handleTheme = () => {
     if (theme === "dark") {
-      dispatch(changeTheme("ligth"));
+      dispatch(changeTheme("light"));
     } else {
       dispatch(changeTheme("dark"));
     }
@@ -50,34 +58,58 @@ export const Header = () => {
       <Container>
         <StyledHeader>
           <HeaderCustomLink to={ROUTE.HOME}>
-            <LogoIcon />
+            <ButtonLogo>
+              <LogoIcon
+                width={width < Breakpoint.MD ? "122" : "137"}
+                fill={Color.Primary}
+              />
+            </ButtonLogo>
           </HeaderCustomLink>
 
-          {width > Breackpoint.MD && <SearchHeader />}
+          {width > Breakpoint.LG && <SearchHeader />}
 
-          <Theme onClick={handleTheme} $isDark={isDark} />
+          <ButtonTheme onClick={handleTheme}>
+            {isDark ? (
+              <MoonIcon width="24" fill={Color.Primary} />
+            ) : (
+              <SunIcon width="24" fill={Color.Primary} />
+            )}
+          </ButtonTheme>
 
           <List>
             <Item key="1">
               <HeaderCustomLink to={ROUTE.FAVORITES}>
-                <FavoritesIcon />
+                <ButtonFavorites>
+                  <FavoritesIcon width="24" stroke={Color.Primary} />
+                </ButtonFavorites>
               </HeaderCustomLink>
             </Item>
 
             <Item key="2">
               <HeaderCustomLink to={ROUTE.CART}>
-                <CartIcon />
+                <ButtonCart>
+                  <CartIcon width="24" stroke={Color.Primary} />
+                </ButtonCart>
               </HeaderCustomLink>
             </Item>
 
             <Item key="3">
               <HeaderCustomLink to={ROUTE.SIGN_IN}>
-                <UserIcon />
+                <ButtonUser>
+                  <UserIcon width="24" stroke={Color.Primary} />
+                </ButtonUser>
               </HeaderCustomLink>
             </Item>
           </List>
 
-          <BurgerIcon onClick={handleBurger} />
+          <ButtonBurger>
+            <BurgerIcon
+              width="28"
+              height="28"
+              fill={Color.Primary}
+              onClick={handleBurger}
+            />
+          </ButtonBurger>
 
           {isOpen && <BurgerMenu handleBurger={handleBurger} isOpen={isOpen} />}
         </StyledHeader>

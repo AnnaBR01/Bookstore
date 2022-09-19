@@ -6,7 +6,7 @@ const StyledHomePage = styled.div`
   grid-gap: 72px;
   margin-block: 72px;
 
-  ${Media.SM} {
+  ${Media.MD} {
     grid-gap: 56px;
     margin-block: 56px;
   }

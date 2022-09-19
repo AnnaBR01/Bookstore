@@ -4,15 +4,17 @@ import { Color, Media } from "../../../ui";
 const StyledRegistration = styled.div`
   display: flex;
   flex-direction: column;
-  margin: 196px auto 205px;
+  max-width: 700px;
+  width: 100%;
   padding: 0 32px 40px;
+  margin: 196px auto 205px;
   border: 2px solid ${Color.Secondary};
 
-  ${Media.SM} {
+  ${Media.MD} {
     margin: 170px auto;
   }
 
-  ${Media.SM} {
+  ${Media.MD} {
     margin: 56px auto;
     border: none;
     padding: 0;
@@ -38,7 +40,7 @@ const Button = styled.button`
   border: none;
   cursor: pointer;
 
-  ${Media.SM} {
+  ${Media.MD} {
     padding: 0 38px 18px;
   }
 `;

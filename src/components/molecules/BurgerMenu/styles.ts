@@ -8,7 +8,6 @@ const StyledBurgerMenu = styled.div<{ $isOpen: boolean }>`
   width: 100%;
   height: 100vh;
   backdrop-filter: blur(2px);
-  transition: all 1s ease 0s;
 `;
 
 const WrapperContent = styled.div`
@@ -23,10 +22,9 @@ const WrapperContent = styled.div`
   margin-right: 40px;
   padding-inline: 40px;
   background: ${Color.Light};
-  box-shadow: 1px 1px 15px ${Color.Green};
-  transition: all 1s ease 0s;
+  box-shadow: 1px 1px 15px ${Color.Gray};
 
-  ${Media.SM} {
+  ${Media.MD} {
     width: 100%;
   }
 `;
@@ -37,7 +35,7 @@ const BurgerHeader = styled.div`
   padding-block: 35px;
   border-bottom: 1px solid ${Color.Secondary};
 
-  ${Media.MD} {
+  ${Media.LG} {
     width: 100%;
   }
 `;

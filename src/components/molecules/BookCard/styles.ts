@@ -5,6 +5,7 @@ const StyledBookCard = styled.li`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  box-shadow: 1px 1px 15px ${Color.Gray};
 `;
 
 const WrapperImage = styled.div`
@@ -13,11 +14,11 @@ const WrapperImage = styled.div`
   margin-bottom: 20px;
   background: ${Color.Blue};
 
-  ${Media.MD} {
+  ${Media.LG} {
     padding: 0 59px;
   }
 
-  ${Media.SM} {
+  ${Media.MD} {
     padding: 0 49px;
   }
 `;
@@ -38,6 +39,9 @@ const BookDescription = styled.p`
   margin-bottom: 40px;
   color: ${Color.Secondary};
   ${BODY2};
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 `;
 
 const Price = styled.h3`

@@ -1,4 +1,3 @@
-import React from "react";
 import { Provider } from "react-redux";
 import { Route, Routes } from "react-router-dom";
 import { MainTemplate, Registration, RequareAuth } from "./components";
@@ -14,7 +13,7 @@ import {
   SignInPage,
   SignUpPage,
 } from "./pages";
-import { ROUTE } from "./routes";
+import { ROUTE } from "./routes/routes";
 import { store } from "./store";
 
 export const App = () => {
@@ -26,7 +25,7 @@ export const App = () => {
           <Route path={ROUTE.SEARCH} element={<SearchPage />} />
           <Route path={ROUTE.BOOK_INFO} element={<BookInfoPage />} />
 
-          <Route path="/" element={<Registration />}>
+          <Route element={<Registration />}>
             <Route path={ROUTE.SIGN_IN} element={<SignInPage />} />
             <Route path={ROUTE.SIGN_UP} element={<SignUpPage />} />
           </Route>

@@ -27,24 +27,27 @@ export const NewBooksContent = () => {
   return (
     <StyledNewBooksContent>
       <Title value={"New releases book"} />
-      {isLoading ? (
+
+      {isLoading && (
         <Spinner
           color={Color.Primary}
           loading={isLoading}
           cssOverride={override}
           size={60}
         />
-      ) : error ? (
+      )}
+
+      {error && (
         <StyledError>
           <Error value={error} />
         </StyledError>
-      ) : (
-        <BooksWrapper>
-          {books.map((book) => {
-            return <BookCard {...book} key={book.isbn13} />;
-          })}
-        </BooksWrapper>
       )}
+
+      <BooksWrapper>
+        {books.map((book) => {
+          return <BookCard book={book} key={book.isbn13} />;
+        })}
+      </BooksWrapper>
     </StyledNewBooksContent>
   );
 };

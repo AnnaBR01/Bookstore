@@ -1,7 +1,7 @@
-import React from "react";
+import { Link } from "react-router-dom";
 import { MouseEvent } from "react";
 import { Button, Close, HeaderCustomLink, SearchHeader } from "../..";
-import { ROUTE } from "../../../routes";
+import { ROUTE } from "../../../routes/routes";
 import { getUserInfo, useAppSelector } from "../../../store";
 import {
   BurgerHeader,
@@ -30,13 +30,13 @@ export const BurgerMenu = ({ isOpen, handleBurger }: IProps) => {
         <SearchHeader />
         {isAuth ? (
           <>
-            <HeaderCustomLink to={ROUTE.FAVORITES}>
+            <Link to={ROUTE.FAVORITES}>
               <Description onClick={handleBurger}>Favorites</Description>
-            </HeaderCustomLink>
+            </Link>
 
-            <HeaderCustomLink to={ROUTE.CART}>
+            <Link to={ROUTE.CART}>
               <Description onClick={handleBurger}>Cart</Description>
-            </HeaderCustomLink>
+            </Link>
 
             <Button
               type="button"
@@ -46,13 +46,13 @@ export const BurgerMenu = ({ isOpen, handleBurger }: IProps) => {
           </>
         ) : (
           // TODO настроить выход из аккаунта
-          <HeaderCustomLink to={ROUTE.SIGN_IN}>
+          <Link to={ROUTE.SIGN_IN}>
             <Button
               type="button"
               value="Sign In"
               onClick={handleBurger}
             ></Button>
-          </HeaderCustomLink>
+          </Link>
         )}
       </WrapperContent>
     </StyledBurgerMenu>

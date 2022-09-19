@@ -6,7 +6,7 @@ const WrapperFooter = styled.div`
   position: sticky;
   bottom: 0;
 
-  ${Media.MD} {
+  ${Media.LG} {
     position: static;
   }
 `;
@@ -15,11 +15,11 @@ const StyledFooter = styled.footer`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding-block: 36px;
+  padding-block: 26px;
   border-top: 1px solid ${Color.Secondary};
 
-  ${Media.SM} {
-    padding-block: 40px;
+  ${Media.MD} {
+    padding-block: 25px;
     flex-direction: column;
   }
 `;
@@ -27,6 +27,10 @@ const StyledFooter = styled.footer`
 const FooterDescription = styled.p`
   line-height: 24px;
   color: ${Color.Secondary};
+
+  ${Media.MD} {
+    line-height: 36px;
+  }
 `;
 
 export { WrapperFooter, StyledFooter, FooterDescription };

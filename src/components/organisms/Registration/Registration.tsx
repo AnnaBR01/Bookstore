@@ -1,7 +1,7 @@
 import React from "react";
 import { Outlet } from "react-router-dom";
 import { RegistrationCustomLink } from "../..";
-import { ROUTE } from "../../../routes";
+import { ROUTE } from "../../../routes/routes";
 import { Button, ButtonWrapper, StyledRegistration } from "./styles";
 
 export const Registration = () => {

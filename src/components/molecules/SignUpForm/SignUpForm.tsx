@@ -80,7 +80,9 @@ export const SignUpForm = () => {
         )}
       />
 
-      {errors.password && <InputError>{errors.password.message}</InputError>}
+      {!errors.email && errors.password && (
+        <InputError>{errors.password.message}</InputError>
+      )}
 
       {error && <Error>{error}</Error>}
 

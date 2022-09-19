@@ -7,7 +7,7 @@ export const Footer = () => {
     <WrapperFooter>
       <Container>
         <StyledFooter>
-          <FooterDescription>©2022 Bookstore</FooterDescription>
+          <FooterDescription>© 2022 Bookstore</FooterDescription>
           <FooterDescription>All rights reserved</FooterDescription>
         </StyledFooter>
       </Container>

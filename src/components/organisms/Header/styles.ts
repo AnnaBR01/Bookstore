@@ -1,14 +1,5 @@
 import styled from "styled-components";
-import {
-  burgerIcon,
-  cartIcon,
-  favoritesIcon,
-  logoIcon,
-  moonIcon,
-  sunIcon,
-  usertIcon,
-} from "../../../assets";
-import { Color, Icon, Media } from "../../../ui";
+import { Color, Media } from "../../../ui";
 
 const WrapperHeader = styled.div`
   background: ${Color.Light};
@@ -20,10 +11,10 @@ const StyledHeader = styled.header`
   display: grid;
   grid-template-columns: 20% 55% 5% 20%;
   align-items: center;
-  padding-block: 24px;
+  padding-block: 28px;
   border-bottom: 1px solid ${Color.Secondary};
 
-  ${Media.MD} {
+  ${Media.LG} {
     grid-template-columns: none;
     display: flex;
     justify-content: end;
@@ -31,32 +22,24 @@ const StyledHeader = styled.header`
   }
 `;
 
-const LogoIcon = styled.button`
-  ${Icon}
-  background-image: url(${logoIcon});
-  background-size: 100%;
-  height: 30px;
-  width: 137px;
-
-  ${Media.SM} {
-    height: 25px;
-    width: 122px;
-  }
+const ButtonLogo = styled.button`
+  padding: 10px;
+  background: none;
+  border: none;
+  cursor: pointer;
 `;
 
-const Theme = styled.button<{ $isDark: boolean }>`
-  ${Icon}
-  background-image: ${({ $isDark }) =>
-    $isDark ? `url(${sunIcon})` : `url(${moonIcon})`};
-  background-size: 50%;
-  height: 56px;
-  width: 56px;
+const ButtonTheme = styled.button`
+  padding: 12px;
+  background: none;
+  border: none;
+  cursor: pointer;
 
   :hover {
-    box-shadow: 1px 1px 15px ${Color.Green};
+    box-shadow: 1px 1px 15px ${Color.Gray};
   }
 
-  ${Media.MD} {
+  ${Media.LG} {
     margin-left: auto;
   }
 `;
@@ -65,73 +48,72 @@ const List = styled.ul`
   justify-self: end;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  grid-gap: 8px;
+  grid-gap: 10px;
 
-  ${Media.MD} {
+  ${Media.LG} {
     grid-template-columns: none;
-    margin-inline: 8px;
+    margin-inline: 10px;
   }
 `;
 
-const Item = styled.li``;
+const Item = styled.li`
+  align-self: center;
+`;
 
-const FavoritesIcon = styled.button`
-  ${Icon}
-  background-image: url(${favoritesIcon});
-  background-size: 40%;
-  height: 56px;
-  width: 56px;
+const ButtonFavorites = styled.button`
+  padding: 12px;
+  background: none;
+  border: none;
+  cursor: pointer;
 
-  ${Media.MD} {
+  ${Media.LG} {
     display: none;
   }
 `;
 
-const CartIcon = styled.button`
-  ${Icon}
-  background-image: url(${cartIcon});
-  background-size: 40%;
-  height: 56px;
-  width: 56px;
+const ButtonCart = styled.button`
+  padding: 12px;
+  background: none;
+  border: none;
+  cursor: pointer;
 `;
 
-const UserIcon = styled.button`
-  ${Icon}
-  background-image: url(${usertIcon});
-  background-size: 40%;
-  height: 56px;
-  width: 56px;
+const ButtonUser = styled.button`
+  padding: 12px;
+  background: none;
+  border: none;
+  cursor: pointer;
 
-  ${Media.MD} {
+  ${Media.LG} {
     display: none;
   }
 `;
 
-const BurgerIcon = styled.button`
-  ${Icon}
-  background-image: url(${burgerIcon});
-  background-size: 50%;
-  height: 56px;
-  width: 56px;
+const ButtonBurger = styled.button`
+  padding: 12px;
+  background: none;
+  border: none;
+  cursor: pointer;
   display: none;
+
   :hover {
-    box-shadow: 1px 1px 15px ${Color.Green};
+    box-shadow: 1px 1px 15px ${Color.Gray};
   }
 
-  ${Media.MD} {
+  ${Media.LG} {
     display: flex;
   }
 `;
 
 export {
   StyledHeader,
-  LogoIcon,
-  Theme,
+  ButtonLogo,
+  ButtonTheme,
   List,
   Item,
-  FavoritesIcon,
-  CartIcon,
-  UserIcon,
-  BurgerIcon,
+  ButtonFavorites,
+  ButtonCart,
+  ButtonUser,
+  ButtonBurger,
   WrapperHeader,
 };

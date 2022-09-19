@@ -60,7 +60,6 @@ export const resetCSS = css`
   button,
   textarea,
   select {
-    font: inherit;
     padding: 0;
   }
 
