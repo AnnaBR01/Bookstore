@@ -1,10 +1,11 @@
 import { configureStore } from "@reduxjs/toolkit";
-import { booksReducer, userReducer } from ".";
+import { booksReducer, userReducer, bookDetailsReducer } from ".";
 
 const store = configureStore({
   reducer: {
     user: userReducer,
     books: booksReducer,
+    bookDetails: bookDetailsReducer,
     // favorites: "",
     // cart: "",
   },

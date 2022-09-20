@@ -4,7 +4,7 @@ import { Color, Media } from "../../../ui";
 const StyledBurgerMenu = styled.div<{ $isOpen: boolean }>`
   position: absolute;
   left: 0;
-  top: ${({ $isOpen }) => ($isOpen ? `0` : `-100%`)};
+  top: ${({ $isOpen }) => ($isOpen ? "0" : "-100%")};
   width: 100%;
   height: 100vh;
   backdrop-filter: blur(2px);

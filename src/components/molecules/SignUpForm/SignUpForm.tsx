@@ -1,13 +1,9 @@
 import { Controller, SubmitHandler, useForm } from "react-hook-form";
+import { useNavigate } from "react-router-dom";
 import { Input } from "../..";
 import Spinner from "react-spinners/ClipLoader";
 import { ButtonForm, InputError, StyledSignUpForm, Error } from "./styles";
-import {
-  useAppDispatch,
-  useAppSelector,
-  getUserInfo,
-  fetchSignUpUser,
-} from "../../../store";
+import { useAppDispatch, useAppSelector, getUserInfo, fetchSignUpUser } from "../../../store";
 
 export type SignUpFormValues = {
   email: string;
@@ -17,17 +13,20 @@ export type SignUpFormValues = {
 export const SignUpForm = () => {
   const { isPendingAuth, error } = useAppSelector(getUserInfo);
   const dispatch = useAppDispatch();
-
+  const navigate = useNavigate();
   const {
     control,
     handleSubmit,
     reset,
     formState: { errors },
-  } = useForm<SignUpFormValues>();
+  } = useForm<SignUpFormValues>({
+    defaultValues: { email: "", password: "" },
+  });
 
   const onSubmit: SubmitHandler<SignUpFormValues> = (userInfo) => {
     dispatch(fetchSignUpUser(userInfo));
-    reset(); // TODO не срабатывает reset!!!!!!!! + error переделать на модальное окно
+    navigate(-2);
+    reset(); // TODO error переделать на модальное окно
   };
 
   return (
@@ -80,9 +79,7 @@ export const SignUpForm = () => {
         )}
       />
 
-      {!errors.email && errors.password && (
-        <InputError>{errors.password.message}</InputError>
-      )}
+      {!errors.email && errors.password && <InputError>{errors.password.message}</InputError>}
 
       {error && <Error>{error}</Error>}
 

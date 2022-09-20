@@ -17,6 +17,7 @@ import { RegistrationCustomLink } from "./molecules/RegistrationCustomLink/Regis
 import { Input } from "./atoms/Input/Input";
 import { SignInForm } from "./molecules/SignInForm/SignInForm";
 import { SignUpForm } from "./molecules/SignUpForm/SignUpForm";
+import { DetailsBook } from "./organisms/DetailBook/DetailsBook";
 
 export {
   HeaderCustomLink,
@@ -38,4 +39,5 @@ export {
   Input,
   SignInForm,
   SignUpForm,
+  DetailsBook,
 };

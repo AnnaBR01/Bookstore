@@ -6,7 +6,7 @@ const StyledMainTemplate = styled.div`
   flex-direction: column;
 `;
 
-const StyledOutlet = styled.div`
+const StyledOutlet = styled.main`
   flex-grow: 1;
 `;
 

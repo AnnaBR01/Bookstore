@@ -6,6 +6,8 @@ export const HomePage = () => {
   return (
     <StyledHomePage>
       <NewBooksContent />
+      {/* Pagination */}
+      {/* Subscribe */}
     </StyledHomePage>
   );
 };

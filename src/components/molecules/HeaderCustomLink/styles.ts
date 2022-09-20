@@ -7,8 +7,7 @@ const StyledCustomLink = styled.div<{ $active: PathMatch<string> | null }>`
   justify-content: center;
   align-content: center;
   margin-right: auto;
-  box-shadow: ${({ $active }) =>
-    $active ? `1px 1px 15px ${Color.Gray}` : `none`};
+  box-shadow: ${({ $active }) => ($active ? `1px 1px 15px ${Color.Gray}` : "none")};
 `;
 
 export { StyledCustomLink };

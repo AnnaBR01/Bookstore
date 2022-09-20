@@ -1,6 +1,6 @@
 import { Controller, SubmitHandler, useForm } from "react-hook-form";
 import Spinner from "react-spinners/ClipLoader";
-import { useAppDispatch, useAppSelector, getUserInfo } from "../../../store";
+import { useAppSelector, getUserInfo } from "../../../store";
 import { Input } from "../..";
 import { ButtonForm, InputError, StyledSignInForm, Error } from "./styles";
 
@@ -11,12 +11,10 @@ export type SignInFormValues = {
 
 export const SignInForm = () => {
   const { isPendingAuth, error } = useAppSelector(getUserInfo);
-  const dispatch = useAppDispatch();
 
   const {
     control,
     handleSubmit,
-    reset,
     formState: { errors },
   } = useForm<SignInFormValues>();
 

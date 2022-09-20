@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { Media } from "../../../ui";
 
-const StyledNewBooksContent = styled.main`
+const StyledNewBooksContent = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;

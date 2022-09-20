@@ -4,7 +4,7 @@ import { MainTemplate, Registration, RequareAuth } from "./components";
 
 import {
   AccountPage,
-  BookInfoPage,
+  DetailsBookPage,
   CartPage,
   FavoritesPage,
   HomePage,
@@ -23,7 +23,7 @@ export const App = () => {
         <Route path={ROUTE.HOME} element={<MainTemplate />}>
           <Route index element={<HomePage />} />
           <Route path={ROUTE.SEARCH} element={<SearchPage />} />
-          <Route path={ROUTE.BOOK_INFO} element={<BookInfoPage />} />
+          <Route path={`${ROUTE.DETAILS_BOOK}:isbn13`} element={<DetailsBookPage />} />
 
           <Route element={<Registration />}>
             <Route path={ROUTE.SIGN_IN} element={<SignInPage />} />

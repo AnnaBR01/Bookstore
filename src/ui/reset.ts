@@ -22,7 +22,7 @@ export const resetCSS = css`
     margin: 0;
   }
 
-  /* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
+  /* Remove list styles on ul, ol elements*/
   ul,
   ol {
     list-style: none;

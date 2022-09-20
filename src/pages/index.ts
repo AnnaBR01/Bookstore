@@ -1,4 +1,4 @@
-import { BookInfoPage } from "./BookInfoPage";
+import { DetailsBookPage } from "./DetailsBookPage/DetailsBookPage";
 import { AccountPage } from "./AccountPage";
 import { CartPage } from "./CartPage";
 import { FavoritesPage } from "./FavoritesPage";
@@ -9,7 +9,7 @@ import { SignInPage } from "./SignInPage";
 import { SignUpPage } from "./SignUpPage";
 
 export {
-  BookInfoPage,
+  DetailsBookPage,
   AccountPage,
   CartPage,
   FavoritesPage,

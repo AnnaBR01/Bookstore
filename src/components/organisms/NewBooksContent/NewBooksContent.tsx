@@ -1,10 +1,5 @@
 import React, { CSSProperties, useEffect } from "react";
-import {
-  fetchBooks,
-  getBooks,
-  useAppDispatch,
-  useAppSelector,
-} from "../../../store";
+import { fetchBooks, getBooks, useAppDispatch, useAppSelector } from "../../../store";
 import { Error } from "../..";
 
 import { BookCard, Title } from "../../index";
@@ -26,15 +21,10 @@ export const NewBooksContent = () => {
 
   return (
     <StyledNewBooksContent>
-      <Title value={"New releases book"} />
+      <Title value="New releases book" />
 
       {isLoading && (
-        <Spinner
-          color={Color.Primary}
-          loading={isLoading}
-          cssOverride={override}
-          size={60}
-        />
+        <Spinner color={Color.Primary} loading={isLoading} cssOverride={override} size={60} />
       )}
 
       {error && (

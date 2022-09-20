@@ -5,6 +5,7 @@ export type FirebaseErrorCode =
   | "auth/user-not-found";
 
 export enum FirebaseError {
+  // eslint-disable-next-line max-len
   EMAIL_ALERADY_EXIST = "The provided email is already in use by an existing user. Each user must have a unique email.",
   EMAIL_ALREADY_IN_USE = "Email already in use. Each user must have a unique email.",
   WRONG_PASSWORD = "Invalid password entered. Please try again.",
