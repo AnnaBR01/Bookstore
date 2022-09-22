@@ -33,14 +33,20 @@ const WrapperDetails = styled.div`
 const DetailsContainer = styled.div`
   display: flex;
   justify-content: space-between;
+  margin-bottom: 72px;
 
   ${Media.LG} {
     flex-direction: column;
+  }
+
+  ${Media.MD} {
+    margin-bottom: 56px;
   }
 `;
 
 const WrapperImage = styled.div`
   position: relative;
+  z-index: 1;
   display: flex;
   justify-content: center;
   width: 50%;
@@ -130,7 +136,7 @@ const MoreDetailse = styled.div`
   display: flex;
   align-content: center;
   margin-top: 16px;
-  margin-bottom: 59px;
+  margin-bottom: 40px;
 
   :disabled {
     color: ${Color.Gray};
@@ -146,9 +152,8 @@ const ChevronButton = styled.button`
 
 const Preview = styled.a`
   position: relative;
-  bottom: 0;
   text-align: center;
-  margin-top: 40px;
+  margin-top: 20px;
   ${BODY2};
   font-weight: 400;
   color: ${Color.Primary};
@@ -157,6 +162,17 @@ const Preview = styled.a`
   ${Media.MD} {
     margin-bottom: 32px;
   }
+`;
+
+const DescriptionBar = styled.p`
+  ${BODY2}
+  font-weight: 400;
+  color: ${Color.Primary};
+`;
+
+const StyledError = styled.div`
+  text-align: center;
+  margin-top: 20%;
 `;
 
 export {
@@ -177,4 +193,6 @@ export {
   MoreDetailse,
   ChevronButton,
   Preview,
+  DescriptionBar,
+  StyledError,
 };

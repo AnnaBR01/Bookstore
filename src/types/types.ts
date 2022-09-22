@@ -28,5 +28,5 @@ export interface IBookDetails {
   price: string;
   image: string;
   url: string;
-  pdf: { [key: string]: string };
+  pdf?: { [key: string]: string };
 }
