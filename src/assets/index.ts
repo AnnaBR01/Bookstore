@@ -7,6 +7,10 @@ import { ReactComponent as UserIcon } from "./icons/user.svg";
 import { ReactComponent as SearchIcon } from "./icons/search.svg";
 import { ReactComponent as BurgerIcon } from "./icons/burger-icon.svg";
 import { ReactComponent as CloseIcon } from "./icons/close.svg";
+import { ReactComponent as ArrowLeft } from "./icons/arrow-left.svg";
+import { ReactComponent as LikeIcon } from "./icons/likeIcon.svg";
+import { ReactComponent as ChevronBottomIcon } from "./icons/chevron-bottom.svg";
+import { ReactComponent as ChevronTopIcon } from "./icons/chevron-top.svg";
 
 export {
   LogoIcon,
@@ -18,4 +22,8 @@ export {
   SearchIcon,
   BurgerIcon,
   CloseIcon,
+  ArrowLeft,
+  LikeIcon,
+  ChevronBottomIcon,
+  ChevronTopIcon,
 };

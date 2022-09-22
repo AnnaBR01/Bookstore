@@ -1,10 +1,6 @@
 import { createAsyncThunk, createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { createUserWithEmailAndPassword, getAuth } from "firebase/auth";
-import {
-  FirebaseError,
-  FirebaseErrorCode,
-  getFirebaseMessage,
-} from "../../utils";
+import { FirebaseError, FirebaseErrorCode, getFirebaseMessage } from "../../utils";
 
 interface UserState {
   isAuth: boolean;
@@ -33,15 +29,10 @@ export const fetchSignUpUser = createAsyncThunk<
 >("user/fetchSignUpUser", async ({ email, password }, { rejectWithValue }) => {
   try {
     const auth = getAuth();
-    const userCredential = await createUserWithEmailAndPassword(
-      auth,
-      email,
-      password
-    );
+    const userCredential = await createUserWithEmailAndPassword(auth, email, password);
     const userEmail = userCredential.user.email as string;
     const creationTime = userCredential.user.metadata.creationTime as string;
-    const lastSignInTime = userCredential.user.metadata
-      .lastSignInTime as string;
+    const lastSignInTime = userCredential.user.metadata.lastSignInTime as string;
 
     return { userEmail, creationTime, lastSignInTime };
   } catch (error) {

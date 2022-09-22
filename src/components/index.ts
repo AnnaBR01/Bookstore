@@ -18,6 +18,8 @@ import { Input } from "./atoms/Input/Input";
 import { SignInForm } from "./molecules/SignInForm/SignInForm";
 import { SignUpForm } from "./molecules/SignUpForm/SignUpForm";
 import { DetailsBook } from "./organisms/DetailBook/DetailsBook";
+import { ButtonLike } from "./atoms/ButtonLike/ButtonLike";
+import { ButtonChevronTop } from "./atoms/ButtonChevronTop/ButtonChevronTop";
 
 export {
   HeaderCustomLink,
@@ -40,4 +42,6 @@ export {
   SignInForm,
   SignUpForm,
   DetailsBook,
+  ButtonLike,
+  ButtonChevronTop,
 };
