@@ -170,11 +170,6 @@ const DescriptionBar = styled.p`
   color: ${Color.Primary};
 `;
 
-const StyledError = styled.div`
-  text-align: center;
-  margin-top: 20%;
-`;
-
 export {
   StyledDetailsBook,
   ButtonArrow,
@@ -194,5 +189,4 @@ export {
   ChevronButton,
   Preview,
   DescriptionBar,
-  StyledError,
 };

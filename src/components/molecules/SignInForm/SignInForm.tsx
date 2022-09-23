@@ -1,8 +1,9 @@
 import { Controller, SubmitHandler, useForm } from "react-hook-form";
 import Spinner from "react-spinners/ClipLoader";
-import { useAppSelector, getUserInfo } from "../../../store";
+import { useAppSelector, getUserInfo, fetchSignInUser, useAppDispatch } from "../../../store";
 import { Input } from "../..";
 import { ButtonForm, InputError, StyledSignInForm, Error } from "./styles";
+import { useNavigate } from "react-router-dom";
 
 export type SignInFormValues = {
   email: string;
@@ -11,15 +12,27 @@ export type SignInFormValues = {
 
 export const SignInForm = () => {
   const { isPendingAuth, error } = useAppSelector(getUserInfo);
+  const dispatch = useAppDispatch();
+  const navigate = useNavigate();
 
   const {
     control,
     handleSubmit,
+    reset,
     formState: { errors },
-  } = useForm<SignInFormValues>();
+  } = useForm<SignInFormValues>({
+    defaultValues: { email: "", password: "" },
+  });
 
   const onSubmit: SubmitHandler<SignInFormValues> = (userInfo) => {
-    // TODO
+    dispatch(fetchSignInUser(userInfo))
+      .unwrap()
+      .then(() => {
+        navigate(-1); // TODO настроить переход на страницы, error переделать на модальное окно
+      })
+      .finally(() => {
+        reset();
+      });
   };
 
   return (

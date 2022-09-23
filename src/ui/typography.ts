@@ -17,6 +17,7 @@ const H2 = css`
   line-height: 60px;
   ${Media.MD} {
     font-size: 28px;
+    line-height: 40px;
   }
 `;
 

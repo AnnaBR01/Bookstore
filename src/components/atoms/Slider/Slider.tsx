@@ -1,40 +1,45 @@
-import React, { useEffect } from "react";
 import { useKeenSlider } from "keen-slider/react";
 import "keen-slider/keen-slider.min.css";
 import { BookCard } from "../../index";
-import { fetchBooks, getBooks, useAppDispatch, useAppSelector } from "../../../store";
+import { IBook } from "../../../types/types";
+import { SliderContainer, StyledSlide } from "./styles";
 
-export const Slider = () => {
+interface IProps {
+  booksArray: IBook[];
+}
+
+export const Slider = ({ booksArray }: IProps) => {
   const [ref] = useKeenSlider<HTMLDivElement>({
     slides: {
       perView: 3,
-      spacing: 10,
+      spacing: 32,
     },
 
     breakpoints: {
-      "(max-width: 500px)": {
+      "(max-width: 1280px)": {
+        slides: {
+          perView: 2,
+          spacing: 32,
+        },
+      },
+      "(max-width: 768px)": {
         slides: {
           perView: 1,
         },
       },
     },
+    loop: true,
   });
 
-  const dispatch = useAppDispatch();
-  const { books } = useAppSelector(getBooks);
-
-  useEffect(() => {
-    dispatch(fetchBooks());
-  }, [dispatch]);
   return (
-    <div ref={ref} className="keen-slider">
-      {books.map((book) => {
+    <SliderContainer ref={ref} className="keen-slider">
+      {booksArray.map((book) => {
         return (
-          <div className="keen-slider__slide">
+          <StyledSlide className="keen-slider__slide">
             <BookCard book={book} key={book.isbn13} />
-          </div>
+          </StyledSlide>
         );
       })}
-    </div>
+    </SliderContainer>
   );
 };

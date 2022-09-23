@@ -20,13 +20,13 @@ import {
   WrapperHeader,
 } from "./styles";
 import { ROUTE } from "../../../routes/routes";
-import { changeTheme, useAppDispatch, useAppSelector } from "../../../store";
+import { changeTheme, getUserInfo, useAppDispatch, useAppSelector } from "../../../store";
 import { useToggle, useWindowSize } from "../../../hooks";
 import { BurgerMenu, HeaderCustomLink, SearchHeader } from "../../index";
 import { Breakpoint, Color, Container } from "../../../ui";
 
 export const Header = () => {
-  const { theme } = useAppSelector((state) => state.user);
+  const { theme } = useAppSelector(getUserInfo);
   const dispatch = useAppDispatch();
   const [isDark, toggleIsInstallDark] = useToggle();
   const { width = 0 } = useWindowSize();
@@ -59,10 +59,7 @@ export const Header = () => {
         <StyledHeader>
           <HeaderCustomLink to={ROUTE.HOME}>
             <ButtonLogo>
-              <LogoIcon
-                width={width < Breakpoint.MD ? "122" : "137"}
-                fill={Color.Primary}
-              />
+              <LogoIcon width={width < Breakpoint.MD ? "122" : "137"} fill={Color.Primary} />
             </ButtonLogo>
           </HeaderCustomLink>
 
@@ -103,12 +100,7 @@ export const Header = () => {
           </List>
 
           <ButtonBurger>
-            <BurgerIcon
-              width="28"
-              height="28"
-              fill={Color.Primary}
-              onClick={handleBurger}
-            />
+            <BurgerIcon width="28" height="28" fill={Color.Primary} onClick={handleBurger} />
           </ButtonBurger>
 
           {isOpen && <BurgerMenu handleBurger={handleBurger} isOpen={isOpen} />}

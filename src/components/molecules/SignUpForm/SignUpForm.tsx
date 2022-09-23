@@ -24,9 +24,14 @@ export const SignUpForm = () => {
   });
 
   const onSubmit: SubmitHandler<SignUpFormValues> = (userInfo) => {
-    dispatch(fetchSignUpUser(userInfo));
-    navigate(-2);
-    reset(); // TODO error переделать на модальное окно
+    dispatch(fetchSignUpUser(userInfo))
+      .unwrap()
+      .then(() => {
+        navigate(-2); // TODO настроить переход на страницы, error переделать на модальное окно
+      })
+      .finally(() => {
+        reset();
+      });
   };
 
   return (

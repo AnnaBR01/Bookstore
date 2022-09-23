@@ -1,10 +1,12 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import { AxiosError } from "axios";
 import { bookstoreAPI } from "../../services";
-import { IBookDetails } from "../../types/types";
+import { IBookDetails, IBook, IBooksBySearch } from "../../types/types";
+import { getSemanticWord } from "../../utils";
 
 interface BookDetails {
   bookDetails: IBookDetails;
+  booksSimilar: IBook[];
   isLoading: boolean;
   error: null | string;
 }
@@ -30,21 +32,26 @@ const initialState: BookDetails = {
       "Chapter 5": "",
     },
   },
+  booksSimilar: [],
   isLoading: false,
   error: null,
 };
 
-const fetchBookByDetails = createAsyncThunk<IBookDetails, string, { rejectValue: string }>(
-  "bookDetails/fetchBookByDetails",
-  async (isbn13, { rejectWithValue }) => {
-    try {
-      return await bookstoreAPI.getDetailsByIsbn13(isbn13);
-    } catch (error) {
-      const axiosError = error as AxiosError;
-      return rejectWithValue(axiosError.message);
-    }
-  },
-);
+const fetchBookByDetails = createAsyncThunk<
+  { bookDetails: IBookDetails; booksSimilar: IBooksBySearch },
+  string,
+  { rejectValue: string }
+>("bookDetails/fetchBookByDetails", async (id, { rejectWithValue }) => {
+  try {
+    const bookDetails = await bookstoreAPI.getDetailsByIsbn13(id);
+    const word = getSemanticWord(bookDetails.title);
+    const booksSimilar = await bookstoreAPI.getBooksBySearch(word);
+    return { bookDetails, booksSimilar };
+  } catch (error) {
+    const axiosError = error as AxiosError;
+    return rejectWithValue(axiosError.message);
+  }
+});
 
 const bookDetailsSlice = createSlice({
   name: "bookDetails",
@@ -57,7 +64,8 @@ const bookDetailsSlice = createSlice({
     });
     builder.addCase(fetchBookByDetails.fulfilled, (state, { payload }) => {
       state.isLoading = false;
-      state.bookDetails = payload;
+      state.bookDetails = payload.bookDetails;
+      state.booksSimilar = payload.booksSimilar.books;
     });
     builder.addCase(fetchBookByDetails.rejected, (state, { payload }) => {
       if (payload) {

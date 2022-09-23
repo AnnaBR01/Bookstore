@@ -8,15 +8,17 @@ interface IProps {
 }
 
 export const BookCard = ({ book }: IProps) => {
+  const { isbn13, title, subtitle, image, price } = book;
+
   return (
     <StyledBookCard>
-      <Link to={`${ROUTE.DETAILS_BOOK}${book.isbn13}`}>
+      <Link to={`${ROUTE.DETAILS_BOOK}${isbn13}`}>
         <WrapperImage>
-          <Image src={book.image} alt={book.title} />
+          <Image src={image} alt={title} />
         </WrapperImage>
-        <BookName>{book.title}</BookName>
-        <BookDescription>{book.subtitle ? book.subtitle : "Other"}</BookDescription>
-        <Price>{book.price === "$0.00" ? "for FREE" : book.price}</Price>
+        <BookName>{title}</BookName>
+        <BookDescription>{subtitle ? subtitle : "Other"}</BookDescription>
+        <Price>{price === "$0.00" ? "for FREE" : price}</Price>
       </Link>
     </StyledBookCard>
   );

@@ -13,6 +13,12 @@ export interface IBooks {
   books: IBook[];
 }
 
+export interface IBooksBySearch {
+  total: string;
+  page: string;
+  books: IBook[];
+}
+
 export interface IBookDetails {
   error: string;
   title: string;

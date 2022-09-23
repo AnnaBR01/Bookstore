@@ -20,6 +20,10 @@ import { SignUpForm } from "./molecules/SignUpForm/SignUpForm";
 import { DetailsBook } from "./organisms/DetailBook/DetailsBook";
 import { ButtonLike } from "./atoms/ButtonLike/ButtonLike";
 import { TabBar } from "./atoms/TabBar/TabBar";
+import { SecondaryTitle } from "./atoms/SecondaryTitle/SecondaryTitle";
+import { Slider } from "./atoms/Slider/Slider";
+import { SimilarBooks } from "./organisms/SimilarBooks/SimilarBooks";
+import { FavoritesBooks } from "./organisms/FavoritesBooks/FavoritesBooks";
 
 export {
   HeaderCustomLink,
@@ -44,4 +48,8 @@ export {
   DetailsBook,
   ButtonLike,
   TabBar,
+  SecondaryTitle,
+  Slider,
+  SimilarBooks,
+  FavoritesBooks,
 };

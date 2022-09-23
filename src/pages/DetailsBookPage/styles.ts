@@ -12,4 +12,9 @@ const StyledDetailsBookPage = styled.div`
   }
 `;
 
-export { StyledDetailsBookPage };
+const StyledError = styled.div`
+  text-align: center;
+  margin-top: 20%;
+`;
+
+export { StyledDetailsBookPage, StyledError };

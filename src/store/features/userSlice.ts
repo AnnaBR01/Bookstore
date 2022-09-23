@@ -1,5 +1,5 @@
 import { createAsyncThunk, createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { createUserWithEmailAndPassword, getAuth } from "firebase/auth";
+import { createUserWithEmailAndPassword, getAuth, signInWithEmailAndPassword } from "firebase/auth";
 import { FirebaseError, FirebaseErrorCode, getFirebaseMessage } from "../../utils";
 
 interface UserState {
@@ -42,6 +42,25 @@ export const fetchSignUpUser = createAsyncThunk<
   }
 });
 
+export const fetchSignInUser = createAsyncThunk<
+  { userEmail: string; lastSignInTime: string },
+  { email: string; password: string },
+  { rejectValue: FirebaseError }
+>("user/fetchSignInUser", async ({ email, password }, { rejectWithValue }) => {
+  try {
+    const auth = getAuth();
+    const userCredential = await signInWithEmailAndPassword(auth, email, password);
+    const userEmail = userCredential.user.email as string;
+    const lastSignInTime = userCredential.user.metadata.lastSignInTime as string;
+
+    return { userEmail, lastSignInTime };
+  } catch (error) {
+    const firebaseError = error as { code: FirebaseErrorCode };
+
+    return rejectWithValue(getFirebaseMessage(firebaseError.code));
+  }
+});
+
 const userSlice = createSlice({
   name: "user",
   initialState,
@@ -66,6 +85,26 @@ const userSlice = createSlice({
       state.isAuth = true;
     });
     builder.addCase(fetchSignUpUser.rejected, (state, { payload }) => {
+      if (payload) {
+        state.isPendingAuth = false;
+        state.error = payload;
+        state.isAuth = false;
+      }
+    });
+
+    builder.addCase(fetchSignInUser.pending, (state) => {
+      state.isPendingAuth = true;
+      state.isAuth = false;
+      state.error = null;
+    });
+    builder.addCase(fetchSignInUser.fulfilled, (state, { payload }) => {
+      state.isPendingAuth = false;
+      state.error = null;
+      state.email = payload.userEmail;
+      state.lastSignInTime = payload.lastSignInTime;
+      state.isAuth = true;
+    });
+    builder.addCase(fetchSignInUser.rejected, (state, { payload }) => {
       if (payload) {
         state.isPendingAuth = false;
         state.error = payload;
