@@ -61,6 +61,19 @@ export const fetchSignInUser = createAsyncThunk<
   }
 });
 
+// export const fetchSignOut = createAsyncThunk<undefined, { rejectValue: FirebaseError }>(
+//   "user/fetchSignOut",
+//   async (_, { rejectWithValue }) => {
+//     try {
+//       await getAuth().signOut();
+//     } catch (error) {
+//       const firebaseError = error as { code: FirebaseErrorCode };
+
+//       return rejectWithValue(getFirebaseMessage(firebaseError.code));
+//     }
+//   },
+// );
+
 const userSlice = createSlice({
   name: "user",
   initialState,
@@ -111,6 +124,24 @@ const userSlice = createSlice({
         state.isAuth = false;
       }
     });
+
+    // builder.addCase(fetchSignOut.pending, (state) => {
+    //   state.isPendingAuth = true;
+    //   state.isAuth = true;
+    //   state.error = null;
+    // });
+    // builder.addCase(fetchSignOut.fulfilled, (state) => {
+    //   state.isPendingAuth = false;
+    //   state.error = null;
+    //   state.isAuth = false;
+    // });
+    // builder.addCase(fetchSignInUser.rejected, (state, { payload }) => {
+    //   if (payload) {
+    //     state.isPendingAuth = false;
+    //     state.error = payload;
+    //     state.isAuth = true;
+    //   }
+    // });
   },
 });
 

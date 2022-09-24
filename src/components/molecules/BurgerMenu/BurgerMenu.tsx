@@ -12,6 +12,12 @@ interface IProps {
 
 export const BurgerMenu = ({ isOpen, handleBurger }: IProps) => {
   const { isAuth } = useAppSelector(getUserInfo);
+  // const dispatch = useAppDispatch();
+
+  const handleAuth = (): void => {
+    // dispatch(fetchSignOut());
+    handleBurger();
+  };
 
   return (
     <StyledBurgerMenu $isOpen={isOpen} onClick={handleBurger}>
@@ -31,7 +37,7 @@ export const BurgerMenu = ({ isOpen, handleBurger }: IProps) => {
               <Description onClick={handleBurger}>Cart</Description>
             </Link>
 
-            <Button type="button" value="Log Out" onClick={handleBurger}></Button>
+            <Button type="button" value="Log Out" onClick={handleAuth}></Button>
           </>
         ) : (
           // TODO настроить выход из аккаунта

@@ -24,7 +24,7 @@ const fetchBooks = createAsyncThunk<IBooks, undefined, { rejectValue: string }>(
       const axiosError = error as AxiosError;
       return rejectWithValue(axiosError.message);
     }
-  }
+  },
 );
 
 const booksSlice = createSlice({

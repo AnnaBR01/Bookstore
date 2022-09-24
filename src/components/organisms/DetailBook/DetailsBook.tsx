@@ -38,6 +38,7 @@ export const DetailsBook = ({ bookDetails }: IProps) => {
   const navigate = useNavigate();
   const { width = 0 } = useWindowSize();
   const [isOpen, toggleIsOpen] = useToggle();
+  const [isFavorites, toggleIsFavorites] = useToggle();
   const [tab, setTab] = useState<"description" | "authors">("description");
   const { isAuth } = useAppSelector(getUserInfo); // TODO настроить disabled на лайк
 
@@ -52,6 +53,7 @@ export const DetailsBook = ({ bookDetails }: IProps) => {
   const handleAddFavorites = (e: MouseEvent<HTMLElement>): void => {
     e.preventDefault();
     dispatch(addToFavotires(bookDetails));
+    isAuth && toggleIsFavorites();
   };
 
   return (
@@ -71,7 +73,7 @@ export const DetailsBook = ({ bookDetails }: IProps) => {
           <WrapperImage>
             <Image src={image} alt={title} />
             <Like onClick={handleAddFavorites}>
-              <ButtonLike />
+              <ButtonLike isFavorites={isFavorites} disabled={!isAuth} />
             </Like>
           </WrapperImage>
 

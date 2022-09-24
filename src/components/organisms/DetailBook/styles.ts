@@ -102,12 +102,6 @@ const Price = styled.p`
   line-height: 60px;
 `;
 
-const Rating = styled.p`
-  font-weight: 700;
-  font-size: 40px;
-  line-height: 60px;
-`;
-
 const InfoContainer = styled.div`
   display: flex;
   justify-content: space-between;
@@ -181,7 +175,6 @@ export {
   WrapperInfo,
   InfoTitleContainer,
   Price,
-  Rating,
   InfoContainer,
   InfoTitle,
   Info,

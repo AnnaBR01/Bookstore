@@ -2,11 +2,11 @@ import styled from "styled-components";
 import { LikeIcon } from "../../../assets";
 import { Color } from "../../../ui";
 
-const StyledButtonLike = styled.button`
+const StyledButtonLike = styled.button<{ $isFavorites: boolean }>`
   width: 56px;
   height: 56px;
   padding: 16px;
-  background: ${Color.Primary};
+  background: ${({ $isFavorites }) => ($isFavorites ? "none" : Color.Primary)};
   border: none;
   cursor: pointer;
 
@@ -15,10 +15,11 @@ const StyledButtonLike = styled.button`
   }
 `;
 
-const Like = styled(LikeIcon)`
+const Like = styled(LikeIcon)<{ $isFavorites: boolean }>`
   width: 24px;
   height: 24px;
-  stroke: ${Color.White};
+  stroke: ${({ $isFavorites }) => ($isFavorites ? Color.Red : Color.White)};
+  fill: ${({ $isFavorites }) => ($isFavorites ? Color.Red : "none")};
   border: none;
   cursor: pointer;
 

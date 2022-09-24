@@ -24,6 +24,8 @@ import { SecondaryTitle } from "./atoms/SecondaryTitle/SecondaryTitle";
 import { Slider } from "./atoms/Slider/Slider";
 import { SimilarBooks } from "./organisms/SimilarBooks/SimilarBooks";
 import { FavoritesBooks } from "./organisms/FavoritesBooks/FavoritesBooks";
+import { FavoritesCard } from "./molecules/FavoritesCard/FavoritesCard";
+import { FreeBooks } from "./organisms/FreeBooks/FreeBooks";
 
 export {
   HeaderCustomLink,
@@ -52,4 +54,6 @@ export {
   Slider,
   SimilarBooks,
   FavoritesBooks,
+  FavoritesCard,
+  FreeBooks,
 };

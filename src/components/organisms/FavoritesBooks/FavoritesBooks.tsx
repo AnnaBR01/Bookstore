@@ -1,7 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import { useWindowSize } from "../../../hooks";
-import { Title } from "../../index";
-import { FavoritesWrapper, ButtonArrow, StyledFavoritesBooks } from "./styles";
+import { Title, FavoritesCard } from "../../index";
+import { FavoritesWrapper, ButtonArrow, StyledFavoritesBooks, Message } from "./styles";
 import { Color, Breakpoint } from "../../../ui";
 import { ArrowLeft } from "../../../assets";
 import { getFavoritesBooks, useAppSelector } from "../../../store";
@@ -25,13 +25,16 @@ export const FavoritesBooks = () => {
         />
       </ButtonArrow>
 
-      <Title value="New releases book" />
+      <Title value="Favorites" />
 
       <FavoritesWrapper>
-        {favoritesBooks &&
+        {favoritesBooks.length !== 0 ? (
           favoritesBooks.map((book) => {
-            return <li key={book.isbn13}>{book.title}</li>; // TODO
-          })}
+            return <FavoritesCard key={book.isbn13} book={book} />;
+          })
+        ) : (
+          <Message>You don't have any favorite books. 😔</Message>
+        )}
       </FavoritesWrapper>
     </StyledFavoritesBooks>
   );

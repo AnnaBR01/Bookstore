@@ -8,6 +8,7 @@ import { useAppDispatch, useAppSelector, getUserInfo, fetchSignUpUser } from "..
 export type SignUpFormValues = {
   email: string;
   password: string;
+  confirm: string;
 };
 
 export const SignUpForm = () => {
@@ -18,9 +19,10 @@ export const SignUpForm = () => {
     control,
     handleSubmit,
     reset,
+    watch,
     formState: { errors },
   } = useForm<SignUpFormValues>({
-    defaultValues: { email: "", password: "" },
+    defaultValues: { email: "", password: "", confirm: "" },
   });
 
   const onSubmit: SubmitHandler<SignUpFormValues> = (userInfo) => {
@@ -85,6 +87,30 @@ export const SignUpForm = () => {
       />
 
       {!errors.email && errors.password && <InputError>{errors.password.message}</InputError>}
+
+      <Controller
+        control={control}
+        name="confirm"
+        rules={{
+          required: "Confirm  your password",
+          validate: (value: string) => {
+            if (watch("password") !== value) {
+              return "Your passwords do no match";
+            }
+          },
+        }}
+        render={({ field: { onChange, value } }) => (
+          <Input
+            onChange={onChange}
+            value={value}
+            type="password"
+            placeholder="Confirm your password"
+            label="Confirm password"
+          />
+        )}
+      />
+
+      {errors.confirm && <InputError>{errors.confirm.message}</InputError>}
 
       {error && <Error>{error}</Error>}
 

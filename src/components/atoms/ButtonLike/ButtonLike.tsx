@@ -1,9 +1,14 @@
 import { Like, StyledButtonLike } from "./styles";
 
-export const ButtonLike = () => {
+interface IProps {
+  isFavorites: boolean;
+  disabled?: boolean;
+}
+
+export const ButtonLike = ({ isFavorites, disabled }: IProps) => {
   return (
-    <StyledButtonLike>
-      <Like />
+    <StyledButtonLike $isFavorites={isFavorites} disabled={disabled}>
+      <Like $isFavorites={isFavorites} />
     </StyledButtonLike>
   );
 };

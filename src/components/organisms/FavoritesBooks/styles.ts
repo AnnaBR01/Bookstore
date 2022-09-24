@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { Media } from "../../../ui";
+import { H3, Media } from "../../../ui";
 
 const StyledFavoritesBooks = styled.div`
   display: flex;
@@ -30,4 +30,8 @@ const FavoritesWrapper = styled.ul`
   }
 `;
 
-export { StyledFavoritesBooks, ButtonArrow, FavoritesWrapper };
+const Message = styled.h3`
+  ${H3}
+`;
+
+export { StyledFavoritesBooks, ButtonArrow, FavoritesWrapper, Message };

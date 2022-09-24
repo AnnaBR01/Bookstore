@@ -9,7 +9,7 @@ interface IProps {
 export const SimilarBooks = ({ booksSimilar }: IProps) => {
   return (
     <StyledSimilarBooks>
-      <SecondaryTitle value="Similar Books" />
+      <SecondaryTitle value="Similar books" />
       <Slider booksArray={booksSimilar} />
     </StyledSimilarBooks>
   );
