@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import { MouseEvent } from "react";
 import { Button, Close, SearchHeader } from "../..";
 import { ROUTE } from "../../../routes/routes";
-import { getUserInfo, useAppSelector } from "../../../store";
+import { fetchSignOut, getUserInfo, useAppDispatch, useAppSelector } from "../../../store";
 import { BurgerHeader, Description, StyledBurgerMenu, WrapperContent } from "./styles";
 
 interface IProps {
@@ -12,10 +12,10 @@ interface IProps {
 
 export const BurgerMenu = ({ isOpen, handleBurger }: IProps) => {
   const { isAuth } = useAppSelector(getUserInfo);
-  // const dispatch = useAppDispatch();
+  const dispatch = useAppDispatch();
 
   const handleAuth = (): void => {
-    // dispatch(fetchSignOut());
+    dispatch(fetchSignOut());
     handleBurger();
   };
 

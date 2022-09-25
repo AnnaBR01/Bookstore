@@ -1,5 +1,10 @@
 import { createAsyncThunk, createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { createUserWithEmailAndPassword, getAuth, signInWithEmailAndPassword } from "firebase/auth";
+import {
+  createUserWithEmailAndPassword,
+  getAuth,
+  signInWithEmailAndPassword,
+  signOut,
+} from "firebase/auth";
 import { FirebaseError, FirebaseErrorCode, getFirebaseMessage } from "../../utils";
 
 interface UserState {
@@ -61,18 +66,19 @@ export const fetchSignInUser = createAsyncThunk<
   }
 });
 
-// export const fetchSignOut = createAsyncThunk<undefined, { rejectValue: FirebaseError }>(
-//   "user/fetchSignOut",
-//   async (_, { rejectWithValue }) => {
-//     try {
-//       await getAuth().signOut();
-//     } catch (error) {
-//       const firebaseError = error as { code: FirebaseErrorCode };
+export const fetchSignOut = createAsyncThunk<void, undefined, { rejectValue: FirebaseError }>(
+  "user/fetchSignOut",
+  async (_, { rejectWithValue }) => {
+    try {
+      const auth = getAuth();
+      await signOut(auth);
+    } catch (error) {
+      const firebaseError = error as { code: FirebaseErrorCode };
 
-//       return rejectWithValue(getFirebaseMessage(firebaseError.code));
-//     }
-//   },
-// );
+      return rejectWithValue(getFirebaseMessage(firebaseError.code));
+    }
+  },
+);
 
 const userSlice = createSlice({
   name: "user",
@@ -125,23 +131,23 @@ const userSlice = createSlice({
       }
     });
 
-    // builder.addCase(fetchSignOut.pending, (state) => {
-    //   state.isPendingAuth = true;
-    //   state.isAuth = true;
-    //   state.error = null;
-    // });
-    // builder.addCase(fetchSignOut.fulfilled, (state) => {
-    //   state.isPendingAuth = false;
-    //   state.error = null;
-    //   state.isAuth = false;
-    // });
-    // builder.addCase(fetchSignInUser.rejected, (state, { payload }) => {
-    //   if (payload) {
-    //     state.isPendingAuth = false;
-    //     state.error = payload;
-    //     state.isAuth = true;
-    //   }
-    // });
+    builder.addCase(fetchSignOut.pending, (state) => {
+      state.isPendingAuth = true;
+      state.isAuth = true;
+      state.error = null;
+    });
+    builder.addCase(fetchSignOut.fulfilled, (state) => {
+      state.isPendingAuth = false;
+      state.error = null;
+      state.isAuth = false;
+    });
+    builder.addCase(fetchSignOut.rejected, (state, { payload }) => {
+      if (payload) {
+        state.isPendingAuth = false;
+        state.error = payload;
+        state.isAuth = true;
+      }
+    });
   },
 });
 

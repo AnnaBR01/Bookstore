@@ -15,7 +15,7 @@ import { getDetailsBook } from "./selectors/bookDetailsSelectors";
 import { getFavoritesBooks } from "./selectors/favoritesSelectors";
 import { addToFavotires } from "./features/favoritesSlice";
 import { removeFavorite } from "./features/favoritesSlice";
-// import { fetchSignOut } from "./features/userSlice";
+import { fetchSignOut } from "./features/userSlice";
 
 export {
   changeTheme,
@@ -36,5 +36,5 @@ export {
   bookFavoritesReducer,
   addToFavotires,
   removeFavorite,
-  // fetchSignOut,
+  fetchSignOut,
 };
