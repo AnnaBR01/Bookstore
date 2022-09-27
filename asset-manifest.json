@@ -1,9 +1,10 @@
 {
   "files": {
     "main.css": "/bookstore/static/css/main.88474277.css",
-    "main.js": "/bookstore/static/js/main.e65ac835.js",
+    "main.js": "/bookstore/static/js/main.03ad45af.js",
     "static/media/logo.svg": "/bookstore/static/media/logo.5f5c7c692afea6be657caefbaadb4ed3.svg",
     "static/media/sun.svg": "/bookstore/static/media/sun.0ebf7f0b692f17e27e57262ed3e84b1d.svg",
+    "static/media/minus.svg": "/bookstore/static/media/minus.a344d33d3a4b7fbd1c16ab67b92db73d.svg",
     "static/media/moon.svg": "/bookstore/static/media/moon.1d4a9d14ba553e4e63aab1d2bad4fe1a.svg",
     "static/media/arrow-left.svg": "/bookstore/static/media/arrow-left.418e2709e015b7ed23d25bbd8108beaa.svg",
     "static/media/likeIcon.svg": "/bookstore/static/media/likeIcon.5285c88bf1255bcd04219a0a0f3013a9.svg",
@@ -16,11 +17,12 @@
     "static/media/search.svg": "/bookstore/static/media/search.4d711c0a15e0af78ab80c66b767cf728.svg",
     "static/media/user.svg": "/bookstore/static/media/user.5234521b72f04b4044df86143101681d.svg",
     "static/media/burger-icon.svg": "/bookstore/static/media/burger-icon.aa5b2ea7401dff844dc11a76073704b1.svg",
+    "static/media/plus.svg": "/bookstore/static/media/plus.0c8444b7eb71d09dbb94b8fd1476e698.svg",
     "main.88474277.css.map": "/bookstore/static/css/main.88474277.css.map",
-    "main.e65ac835.js.map": "/bookstore/static/js/main.e65ac835.js.map"
+    "main.03ad45af.js.map": "/bookstore/static/js/main.03ad45af.js.map"
   },
   "entrypoints": [
     "static/css/main.88474277.css",
-    "static/js/main.e65ac835.js"
+    "static/js/main.03ad45af.js"
   ]
 }
