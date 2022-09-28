@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { Color, Media } from "../../../ui";
+import { Color, H3, Media } from "../../../ui";
 
 const StyledBurgerMenu = styled.div<{ $isOpen: boolean }>`
   position: absolute;
@@ -48,4 +48,9 @@ const Description = styled.p`
   line-height: 44px;
 `;
 
-export { StyledBurgerMenu, WrapperContent, BurgerHeader, Description };
+const Error = styled.p`
+  ${H3}
+  color: ${Color.Red}
+`;
+
+export { StyledBurgerMenu, WrapperContent, BurgerHeader, Description, Error };

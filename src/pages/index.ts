@@ -1,6 +1,6 @@
 import { DetailsBookPage } from "./DetailsBookPage/DetailsBookPage";
 import { AccountPage } from "./AccountPage";
-import { CartPage } from "./CartPage";
+import { CartPage } from "./CartPage/CartPage";
 import { FavoritesPage } from "./FavoritesPage/FavoritesPage";
 import { HomePage } from "./HomePage/HomePage";
 import { NotFoundPage } from "./NotFoundPage";

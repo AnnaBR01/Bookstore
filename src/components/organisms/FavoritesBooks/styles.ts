@@ -26,6 +26,7 @@ const FavoritesWrapper = styled.ul`
   margin-top: 48px;
 
   ${Media.MD} {
+    grid-gap: 36px;
     margin-top: 36px;
   }
 `;

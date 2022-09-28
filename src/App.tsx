@@ -30,12 +30,12 @@ export const App = () => {
             <Route path={ROUTE.SIGN_UP} element={<SignUpPage />} />
           </Route>
 
-          <Route path={ROUTE.ACCOUNT} element={<AccountPage />} />
           <Route path={ROUTE.NOT_FOUND} element={<NotFoundPage />} />
 
           <Route element={<RequareAuth />}>
             <Route path={ROUTE.FAVORITES} element={<FavoritesPage />} />
             <Route path={ROUTE.CART} element={<CartPage />} />
+            <Route path={ROUTE.ACCOUNT} element={<AccountPage />} />
           </Route>
         </Route>
       </Routes>

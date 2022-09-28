@@ -2,7 +2,7 @@ import { CSSProperties, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import Spinner from "react-spinners/ClipLoader";
 import { fetchBookByDetails, getDetailsBook, useAppDispatch, useAppSelector } from "../../store";
-import { DetailsBook, SimilarBooks, Error } from "../../components";
+import { DetailsBook, SimilarBooks, Error, Subscription } from "../../components";
 import { Color } from "../../ui";
 import { StyledDetailsBookPage, StyledError } from "./styles";
 
@@ -34,7 +34,7 @@ export const DetailsBookPage = () => {
       {!isLoading && !error && (
         <>
           <DetailsBook bookDetails={bookDetails} />
-          {/* Subscribe */}
+          <Subscription />
           <SimilarBooks booksSimilar={booksSimilar} />
         </>
       )}

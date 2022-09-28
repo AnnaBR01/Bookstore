@@ -27,6 +27,13 @@ const Image = styled.img`
   width: 100%;
 `;
 
+const InfoWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 10px;
+`;
+
 const BookName = styled.h3`
   margin-bottom: 8px;
   ${H3}
@@ -48,11 +55,4 @@ const Price = styled.h3`
   ${H3};
 `;
 
-export {
-  StyledBookCard,
-  WrapperImage,
-  Image,
-  BookName,
-  BookDescription,
-  Price,
-};
+export { StyledBookCard, WrapperImage, Image, BookName, BookDescription, Price, InfoWrapper };

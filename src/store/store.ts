@@ -1,5 +1,11 @@
 import { configureStore } from "@reduxjs/toolkit";
-import { booksReducer, userReducer, bookDetailsReducer, bookFavoritesReducer } from ".";
+import {
+  booksReducer,
+  userReducer,
+  bookDetailsReducer,
+  bookFavoritesReducer,
+  cartReducer,
+} from ".";
 
 const store = configureStore({
   reducer: {
@@ -7,7 +13,7 @@ const store = configureStore({
     books: booksReducer,
     bookDetails: bookDetailsReducer,
     booksFavorites: bookFavoritesReducer,
-    // cart: "",
+    cart: cartReducer,
   },
 });
 

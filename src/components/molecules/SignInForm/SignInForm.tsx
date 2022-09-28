@@ -4,6 +4,7 @@ import { useAppSelector, getUserInfo, fetchSignInUser, useAppDispatch } from "..
 import { Input } from "../..";
 import { ButtonForm, InputError, StyledSignInForm, Error } from "./styles";
 import { useNavigate } from "react-router-dom";
+import { ROUTE } from "../../../routes/routes";
 
 export type SignInFormValues = {
   email: string;
@@ -28,7 +29,7 @@ export const SignInForm = () => {
     dispatch(fetchSignInUser(userInfo))
       .unwrap()
       .then(() => {
-        navigate(-1); // TODO настроить переход на страницы, error переделать на модальное окно
+        navigate(`/${ROUTE.ACCOUNT}`); // TODO error переделать на модальное окно
       })
       .finally(() => {
         reset();

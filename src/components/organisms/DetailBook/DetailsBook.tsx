@@ -25,7 +25,13 @@ import {
   Preview,
   DescriptionBar,
 } from "./styles";
-import { useAppDispatch, addToFavotires, getUserInfo, useAppSelector } from "../../../store";
+import {
+  useAppDispatch,
+  addToFavotires,
+  getUserInfo,
+  useAppSelector,
+  addToCart,
+} from "../../../store";
 
 interface IProps {
   bookDetails: IBookDetails;
@@ -51,9 +57,18 @@ export const DetailsBook = ({ bookDetails }: IProps) => {
   };
 
   const handleAddFavorites = (e: MouseEvent<HTMLElement>): void => {
-    e.preventDefault();
-    dispatch(addToFavotires(bookDetails));
-    isAuth && toggleIsFavorites();
+    if (isAuth) {
+      e.preventDefault();
+      dispatch(addToFavotires(bookDetails));
+      toggleIsFavorites();
+    }
+  };
+
+  const handleAddToCart = (e: MouseEvent<HTMLElement>): void => {
+    if (isAuth) {
+      e.preventDefault();
+      dispatch(addToCart({ ...bookDetails, quantity: 0 }));
+    }
   };
 
   return (
@@ -130,7 +145,12 @@ export const DetailsBook = ({ bookDetails }: IProps) => {
               </ChevronButton>
             </MoreDetailse>
 
-            <Button type="button" value="Add to cart"></Button>
+            <Button
+              type="button"
+              value="Add to cart"
+              onClick={handleAddToCart}
+              disabled={!isAuth}
+            ></Button>
 
             {pdf && (
               <Preview href={Object.values(pdf)[0]} target="_blank">

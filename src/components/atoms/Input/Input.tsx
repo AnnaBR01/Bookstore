@@ -6,26 +6,14 @@ interface IProps {
   onChange: (event: ChangeEvent<HTMLInputElement>) => void;
   type: HTMLInputTypeAttribute;
   placeholder: string;
-  label: string;
+  label?: string;
 }
 
-export const Input = ({
-  value,
-  onChange,
-  placeholder,
-  type,
-  label,
-}: IProps) => {
+export const Input = ({ value, onChange, placeholder, type, label }: IProps) => {
   return (
     <WrapperInput>
-      <Label>{label}</Label>
-
-      <StyledInput
-        value={value}
-        onChange={onChange}
-        type={type}
-        placeholder={placeholder}
-      />
+      {label && <Label>{label}</Label>}
+      <StyledInput value={value} onChange={onChange} type={type} placeholder={placeholder} />
     </WrapperInput>
   );
 };

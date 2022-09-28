@@ -11,6 +11,8 @@ import { ReactComponent as ArrowLeft } from "./icons/arrow-left.svg";
 import { ReactComponent as LikeIcon } from "./icons/likeIcon.svg";
 import { ReactComponent as ChevronBottomIcon } from "./icons/chevron-bottom.svg";
 import { ReactComponent as ChevronTopIcon } from "./icons/chevron-top.svg";
+import { ReactComponent as MinusIcon } from "./icons/minus.svg";
+import { ReactComponent as PlusIcon } from "./icons/plus.svg";
 
 export {
   LogoIcon,
@@ -26,4 +28,6 @@ export {
   LikeIcon,
   ChevronBottomIcon,
   ChevronTopIcon,
+  MinusIcon,
+  PlusIcon
 };

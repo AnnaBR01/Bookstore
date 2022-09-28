@@ -4,7 +4,7 @@ import { Color } from "../../../ui";
 import { StyledClose } from "./styles";
 
 interface IProps {
-  onClick: () => void;
+  onClick?: () => void;
 }
 
 export const Close = ({ onClick }: IProps) => {

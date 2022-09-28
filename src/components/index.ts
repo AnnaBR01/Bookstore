@@ -26,6 +26,8 @@ import { SimilarBooks } from "./organisms/SimilarBooks/SimilarBooks";
 import { FavoritesBooks } from "./organisms/FavoritesBooks/FavoritesBooks";
 import { FavoritesCard } from "./molecules/FavoritesCard/FavoritesCard";
 import { FreeBooks } from "./organisms/FreeBooks/FreeBooks";
+import { CartCard } from "./molecules/CartCard/CartCard";
+import { Subscription } from "./molecules/Subscription/Subscription";
 
 export {
   HeaderCustomLink,
@@ -56,4 +58,6 @@ export {
   FavoritesBooks,
   FavoritesCard,
   FreeBooks,
+  CartCard,
+  Subscription
 };

@@ -26,6 +26,6 @@ export const theme = css`
     --blue: #d7e4fd;
     --green: #caeff0;
     --orange: #fee9e2;
-    --purple: #f4eefd;
+    --purple: #a8a8a8;
   }
 `;

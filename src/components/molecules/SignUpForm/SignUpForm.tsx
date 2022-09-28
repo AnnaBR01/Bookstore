@@ -4,6 +4,7 @@ import { Input } from "../..";
 import Spinner from "react-spinners/ClipLoader";
 import { ButtonForm, InputError, StyledSignUpForm, Error } from "./styles";
 import { useAppDispatch, useAppSelector, getUserInfo, fetchSignUpUser } from "../../../store";
+import { ROUTE } from "../../../routes/routes";
 
 export type SignUpFormValues = {
   email: string;
@@ -29,7 +30,7 @@ export const SignUpForm = () => {
     dispatch(fetchSignUpUser(userInfo))
       .unwrap()
       .then(() => {
-        navigate(-2); // TODO настроить переход на страницы, error переделать на модальное окно
+        navigate(`/${ROUTE.ACCOUNT}`); // TODO error переделать на модальное окно
       })
       .finally(() => {
         reset();

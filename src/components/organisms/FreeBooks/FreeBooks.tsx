@@ -7,7 +7,6 @@ import { StyledFreeBooks } from "./styles";
 export const FreeBooks = () => {
   const { books } = useAppSelector(getBooks);
   const freeBooks = getFreeBooks(books);
-  console.log(freeBooks);
 
   return (
     <StyledFreeBooks>

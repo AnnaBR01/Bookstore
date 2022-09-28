@@ -24,6 +24,7 @@ import { changeTheme, getUserInfo, useAppDispatch, useAppSelector } from "../../
 import { useToggle, useWindowSize } from "../../../hooks";
 import { BurgerMenu, HeaderCustomLink, SearchHeader } from "../../index";
 import { Breakpoint, Color, Container } from "../../../ui";
+import { Link } from "react-router-dom";
 
 export const Header = () => {
   const { theme } = useAppSelector(getUserInfo);
@@ -57,11 +58,11 @@ export const Header = () => {
     <WrapperHeader>
       <Container>
         <StyledHeader>
-          <HeaderCustomLink to={ROUTE.HOME}>
+          <Link to={ROUTE.HOME}>
             <ButtonLogo>
               <LogoIcon width={width < Breakpoint.MD ? "122" : "137"} fill={Color.Primary} />
             </ButtonLogo>
-          </HeaderCustomLink>
+          </Link>
 
           {width > Breakpoint.LG && <SearchHeader />}
 
@@ -91,7 +92,7 @@ export const Header = () => {
             </Item>
 
             <Item key="3">
-              <HeaderCustomLink to={ROUTE.SIGN_IN}>
+              <HeaderCustomLink to={ROUTE.ACCOUNT}>
                 <ButtonUser>
                   <UserIcon width="24" stroke={Color.Primary} />
                 </ButtonUser>

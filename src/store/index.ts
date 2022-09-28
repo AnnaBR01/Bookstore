@@ -3,6 +3,7 @@ import userReducer from "./features/userSlice";
 import booksReducer from "./features/booksSlice";
 import bookDetailsReducer from "./features/bookDetailsSlice";
 import bookFavoritesReducer from "./features/favoritesSlice";
+import cartReducer from "./features/cartSlice";
 import { useAppDispatch, useAppSelector } from "./hooks/hooks";
 import { store } from "./store";
 import { fetchBooks } from "./features/booksSlice";
@@ -16,6 +17,12 @@ import { getFavoritesBooks } from "./selectors/favoritesSelectors";
 import { addToFavotires } from "./features/favoritesSlice";
 import { removeFavorite } from "./features/favoritesSlice";
 import { fetchSignOut } from "./features/userSlice";
+import { getCartBooks } from "./selectors/cartSelectors";
+import { addToCart } from "./features/cartSlice";
+import { removeFromCart } from "./features/cartSlice";
+import { addQuantity } from "./features/cartSlice";
+import { deleteQuantity } from "./features/cartSlice";
+import { calcTotal } from "./features/cartSlice";
 
 export {
   changeTheme,
@@ -37,4 +44,11 @@ export {
   addToFavotires,
   removeFavorite,
   fetchSignOut,
+  cartReducer,
+  getCartBooks,
+  addToCart,
+  removeFromCart,
+  addQuantity,
+  deleteQuantity,
+  calcTotal,
 };
