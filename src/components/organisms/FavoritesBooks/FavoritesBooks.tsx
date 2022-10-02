@@ -4,16 +4,42 @@ import { Title, FavoritesCard } from "../../index";
 import { FavoritesWrapper, ButtonArrow, StyledFavoritesBooks, Message } from "./styles";
 import { Color, Breakpoint } from "../../../ui";
 import { ArrowLeft } from "../../../assets";
-import { getFavoritesBooks, useAppSelector } from "../../../store";
+import {
+  getFavoritesBooks,
+  useAppSelector,
+  getBooksBySearch,
+  useAppDispatch,
+  resetDebounceSearchValue,
+} from "../../../store";
+import { useEffect, useState } from "react";
+import { IBookDetails } from "../../../types/types";
 
 export const FavoritesBooks = () => {
+  const dispatch = useAppDispatch();
   const navigate = useNavigate();
   const { width = 0 } = useWindowSize();
   const { favoritesBooks } = useAppSelector(getFavoritesBooks);
+  const { debounceSearchValue } = useAppSelector(getBooksBySearch);
+  const [currentFavoritesBooks, setCurrentFavoritesBooks] =
+    useState<IBookDetails[]>(favoritesBooks);
 
   const handlePage = () => {
     navigate(-1);
   };
+
+  useEffect(() => {
+    dispatch(resetDebounceSearchValue());
+  }, []);
+
+  useEffect(() => {
+    debounceSearchValue
+      ? setCurrentFavoritesBooks(
+          favoritesBooks.filter((book) => {
+            return book.title.toLowerCase().includes(debounceSearchValue.toLowerCase());
+          }),
+        )
+      : setCurrentFavoritesBooks(favoritesBooks);
+  }, [debounceSearchValue, favoritesBooks]);
 
   return (
     <StyledFavoritesBooks>
@@ -28,12 +54,14 @@ export const FavoritesBooks = () => {
       <Title value="Favorites" />
 
       <FavoritesWrapper>
-        {favoritesBooks.length !== 0 ? (
-          favoritesBooks.map((book) => {
+        {currentFavoritesBooks.length !== 0 ? (
+          currentFavoritesBooks.map((book) => {
             return <FavoritesCard key={book.isbn13} book={book} />;
           })
         ) : (
-          <Message>You don't have any favorite books. 😔</Message>
+          <Message>
+            {debounceSearchValue ? "No results found. 😔" : "You don't have any favorite books. 😔"}
+          </Message>
         )}
       </FavoritesWrapper>
     </StyledFavoritesBooks>

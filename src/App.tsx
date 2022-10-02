@@ -12,6 +12,7 @@ import {
   SearchPage,
   SignInPage,
   SignUpPage,
+  ResetPasswordPage,
 } from "./pages";
 import { ROUTE } from "./routes/routes";
 import { store } from "./store";
@@ -30,6 +31,7 @@ export const App = () => {
             <Route path={ROUTE.SIGN_UP} element={<SignUpPage />} />
           </Route>
 
+          <Route path={ROUTE.RESET_PASSWORD} element={<ResetPasswordPage />} />
           <Route path={ROUTE.NOT_FOUND} element={<NotFoundPage />} />
 
           <Route element={<RequareAuth />}>

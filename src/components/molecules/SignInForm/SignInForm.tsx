@@ -1,10 +1,17 @@
 import { Controller, SubmitHandler, useForm } from "react-hook-form";
 import Spinner from "react-spinners/ClipLoader";
-import { useAppSelector, getUserInfo, fetchSignInUser, useAppDispatch } from "../../../store";
+import {
+  useAppSelector,
+  getUserInfo,
+  fetchSignInUser,
+  useAppDispatch,
+  resetError,
+} from "../../../store";
 import { Input } from "../..";
-import { ButtonForm, InputError, StyledSignInForm, Error } from "./styles";
-import { useNavigate } from "react-router-dom";
+import { ButtonForm, InputError, StyledSignInForm, Error, Text } from "./styles";
+import { useNavigate, Link } from "react-router-dom";
 import { ROUTE } from "../../../routes/routes";
+import { useEffect } from "react";
 
 export type SignInFormValues = {
   email: string;
@@ -35,6 +42,11 @@ export const SignInForm = () => {
         reset();
       });
   };
+
+  useEffect(() => {
+    error && dispatch(resetError());
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [dispatch]);
 
   return (
     <StyledSignInForm action="#" onSubmit={handleSubmit(onSubmit)}>
@@ -89,6 +101,10 @@ export const SignInForm = () => {
       {errors.password && <InputError>{errors.password.message}</InputError>}
 
       {error && <Error>{error}</Error>}
+
+      <Link to={`/${ROUTE.RESET_PASSWORD}`}>
+        <Text>Forgot password ?</Text>
+      </Link>
 
       <ButtonForm type="submit">
         Sign in <Spinner loading={isPendingAuth} size={25} />

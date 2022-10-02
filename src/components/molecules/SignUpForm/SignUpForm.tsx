@@ -3,8 +3,15 @@ import { useNavigate } from "react-router-dom";
 import { Input } from "../..";
 import Spinner from "react-spinners/ClipLoader";
 import { ButtonForm, InputError, StyledSignUpForm, Error } from "./styles";
-import { useAppDispatch, useAppSelector, getUserInfo, fetchSignUpUser } from "../../../store";
+import {
+  useAppDispatch,
+  useAppSelector,
+  getUserInfo,
+  fetchSignUpUser,
+  resetError,
+} from "../../../store";
 import { ROUTE } from "../../../routes/routes";
+import { useEffect } from "react";
 
 export type SignUpFormValues = {
   email: string;
@@ -36,6 +43,11 @@ export const SignUpForm = () => {
         reset();
       });
   };
+
+  useEffect(() => {
+    error && dispatch(resetError());
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [dispatch]);
 
   return (
     <StyledSignUpForm action="#" onSubmit={handleSubmit(onSubmit)}>

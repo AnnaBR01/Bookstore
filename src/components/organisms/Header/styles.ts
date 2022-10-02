@@ -9,6 +9,7 @@ const WrapperHeader = styled.div`
 `;
 
 const StyledHeader = styled.header`
+  position: relative;
   display: grid;
   grid-template-columns: 20% 55% 5% 20%;
   align-items: center;

@@ -5,6 +5,7 @@ import {
   bookDetailsReducer,
   bookFavoritesReducer,
   cartReducer,
+  searchReducer,
 } from ".";
 
 const store = configureStore({
@@ -14,6 +15,7 @@ const store = configureStore({
     bookDetails: bookDetailsReducer,
     booksFavorites: bookFavoritesReducer,
     cart: cartReducer,
+    search: searchReducer,
   },
 });
 

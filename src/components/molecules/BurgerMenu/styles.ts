@@ -13,7 +13,7 @@ const StyledBurgerMenu = styled.div<{ $isOpen: boolean }>`
 const WrapperContent = styled.div`
   display: grid;
   align-content: start;
-  grid-gap: 13%;
+  grid-gap: 10%;
   grid-template-rows: repeat(auto-fill, 1fr);
   width: 50%;
 

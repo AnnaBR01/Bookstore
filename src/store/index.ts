@@ -4,6 +4,7 @@ import booksReducer from "./features/booksSlice";
 import bookDetailsReducer from "./features/bookDetailsSlice";
 import bookFavoritesReducer from "./features/favoritesSlice";
 import cartReducer from "./features/cartSlice";
+import searchReducer from "./features/searchSlice";
 import { useAppDispatch, useAppSelector } from "./hooks/hooks";
 import { store } from "./store";
 import { fetchBooks } from "./features/booksSlice";
@@ -23,6 +24,13 @@ import { removeFromCart } from "./features/cartSlice";
 import { addQuantity } from "./features/cartSlice";
 import { deleteQuantity } from "./features/cartSlice";
 import { calcTotal } from "./features/cartSlice";
+import { fetchResetPassword } from "./features/userSlice";
+import { resetError } from "./features/userSlice";
+import { fetchUpdateEmailAndPassword } from "./features/userSlice";
+import { fetchBooksBySearch } from "./features/searchSlice";
+import { getBooksBySearch } from "./selectors/searchSelectors";
+import { getDebounceSearchValue } from "./features/searchSlice";
+import { resetDebounceSearchValue } from "./features/searchSlice";
 
 export {
   changeTheme,
@@ -51,4 +59,12 @@ export {
   addQuantity,
   deleteQuantity,
   calcTotal,
+  fetchResetPassword,
+  resetError,
+  fetchUpdateEmailAndPassword,
+  searchReducer,
+  fetchBooksBySearch,
+  getBooksBySearch,
+  getDebounceSearchValue,
+  resetDebounceSearchValue,
 };

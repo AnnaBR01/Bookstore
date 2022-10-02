@@ -1,7 +1,6 @@
 import { HeaderCustomLink } from "./molecules/HeaderCustomLink/HeaderCustomLink";
 import { Footer } from "./organisms/Footer/Footer";
 import { Header } from "./organisms/Header/Header";
-import { SearchInput } from "./atoms/SearchInput/SearchInput";
 import { MainTemplate } from "./organisms/MainTemplate/MainTemplate";
 import { RequareAuth } from "./molecules/RequareAuth/RequareAuth";
 import { Close } from "./atoms/Close/Close";
@@ -34,7 +33,6 @@ export {
   RegistrationCustomLink,
   Footer,
   Header,
-  SearchInput,
   MainTemplate,
   RequareAuth,
   Close,
@@ -59,5 +57,5 @@ export {
   FavoritesCard,
   FreeBooks,
   CartCard,
-  Subscription
+  Subscription,
 };

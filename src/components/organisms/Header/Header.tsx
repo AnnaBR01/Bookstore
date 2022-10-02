@@ -4,8 +4,10 @@ import {
   MoonIcon,
   FavoritesIcon,
   CartIcon,
+  CartActiveIcon,
   UserIcon,
   BurgerIcon,
+  FavoritesActiveIcon,
 } from "../../../assets";
 import {
   ButtonBurger,
@@ -20,7 +22,14 @@ import {
   WrapperHeader,
 } from "./styles";
 import { ROUTE } from "../../../routes/routes";
-import { changeTheme, getUserInfo, useAppDispatch, useAppSelector } from "../../../store";
+import {
+  changeTheme,
+  getUserInfo,
+  useAppDispatch,
+  useAppSelector,
+  getCartBooks,
+  getFavoritesBooks,
+} from "../../../store";
 import { useToggle, useWindowSize } from "../../../hooks";
 import { BurgerMenu, HeaderCustomLink, SearchHeader } from "../../index";
 import { Breakpoint, Color, Container } from "../../../ui";
@@ -32,6 +41,8 @@ export const Header = () => {
   const [isDark, toggleIsInstallDark] = useToggle();
   const { width = 0 } = useWindowSize();
   const [isOpen, toggleIsOpen] = useToggle();
+  const { cartBooks } = useAppSelector(getCartBooks);
+  const { favoritesBooks } = useAppSelector(getFavoritesBooks);
 
   const setAttributeTheme = (themeValue: "light" | "dark") => {
     document.documentElement.setAttribute("theme", `${themeValue}`);
@@ -78,7 +89,11 @@ export const Header = () => {
             <Item key="1">
               <HeaderCustomLink to={ROUTE.FAVORITES}>
                 <ButtonFavorites>
-                  <FavoritesIcon width="24" stroke={Color.Primary} />
+                  {favoritesBooks.length > 0 ? (
+                    <FavoritesActiveIcon width="24" stroke={Color.Primary} />
+                  ) : (
+                    <FavoritesIcon width="24" stroke={Color.Primary} />
+                  )}
                 </ButtonFavorites>
               </HeaderCustomLink>
             </Item>
@@ -86,7 +101,11 @@ export const Header = () => {
             <Item key="2">
               <HeaderCustomLink to={ROUTE.CART}>
                 <ButtonCart>
-                  <CartIcon width="24" stroke={Color.Primary} />
+                  {cartBooks.length > 0 ? (
+                    <CartActiveIcon width="24" stroke={Color.Primary} />
+                  ) : (
+                    <CartIcon width="24" stroke={Color.Primary} />
+                  )}
                 </ButtonCart>
               </HeaderCustomLink>
             </Item>

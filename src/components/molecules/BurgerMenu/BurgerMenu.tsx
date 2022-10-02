@@ -28,7 +28,7 @@ export const BurgerMenu = ({ isOpen, handleBurger }: IProps) => {
           <Close onClick={handleBurger} />
         </BurgerHeader>
 
-        <SearchHeader />
+        <SearchHeader handleBurger={handleBurger} />
         {isAuth ? (
           <>
             <Link to={ROUTE.FAVORITES}>
@@ -37,6 +37,10 @@ export const BurgerMenu = ({ isOpen, handleBurger }: IProps) => {
 
             <Link to={ROUTE.CART}>
               <Description onClick={handleBurger}>Cart</Description>
+            </Link>
+
+            <Link to={ROUTE.ACCOUNT}>
+              <Description onClick={handleBurger}>Account</Description>
             </Link>
 
             <Button type="button" value="Log Out" onClick={handleAuth}>

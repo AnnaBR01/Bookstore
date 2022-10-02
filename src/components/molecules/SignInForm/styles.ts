@@ -21,4 +21,8 @@ const Error = styled.p`
   color: ${Color.Red}
 `;
 
-export { StyledSignInForm, InputError, ButtonForm, Error };
+const Text = styled.p`
+  color: ${Color.Primary};
+`;
+
+export { StyledSignInForm, InputError, ButtonForm, Error, Text };

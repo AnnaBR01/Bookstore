@@ -1,12 +1,13 @@
 import { DetailsBookPage } from "./DetailsBookPage/DetailsBookPage";
-import { AccountPage } from "./AccountPage";
+import { AccountPage } from "./AccountPage/AccountPage";
 import { CartPage } from "./CartPage/CartPage";
 import { FavoritesPage } from "./FavoritesPage/FavoritesPage";
 import { HomePage } from "./HomePage/HomePage";
 import { NotFoundPage } from "./NotFoundPage";
-import { SearchPage } from "./SearchPage";
+import { SearchPage } from "./SearchPage/SearchPage";
 import { SignInPage } from "./SignInPage";
 import { SignUpPage } from "./SignUpPage";
+import { ResetPasswordPage } from "./ResetPasswordPage/ResetPasswordPage";
 
 export {
   DetailsBookPage,
@@ -18,4 +19,5 @@ export {
   SearchPage,
   SignInPage,
   SignUpPage,
+  ResetPasswordPage,
 };

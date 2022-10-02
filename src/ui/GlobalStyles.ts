@@ -7,8 +7,8 @@ ${resetCSS}
 ${theme}
 
 body{
-font-family: 'Nunito Sans', sans-serif;
-background: ${Color.White};
-color: ${Color.Primary};
+    font-family: 'Nunito Sans', sans-serif;
+    background: ${Color.White};
+    color: ${Color.Primary};
 }
 `;
