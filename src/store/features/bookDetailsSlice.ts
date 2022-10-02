@@ -1,7 +1,7 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import { AxiosError } from "axios";
 import { bookstoreAPI } from "../../services";
-import { IBookDetails, IBook, IBooksBySearch } from "../../types/types";
+import { IBookDetails, IBook, IBookResponseBySearch } from "../../types/types";
 import { getSemanticWord } from "../../utils";
 
 interface BookDetails {
@@ -38,7 +38,7 @@ const initialState: BookDetails = {
 };
 
 const fetchBookByDetails = createAsyncThunk<
-  { bookDetails: IBookDetails; booksSimilar: IBooksBySearch },
+  { bookDetails: IBookDetails; booksSimilar: IBookResponseBySearch },
   string,
   { rejectValue: string }
 >("bookDetails/fetchBookByDetails", async (id, { rejectWithValue }) => {

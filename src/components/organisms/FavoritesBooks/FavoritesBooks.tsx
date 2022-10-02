@@ -29,16 +29,17 @@ export const FavoritesBooks = () => {
 
   useEffect(() => {
     dispatch(resetDebounceSearchValue());
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   useEffect(() => {
-    debounceSearchValue
-      ? setCurrentFavoritesBooks(
-          favoritesBooks.filter((book) => {
-            return book.title.toLowerCase().includes(debounceSearchValue.toLowerCase());
-          }),
-        )
-      : setCurrentFavoritesBooks(favoritesBooks);
+    debounceSearchValue &&
+      setCurrentFavoritesBooks(
+        favoritesBooks.filter((book) => {
+          return book.title.toLowerCase().includes(debounceSearchValue.toLowerCase());
+        }),
+      );
+    !debounceSearchValue && setCurrentFavoritesBooks(favoritesBooks);
   }, [debounceSearchValue, favoritesBooks]);
 
   return (

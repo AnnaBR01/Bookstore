@@ -45,6 +45,7 @@ const cartSlice = createSlice({
     },
 
     addQuantity(state, { payload }: PayloadAction<string>) {
+      // eslint-disable-next-line array-callback-return
       state.cartBooks.map((book) => {
         if (book.isbn13 === payload) {
           return (book.quantity = book.quantity + 1);
@@ -53,6 +54,7 @@ const cartSlice = createSlice({
     },
 
     deleteQuantity(state, { payload }: PayloadAction<string>) {
+      // eslint-disable-next-line array-callback-return
       state.cartBooks.map((book) => {
         if (book.isbn13 === payload && book.quantity !== 0) {
           return (book.quantity = book.quantity - 1);

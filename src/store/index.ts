@@ -31,6 +31,7 @@ import { fetchBooksBySearch } from "./features/searchSlice";
 import { getBooksBySearch } from "./selectors/searchSelectors";
 import { getDebounceSearchValue } from "./features/searchSlice";
 import { resetDebounceSearchValue } from "./features/searchSlice";
+import { persistor } from "./store";
 
 export {
   changeTheme,
@@ -67,4 +68,5 @@ export {
   getBooksBySearch,
   getDebounceSearchValue,
   resetDebounceSearchValue,
+  persistor,
 };

@@ -7,13 +7,13 @@ export interface IBook {
   url: string;
 }
 
-export interface IBooks {
+export interface IBookResponse {
   error: string;
   total: string;
   books: IBook[];
 }
 
-export interface IBooksBySearch {
+export interface IBookResponseBySearch {
   total: string;
   page: string;
   books: IBook[];

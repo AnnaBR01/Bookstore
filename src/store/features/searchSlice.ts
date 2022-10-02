@@ -1,7 +1,7 @@
 import { createAsyncThunk, createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { AxiosError } from "axios";
 import { bookstoreAPI } from "../../services";
-import { IBook, IBooksBySearch } from "../../types/types";
+import { IBook, IBookResponseBySearch } from "../../types/types";
 
 interface SearchBooksState {
   booksBySearch: IBook[];
@@ -17,7 +17,7 @@ const initialState: SearchBooksState = {
   debounceSearchValue: "",
 };
 
-const fetchBooksBySearch = createAsyncThunk<IBooksBySearch, string, { rejectValue: string }>(
+const fetchBooksBySearch = createAsyncThunk<IBookResponseBySearch, string, { rejectValue: string }>(
   "search/fetchBooksBySearch",
   async (word, { rejectWithValue }) => {
     try {

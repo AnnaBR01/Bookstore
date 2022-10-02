@@ -27,6 +27,9 @@ import { FavoritesCard } from "./molecules/FavoritesCard/FavoritesCard";
 import { FreeBooks } from "./organisms/FreeBooks/FreeBooks";
 import { CartCard } from "./molecules/CartCard/CartCard";
 import { Subscription } from "./molecules/Subscription/Subscription";
+import { Rewiews } from "./molecules/Rewiews/Rewiews";
+import { Portal } from "./molecules/Portal/Portal";
+import { PortalTarget } from "./molecules/Portal/Portal";
 
 export {
   HeaderCustomLink,
@@ -58,4 +61,7 @@ export {
   FreeBooks,
   CartCard,
   Subscription,
+  Rewiews,
+  Portal,
+  PortalTarget,
 };

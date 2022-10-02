@@ -49,16 +49,17 @@ export const CartPage = () => {
 
   useEffect(() => {
     dispatch(resetDebounceSearchValue());
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   useEffect(() => {
-    debounceSearchValue
-      ? setCurrentCartBooks(
-          cartBooks.filter((book) => {
-            return book.title.toLowerCase().includes(debounceSearchValue.toLowerCase());
-          }),
-        )
-      : setCurrentCartBooks(cartBooks);
+    debounceSearchValue &&
+      setCurrentCartBooks(
+        cartBooks.filter((book) => {
+          return book.title.toLowerCase().includes(debounceSearchValue.toLowerCase());
+        }),
+      );
+    !debounceSearchValue && setCurrentCartBooks(cartBooks);
   }, [debounceSearchValue, cartBooks]);
 
   return (
