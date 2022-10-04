@@ -55,3 +55,8 @@ export interface IBookCart {
   pdf?: { [key: string]: string };
   quantity: number;
 }
+
+export interface SearchValue {
+  query: string;
+  page: number;
+}

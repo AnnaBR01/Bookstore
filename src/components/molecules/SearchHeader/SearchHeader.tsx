@@ -1,6 +1,6 @@
 import { AnimatePresence } from "framer-motion";
 import { useEffect, useState, CSSProperties } from "react";
-import { useMatch, useNavigate } from "react-router-dom";
+import { useMatch, useNavigate, useParams } from "react-router-dom";
 import Spinner from "react-spinners/ClipLoader";
 import { SearchIcon, NothingIcon } from "../../../assets";
 import { useInput, useDebounce, useWindowSize } from "../../../hooks";
@@ -45,17 +45,21 @@ export const SearchHeader = ({ handleBurger }: IProps) => {
   const debounceSearchValue = useDebounce(value);
   const { booksBySearch, isLoading, error } = useAppSelector(getBooksBySearch);
   const currentPageHome = useMatch(ROUTE.HOME);
-  const currentPageSearch = useMatch(ROUTE.SEARCH);
+  const currentPage = useParams().page;
+
+  const currentPageSearch = useMatch(`${ROUTE.SEARCH}${currentPage}`);
   const currentPageFavorites = useMatch(ROUTE.FAVORITES);
   const currentPageCart = useMatch(ROUTE.CART);
   const navigate = useNavigate();
 
   useEffect(() => {
     dispatch(getDebounceSearchValue(debounceSearchValue));
-  }, [dispatch, debounceSearchValue]);
+  }, [debounceSearchValue]);
 
   useEffect(() => {
-    !currentPageFavorites && !currentPageCart && dispatch(fetchBooksBySearch(debounceSearchValue));
+    !currentPageFavorites &&
+      !currentPageCart &&
+      dispatch(fetchBooksBySearch({ query: debounceSearchValue, page: 1 }));
   }, [debounceSearchValue, dispatch, currentPageFavorites, currentPageCart]);
 
   useEffect(() => {
@@ -74,11 +78,10 @@ export const SearchHeader = ({ handleBurger }: IProps) => {
         setValue("");
       }
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [currentPageHome, currentPageSearch]);
 
   const handleSearchPage = () => {
-    !currentPageFavorites && !currentPageCart && navigate(ROUTE.SEARCH);
+    !currentPageFavorites && !currentPageCart && navigate(`${ROUTE.SEARCH}1`);
   };
 
   return (

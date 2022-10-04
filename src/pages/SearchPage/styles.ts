@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { BODY2, H2, Media } from "./../../ui";
+import { BODY2, Color, H2, Media } from "./../../ui";
 
 const StyledSearchPage = styled.div`
   display: grid;
@@ -47,4 +47,68 @@ const Message = styled.h3`
   ${H2};
 `;
 
-export { StyledSearchPage, StyledError, SearchBooks, Info, BooksSearchWrapper, Message };
+const Pagination = styled.div`
+  display: flex;
+  justify-content: space-between;
+  padding-top: 50px;
+  border-top: 1 solid ${Color.Gray};
+  ${Media.MD} {
+    margin-top: 37px;
+  }
+`;
+
+const ButtonArrow = styled.button`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 67px;
+  color: ${Color.Primary};
+  ${BODY2}
+  background: none;
+  border: none;
+  cursor: pointer;
+
+  :disabled {
+    color: ${Color.Secondary};
+  }
+
+  ${Media.MD} {
+    width: 60px;
+  }
+`;
+
+const PageList = styled.ul`
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-gap: 32px;
+`;
+
+const PageItem = styled.li``;
+
+const PageItemButton = styled.button<{ $isActive: boolean }>`
+  color: ${({ $isActive }) => ($isActive ? `${Color.Primary}` : `${Color.Secondary}`)};
+  ${BODY2};
+  background: none;
+  border: none;
+  cursor: pointer;
+`;
+
+const MiddlePageList = styled.div`
+  ${BODY2};
+  color: ${Color.Primary};
+`;
+
+export {
+  StyledSearchPage,
+  StyledError,
+  SearchBooks,
+  Info,
+  BooksSearchWrapper,
+  Message,
+  Pagination,
+  ButtonArrow,
+  PageList,
+  PageItem,
+  PageItemButton,
+  MiddlePageList,
+};

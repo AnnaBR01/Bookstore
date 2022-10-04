@@ -53,7 +53,7 @@ export const FavoritesCard = ({ book }: IProps) => {
             <Price>{price === "$0.00" ? "for FREE" : price}</Price>
             <ReactStars
               count={5}
-              value={rating}
+              value={+rating}
               size={20}
               color={Color.Gray}
               activeColor={Color.Primary}

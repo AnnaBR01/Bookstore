@@ -44,8 +44,9 @@ const fetchBookByDetails = createAsyncThunk<
 >("bookDetails/fetchBookByDetails", async (id, { rejectWithValue }) => {
   try {
     const bookDetails = await bookstoreAPI.getDetailsByIsbn13(id);
-    const word = getSemanticWord(bookDetails.title);
-    const booksSimilar = await bookstoreAPI.getBooksBySearch(word);
+    const query = getSemanticWord(bookDetails.title);
+
+    const booksSimilar = await bookstoreAPI.getBooksBySearch({ query: query, page: 1 });
     return { bookDetails, booksSimilar };
   } catch (error) {
     const axiosError = error as AxiosError;

@@ -6,12 +6,14 @@ import { GlobalStyles } from "./ui/GlobalStyles";
 import "./firebase";
 import { PersistGate } from "redux-persist/integration/react";
 import { persistor } from "./store/store";
+import { ScrollToTop } from "./components";
 
 const root = ReactDOM.createRoot(document.getElementById("root") as HTMLElement);
 root.render(
   <BrowserRouter>
     <PersistGate loading={null} persistor={persistor}>
       <GlobalStyles />
+      <ScrollToTop />
       <App />
     </PersistGate>
   </BrowserRouter>,

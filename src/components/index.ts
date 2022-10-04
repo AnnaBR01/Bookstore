@@ -30,6 +30,7 @@ import { Subscription } from "./molecules/Subscription/Subscription";
 import { Rewiews } from "./molecules/Rewiews/Rewiews";
 import { Portal } from "./molecules/Portal/Portal";
 import { PortalTarget } from "./molecules/Portal/Portal";
+import { ScrollToTop } from "./atoms/ScrollToTop/ScrollToTop";
 
 export {
   HeaderCustomLink,
@@ -64,4 +65,5 @@ export {
   Rewiews,
   Portal,
   PortalTarget,
+  ScrollToTop,
 };

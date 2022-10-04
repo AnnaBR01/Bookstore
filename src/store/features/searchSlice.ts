@@ -17,17 +17,18 @@ const initialState: SearchBooksState = {
   debounceSearchValue: "",
 };
 
-const fetchBooksBySearch = createAsyncThunk<IBookResponseBySearch, string, { rejectValue: string }>(
-  "search/fetchBooksBySearch",
-  async (word, { rejectWithValue }) => {
-    try {
-      return await bookstoreAPI.getBooksBySearch(word);
-    } catch (error) {
-      const axiosError = error as AxiosError;
-      return rejectWithValue(axiosError.message);
-    }
-  },
-);
+const fetchBooksBySearch = createAsyncThunk<
+  IBookResponseBySearch,
+  { query: string; page: number },
+  { rejectValue: string }
+>("search/fetchBooksBySearch", async ({ query, page }, { rejectWithValue }) => {
+  try {
+    return await bookstoreAPI.getBooksBySearch({ query, page });
+  } catch (error) {
+    const axiosError = error as AxiosError;
+    return rejectWithValue(axiosError.message);
+  }
+});
 
 const searchSlice = createSlice({
   name: "search",

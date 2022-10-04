@@ -23,7 +23,7 @@ export const App = () => {
       <Routes>
         <Route path={ROUTE.HOME} element={<MainTemplate />}>
           <Route index element={<HomePage />} />
-          <Route path={ROUTE.SEARCH} element={<SearchPage />} />
+          <Route path={`${ROUTE.SEARCH}:page`} element={<SearchPage />} />
           <Route path={`${ROUTE.DETAILS_BOOK}:id`} element={<DetailsBookPage />} />
 
           <Route element={<Registration />}>

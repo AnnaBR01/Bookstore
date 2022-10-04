@@ -16,6 +16,8 @@ import { ReactComponent as ChevronTopIcon } from "./icons/chevron-top.svg";
 import { ReactComponent as MinusIcon } from "./icons/minus.svg";
 import { ReactComponent as PlusIcon } from "./icons/plus.svg";
 import { ReactComponent as NothingIcon } from "./icons/nothing.svg";
+import { ReactComponent as ArrowLeftPagination } from "./icons/arrow-left-pagination.svg";
+import { ReactComponent as ArrowRightPagination } from "./icons/arrow-right-pagination.svg";
 
 export {
   LogoIcon,
@@ -36,4 +38,6 @@ export {
   CartActiveIcon,
   FavoritesActiveIcon,
   NothingIcon,
+  ArrowLeftPagination,
+  ArrowRightPagination,
 };
