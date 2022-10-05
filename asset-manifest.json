@@ -1,7 +1,8 @@
 {
   "files": {
     "main.css": "/bookstore/static/css/main.88474277.css",
-    "main.js": "/bookstore/static/js/main.1ded8575.js",
+    "main.js": "/bookstore/static/js/main.d7cfef85.js",
+    "static/media/sad.png": "/bookstore/static/media/sad.f0617a1f670f7487379c.png",
     "static/media/logo.svg": "/bookstore/static/media/logo.5f5c7c692afea6be657caefbaadb4ed3.svg",
     "static/media/sun.svg": "/bookstore/static/media/sun.0ebf7f0b692f17e27e57262ed3e84b1d.svg",
     "static/media/minus.svg": "/bookstore/static/media/minus.a344d33d3a4b7fbd1c16ab67b92db73d.svg",
@@ -14,8 +15,8 @@
     "static/media/arrow-left-pagination.svg": "/bookstore/static/media/arrow-left-pagination.80f0d970c73ec1e40bafba2d4cc39672.svg",
     "static/media/favorites.svg": "/bookstore/static/media/favorites.589250a26dfab13cb08cf0023c80d050.svg",
     "static/media/nothing.svg": "/bookstore/static/media/nothing.275ea9a3c8c53f26cfca1c1c80b323bc.svg",
-    "static/media/close.svg": "/bookstore/static/media/close.483b417d35125958788a5adf463cda29.svg",
     "index.html": "/bookstore/index.html",
+    "static/media/close.svg": "/bookstore/static/media/close.483b417d35125958788a5adf463cda29.svg",
     "static/media/cart.svg": "/bookstore/static/media/cart.0f87c92d175a80a5ecc950626415ca36.svg",
     "static/media/chevron-top.svg": "/bookstore/static/media/chevron-top.a86200fe7e4bd9381d94042d09d6231f.svg",
     "static/media/chevron-bottom.svg": "/bookstore/static/media/chevron-bottom.d03cc9444904b71547fd8e797a06239e.svg",
@@ -24,10 +25,10 @@
     "static/media/burger-icon.svg": "/bookstore/static/media/burger-icon.aa5b2ea7401dff844dc11a76073704b1.svg",
     "static/media/plus.svg": "/bookstore/static/media/plus.0c8444b7eb71d09dbb94b8fd1476e698.svg",
     "main.88474277.css.map": "/bookstore/static/css/main.88474277.css.map",
-    "main.1ded8575.js.map": "/bookstore/static/js/main.1ded8575.js.map"
+    "main.d7cfef85.js.map": "/bookstore/static/js/main.d7cfef85.js.map"
   },
   "entrypoints": [
     "static/css/main.88474277.css",
-    "static/js/main.1ded8575.js"
+    "static/js/main.d7cfef85.js"
   ]
 }
