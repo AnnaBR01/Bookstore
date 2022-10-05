@@ -1,7 +1,7 @@
 import { useKeenSlider } from "keen-slider/react";
 import "keen-slider/keen-slider.min.css";
-import { BookCard } from "../../index";
-import { IBook } from "../../../types/types";
+import { IBook } from "types/types";
+import { BookCard } from "components";
 import { SliderContainer, StyledSlide } from "./styles";
 
 interface IProps {

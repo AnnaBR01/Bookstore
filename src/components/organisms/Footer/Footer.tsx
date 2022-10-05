@@ -1,5 +1,4 @@
-import React from "react";
-import { Container } from "../../../ui";
+import { Container } from "ui";
 import { FooterDescription, StyledFooter, WrapperFooter } from "./styles";
 
 export const Footer = () => {

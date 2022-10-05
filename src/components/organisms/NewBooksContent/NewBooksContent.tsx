@@ -1,11 +1,9 @@
-import React, { CSSProperties, useEffect } from "react";
-import { fetchBooks, getBooks, useAppDispatch, useAppSelector } from "../../../store";
-import { Error } from "../..";
-
-import { BookCard, Title } from "../../index";
-import { BooksWrapper, StyledError, StyledNewBooksContent } from "./styles";
 import Spinner from "react-spinners/ClipLoader";
-import { Color } from "../../../ui";
+import { CSSProperties, useEffect } from "react";
+import { Error, BookCard, Title } from "components";
+import { fetchBooks, getBooks, useAppDispatch, useAppSelector } from "store";
+import { Color } from "ui";
+import { BooksWrapper, StyledError, StyledNewBooksContent } from "./styles";
 
 const override: CSSProperties = {
   margin: "200px auto",

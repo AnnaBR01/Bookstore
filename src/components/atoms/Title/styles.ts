@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { H1 } from "../../../ui";
+import { H1 } from "ui";
 
 const StyledTitle = styled.h1`
   ${H1}

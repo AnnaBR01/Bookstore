@@ -1,4 +1,4 @@
-import React, { ReactNode, MouseEvent } from "react";
+import { ReactNode, MouseEvent } from "react";
 import { StyledButton } from "./styles";
 
 interface IProps {

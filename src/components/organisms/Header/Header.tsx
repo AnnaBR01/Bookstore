@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+import { BurgerMenu, HeaderCustomLink, SearchHeader } from "components";
 import {
   LogoIcon,
   SunIcon,
@@ -8,7 +10,18 @@ import {
   UserIcon,
   BurgerIcon,
   FavoritesActiveIcon,
-} from "../../../assets";
+} from "assets";
+import { ROUTE } from "routes";
+import {
+  changeTheme,
+  getUserInfo,
+  useAppDispatch,
+  useAppSelector,
+  getCartBooks,
+  getFavoritesBooks,
+} from "store";
+import { useToggle, useWindowSize } from "hooks";
+import { Breakpoint, Color, Container } from "ui";
 import {
   ButtonBurger,
   ButtonFavorites,
@@ -21,19 +34,6 @@ import {
   ButtonTheme,
   WrapperHeader,
 } from "./styles";
-import { ROUTE } from "../../../routes/routes";
-import {
-  changeTheme,
-  getUserInfo,
-  useAppDispatch,
-  useAppSelector,
-  getCartBooks,
-  getFavoritesBooks,
-} from "../../../store";
-import { useToggle, useWindowSize } from "../../../hooks";
-import { BurgerMenu, HeaderCustomLink, SearchHeader } from "../../index";
-import { Breakpoint, Color, Container } from "../../../ui";
-import { Link } from "react-router-dom";
 
 export const Header = () => {
   const { theme } = useAppSelector(getUserInfo);

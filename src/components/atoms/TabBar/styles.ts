@@ -1,9 +1,9 @@
 import styled from "styled-components";
-import { BODY2, Media, Color } from "../../../ui";
+import { BODY2, Media, Color } from "ui";
 
 const StyleTabBar = styled.div`
-  width: 100%;
   display: flex;
+  width: 100%;
   margin-bottom: 49px;
   border-bottom: 1px solid ${Color.Gray};
 

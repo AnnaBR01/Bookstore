@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { H3, Media } from "../../../ui";
+import { H3, Media } from "ui";
 
 const StyledFavoritesBooks = styled.div`
   display: flex;

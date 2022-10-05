@@ -1,8 +1,8 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import { AxiosError } from "axios";
-import { bookstoreAPI } from "../../services";
-import { IBookDetails, IBook, IBookResponseBySearch } from "../../types/types";
-import { getSemanticWord } from "../../utils";
+import { bookstoreAPI } from "services";
+import { IBookDetails, IBook, IBookResponseBySearch } from "types/types";
+import { getSemanticWord } from "utils";
 
 interface BookDetails {
   bookDetails: IBookDetails;

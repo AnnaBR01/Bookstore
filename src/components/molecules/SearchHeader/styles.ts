@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import styled from "styled-components";
-import { Color, Media, H3 } from "../../../ui";
+import { Color, Media, H3 } from "ui";
 
 const Search = styled.div`
   justify-self: center;

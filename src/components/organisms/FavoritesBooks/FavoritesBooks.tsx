@@ -1,18 +1,18 @@
+import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { useWindowSize } from "../../../hooks";
-import { Title, FavoritesCard } from "../../index";
-import { FavoritesWrapper, ButtonArrow, StyledFavoritesBooks, Message } from "./styles";
-import { Color, Breakpoint } from "../../../ui";
-import { ArrowLeft } from "../../../assets";
+import { useWindowSize } from "hooks";
+import { Title, FavoritesCard } from "components";
+import { Color, Breakpoint } from "ui";
+import { ArrowLeft } from "assets";
 import {
   getFavoritesBooks,
   useAppSelector,
   getBooksBySearch,
   useAppDispatch,
   resetDebounceSearchValue,
-} from "../../../store";
-import { useEffect, useState } from "react";
-import { IBookDetails } from "../../../types/types";
+} from "store";
+import { IBookDetails } from "types/types";
+import { FavoritesWrapper, ButtonArrow, StyledFavoritesBooks, Message } from "./styles";
 
 export const FavoritesBooks = () => {
   const dispatch = useAppDispatch();
@@ -29,8 +29,7 @@ export const FavoritesBooks = () => {
 
   useEffect(() => {
     dispatch(resetDebounceSearchValue());
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [dispatch]);
 
   useEffect(() => {
     debounceSearchValue &&

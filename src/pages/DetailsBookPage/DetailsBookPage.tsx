@@ -1,9 +1,9 @@
+import Spinner from "react-spinners/ClipLoader";
 import { CSSProperties, useEffect } from "react";
 import { useParams } from "react-router-dom";
-import Spinner from "react-spinners/ClipLoader";
-import { fetchBookByDetails, getDetailsBook, useAppDispatch, useAppSelector } from "../../store";
-import { DetailsBook, SimilarBooks, Error, Subscription } from "../../components";
-import { Color } from "../../ui";
+import { DetailsBook, SimilarBooks, Error, Subscription } from "components";
+import { fetchBookByDetails, getDetailsBook, useAppDispatch, useAppSelector } from "store";
+import { Color } from "ui";
 import { StyledDetailsBookPage, StyledError } from "./styles";
 
 const override: CSSProperties = {

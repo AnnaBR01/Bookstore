@@ -4,6 +4,7 @@ import ReactDOM from "react-dom";
 export enum PortalTarget {
   ROOT = "root",
   REWIEWS = "reviews",
+  NOTIFICATION = "reviews",
 }
 
 interface IPortalProps {

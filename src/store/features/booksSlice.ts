@@ -1,7 +1,7 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import { AxiosError } from "axios";
-import { bookstoreAPI } from "../../services";
-import { IBook, IBookResponse } from "../../types/types";
+import { bookstoreAPI } from "services";
+import { IBook, IBookResponse } from "types/types";
 
 interface BooksState {
   books: IBook[];

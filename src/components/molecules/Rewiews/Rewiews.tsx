@@ -1,8 +1,7 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import Select, { SingleValue } from "react-select";
-
-import { Portal, PortalTarget } from "../..";
-import { getRewiewMessage } from "../../../utils";
+import { Portal, PortalTarget } from "components";
+import { getRewiewMessage } from "utils";
 import { StyledRewiews, Modal, Title, customStyles, Message, Button } from "./styles";
 
 export interface IOption {

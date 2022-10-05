@@ -1,7 +1,6 @@
-import { Slider, SecondaryTitle } from "../..";
-import { getBooks, useAppSelector } from "../../../store";
-import { getFreeBooks } from "../../../utils";
-
+import { Slider, SecondaryTitle } from "components";
+import { getBooks, useAppSelector } from "store";
+import { getFreeBooks } from "utils";
 import { StyledFreeBooks } from "./styles";
 
 export const FreeBooks = () => {

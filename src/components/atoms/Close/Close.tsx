@@ -1,6 +1,5 @@
-import React from "react";
-import { CloseIcon } from "../../../assets";
-import { Color } from "../../../ui";
+import { CloseIcon } from "assets";
+import { Color } from "ui";
 import { StyledClose } from "./styles";
 
 interface IProps {

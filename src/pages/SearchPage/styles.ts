@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { BODY2, Color, H2, Media } from "./../../ui";
+import { BODY2, Color, H2, Media } from "ui";
 
 const StyledSearchPage = styled.div`
   display: grid;

@@ -1,18 +1,19 @@
+import Spinner from "react-spinners/ClipLoader";
 import { AnimatePresence } from "framer-motion";
 import { useEffect, useState, CSSProperties } from "react";
-import { useMatch, useNavigate, useParams } from "react-router-dom";
-import Spinner from "react-spinners/ClipLoader";
-import { SearchIcon, NothingIcon } from "../../../assets";
-import { useInput, useDebounce, useWindowSize } from "../../../hooks";
-import { ROUTE } from "../../../routes/routes";
+import { Link, useMatch, useNavigate, useParams } from "react-router-dom";
+import { Error } from "components";
+import { SearchIcon, NothingIcon } from "assets";
+import { useInput, useDebounce, useWindowSize } from "hooks";
+import { ROUTE } from "routes";
 import {
   fetchBooksBySearch,
   getBooksBySearch,
   getDebounceSearchValue,
   useAppDispatch,
   useAppSelector,
-} from "../../../store";
-import { Breakpoint, Color } from "../../../ui";
+} from "store";
+import { Breakpoint, Color } from "ui";
 import {
   Search,
   ButtonSearch,
@@ -27,7 +28,6 @@ import {
   Word,
   StyledError,
 } from "./styles";
-import { Error } from "../..";
 
 interface IProps {
   handleBurger?: () => void;
@@ -54,7 +54,7 @@ export const SearchHeader = ({ handleBurger }: IProps) => {
 
   useEffect(() => {
     dispatch(getDebounceSearchValue(debounceSearchValue));
-  }, [debounceSearchValue]);
+  }, [debounceSearchValue, dispatch]);
 
   useEffect(() => {
     !currentPageFavorites &&
@@ -78,7 +78,7 @@ export const SearchHeader = ({ handleBurger }: IProps) => {
         setValue("");
       }
     }
-  }, [currentPageHome, currentPageSearch]);
+  }, [currentPageHome, currentPageSearch, setValue]);
 
   const handleSearchPage = () => {
     !currentPageFavorites && !currentPageCart && navigate(`${ROUTE.SEARCH}1`);
@@ -114,12 +114,14 @@ export const SearchHeader = ({ handleBurger }: IProps) => {
               <SearchList>
                 {booksBySearch.map((book) => {
                   return (
-                    <SearchCard key={book.isbn13}>
-                      <WrapperImage>
-                        <Image src={book.image} alt={book.title} />
-                      </WrapperImage>
-                      <Title>{book.title}</Title>
-                    </SearchCard>
+                    <Link to={`${ROUTE.DETAILS_BOOK}${book.isbn13}`}>
+                      <SearchCard key={book.isbn13}>
+                        <WrapperImage>
+                          <Image src={book.image} alt={book.title} />
+                        </WrapperImage>
+                        <Title>{book.title}</Title>
+                      </SearchCard>
+                    </Link>
                   );
                 })}
               </SearchList>

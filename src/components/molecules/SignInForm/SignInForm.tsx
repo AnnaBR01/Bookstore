@@ -1,17 +1,11 @@
-import { Controller, SubmitHandler, useForm } from "react-hook-form";
 import Spinner from "react-spinners/ClipLoader";
-import {
-  useAppSelector,
-  getUserInfo,
-  fetchSignInUser,
-  useAppDispatch,
-  resetError,
-} from "../../../store";
-import { Input } from "../..";
-import { ButtonForm, InputError, StyledSignInForm, Error, Text } from "./styles";
-import { useNavigate, Link } from "react-router-dom";
-import { ROUTE } from "../../../routes/routes";
 import { useEffect } from "react";
+import { useNavigate, Link } from "react-router-dom";
+import { Controller, SubmitHandler, useForm } from "react-hook-form";
+import { Input } from "components";
+import { useAppSelector, getUserInfo, fetchSignInUser, useAppDispatch, resetError } from "store";
+import { ROUTE } from "routes";
+import { ButtonForm, InputError, StyledSignInForm, Error, Text } from "./styles";
 
 export type SignInFormValues = {
   email: string;
@@ -45,8 +39,7 @@ export const SignInForm = () => {
 
   useEffect(() => {
     error && dispatch(resetError());
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [dispatch]);
+  }, [dispatch, error]);
 
   return (
     <StyledSignInForm action="#" onSubmit={handleSubmit(onSubmit)}>

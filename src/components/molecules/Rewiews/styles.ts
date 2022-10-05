@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { motion } from "framer-motion";
 import { StylesConfig } from "react-select";
-import { Color, H2, BODY2, Media } from "../../../ui";
+import { Color, H2, BODY2, Media } from "ui";
 import { IOption } from "./Rewiews";
 
 const StyledRewiews = styled(motion.div)`

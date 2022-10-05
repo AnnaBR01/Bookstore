@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
-import { ROUTE } from "../../../routes/routes";
-import { IBook } from "../../../types/types";
+import { ROUTE } from "routes";
+import { IBook } from "types/types";
 import {
   StyledBookCard,
   WrapperImage,

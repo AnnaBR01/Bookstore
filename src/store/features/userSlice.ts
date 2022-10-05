@@ -8,7 +8,7 @@ import {
   updateEmail,
   updatePassword,
 } from "firebase/auth";
-import { FirebaseError, FirebaseErrorCode, getFirebaseMessage } from "../../utils";
+import { FirebaseError, FirebaseErrorCode, getFirebaseMessage } from "utils";
 
 interface UserState {
   isAuth: boolean;
@@ -25,7 +25,7 @@ const initialState: UserState = {
   isAuth: false,
   email: "",
   isPendingAuth: false,
-  error: null, // TODO в будущем ошибки не класть в localstorage
+  error: null,
   creationTime: "",
   lastSignInTime: "",
   theme: "light",

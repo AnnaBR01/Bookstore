@@ -1,6 +1,5 @@
 import styled from "styled-components";
-
-import { Color, H3 } from "../../../ui";
+import { Color, H3 } from "ui";
 import { StyledButton } from "../../atoms/Button/styles";
 
 const StyledSignUpForm = styled.form`

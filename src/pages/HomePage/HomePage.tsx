@@ -1,4 +1,4 @@
-import { NewBooksContent, Subscription } from "../../components";
+import { NewBooksContent, Subscription } from "components";
 import { StyledHomePage } from "./styles";
 
 export const HomePage = () => {

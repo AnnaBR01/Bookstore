@@ -1,11 +1,13 @@
+import ReactStars from "react-rating-stars-component";
 import { MouseEvent, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import ReactStars from "react-rating-stars-component";
-import { Title, ButtonLike, Button, TabBar } from "../../index";
-import { useToggle, useWindowSize } from "../../../hooks";
-import { IBookDetails } from "../../../types/types";
-import { Breakpoint, Color } from "../../../ui";
-import { ArrowLeft, ChevronBottomIcon, ChevronTopIcon } from "../../../assets";
+import { AnimatePresence } from "framer-motion";
+import { Title, ButtonLike, Button, TabBar, Notification } from "components";
+import { useToggle, useWindowSize } from "hooks";
+import { IBookDetails } from "types/types";
+import { Breakpoint, Color } from "ui";
+import { ArrowLeft, ChevronBottomIcon, ChevronTopIcon } from "assets";
+import { useAppDispatch, addToFavotires, getUserInfo, useAppSelector, addToCart } from "store";
 import {
   StyledDetailsBook,
   ButtonArrow,
@@ -25,13 +27,6 @@ import {
   Preview,
   DescriptionBar,
 } from "./styles";
-import {
-  useAppDispatch,
-  addToFavotires,
-  getUserInfo,
-  useAppSelector,
-  addToCart,
-} from "../../../store";
 
 interface IProps {
   bookDetails: IBookDetails;
@@ -46,7 +41,8 @@ export const DetailsBook = ({ bookDetails }: IProps) => {
   const [isOpen, toggleIsOpen] = useToggle();
   const [isFavorites, toggleIsFavorites] = useToggle();
   const [tab, setTab] = useState<"description" | "authors">("description");
-  const { isAuth } = useAppSelector(getUserInfo); // TODO настроить disabled на лайк
+  const { isAuth } = useAppSelector(getUserInfo);
+  const [isOpenNotification, toggleIsOpenNotification] = useToggle();
 
   const handlePage = () => {
     navigate(-1);
@@ -68,6 +64,7 @@ export const DetailsBook = ({ bookDetails }: IProps) => {
     if (isAuth) {
       e.preventDefault();
       dispatch(addToCart({ ...bookDetails, quantity: 0 }));
+      toggleIsOpenNotification();
     }
   };
 
@@ -151,6 +148,14 @@ export const DetailsBook = ({ bookDetails }: IProps) => {
               onClick={handleAddToCart}
               disabled={!isAuth}
             ></Button>
+            <AnimatePresence>
+              {isOpenNotification && (
+                <Notification
+                  value="The book has been added to the cart!"
+                  toggleIsOpenNotification={toggleIsOpenNotification}
+                />
+              )}
+            </AnimatePresence>
 
             {pdf && (
               <Preview href={Object.values(pdf)[0]} target="_blank">

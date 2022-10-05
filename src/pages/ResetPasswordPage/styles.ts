@@ -1,6 +1,6 @@
 import styled from "styled-components";
-import { StyledButton } from "../../components/atoms/Button/styles";
-import { Color, H3, Media, BODY2 } from "../../ui";
+import { StyledButton } from "components/atoms/Button/styles";
+import { Color, H3, Media, BODY2 } from "ui";
 
 const StyledResetPasswordPage = styled.div`
   display: flex;

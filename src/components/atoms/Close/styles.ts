@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { Color } from "../../../ui";
+import { Color } from "ui";
 
 const StyledClose = styled.button`
   padding: 16px;

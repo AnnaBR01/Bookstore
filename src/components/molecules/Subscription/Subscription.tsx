@@ -1,12 +1,15 @@
 import { useForm } from "react-hook-form";
-import { SecondaryTitle } from "../..";
+import { AnimatePresence } from "framer-motion";
+import { SecondaryTitle, Notification } from "components";
 import { ButtonForm, Form, StyledSubscription, Text, Input } from "./styles";
+import { useToggle } from "hooks";
 
 export const Subscription = () => {
   const { register, handleSubmit, reset } = useForm();
+  const [isOpenNotification, toggleIsOpenNotification] = useToggle();
 
   const onSubmit = (): void => {
-    alert("Ok"); //TODO модалка
+    toggleIsOpenNotification();
     reset();
   };
   return (
@@ -20,6 +23,14 @@ export const Subscription = () => {
         <Input type="text" placeholder="Your email" {...register("name")} />
         <ButtonForm type="submit">Subscribe</ButtonForm>
       </Form>
+      <AnimatePresence>
+        {isOpenNotification && (
+          <Notification
+            value="Subscription is issued!"
+            toggleIsOpenNotification={toggleIsOpenNotification}
+          />
+        )}{" "}
+      </AnimatePresence>
     </StyledSubscription>
   );
 };

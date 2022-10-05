@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { BODY2, Color, H3, Media } from "../../../ui";
+import { BODY2, Color, H3, Media } from "ui";
 
 const StyledFavoritesCard = styled.li`
   position: relative;

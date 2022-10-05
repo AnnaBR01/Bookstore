@@ -1,7 +1,6 @@
 import { Provider } from "react-redux";
 import { Route, Routes } from "react-router-dom";
-import { MainTemplate, Registration, RequareAuth } from "./components";
-
+import { MainTemplate, Registration, RequareAuth } from "components";
 import {
   AccountPage,
   DetailsBookPage,
@@ -13,9 +12,9 @@ import {
   SignInPage,
   SignUpPage,
   ResetPasswordPage,
-} from "./pages";
-import { ROUTE } from "./routes/routes";
-import { store } from "./store";
+} from "pages";
+import { ROUTE } from "routes/routes";
+import { store } from "store";
 
 export const App = () => {
   return (

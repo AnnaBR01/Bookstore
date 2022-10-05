@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { ArrowLeft } from "../../assets";
-import { Title, CartCard, Button } from "../../components";
-
-import { useWindowSize } from "../../hooks";
+import { AnimatePresence } from "framer-motion";
+import { Title, CartCard, Button, Notification } from "components";
+import { ArrowLeft } from "assets";
+import { useToggle, useWindowSize } from "hooks";
 import {
   calcTotal,
   getCartBooks,
@@ -11,9 +11,9 @@ import {
   useAppSelector,
   resetDebounceSearchValue,
   getBooksBySearch,
-} from "../../store";
-import { IBookCart } from "../../types/types";
-import { Breakpoint, Color } from "../../ui";
+} from "store";
+import { IBookCart } from "types/types";
+import { Breakpoint, Color } from "ui";
 import {
   ButtonArrow,
   CartContainer,
@@ -34,6 +34,7 @@ export const CartPage = () => {
   const { cartBooks, sum, vat, total } = useAppSelector(getCartBooks);
   const { debounceSearchValue } = useAppSelector(getBooksBySearch);
   const [currentCartBooks, setCurrentCartBooks] = useState<IBookCart[]>(cartBooks);
+  const [isOpenNotification, toggleIsOpenNotification] = useToggle();
 
   const totalQuantity = cartBooks.reduce((sum, book) => {
     return book.quantity + sum;
@@ -49,8 +50,7 @@ export const CartPage = () => {
 
   useEffect(() => {
     dispatch(resetDebounceSearchValue());
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [dispatch]);
 
   useEffect(() => {
     debounceSearchValue &&
@@ -61,6 +61,10 @@ export const CartPage = () => {
       );
     !debounceSearchValue && setCurrentCartBooks(cartBooks);
   }, [debounceSearchValue, cartBooks]);
+
+  const handleClick = (): void => {
+    toggleIsOpenNotification();
+  };
 
   return (
     <StyledCartPage>
@@ -104,10 +108,19 @@ export const CartPage = () => {
               <Price>${total.toFixed(2)}</Price>
             </InfoContainer>
 
-            <Button type="button" value="Check out"></Button>
+            <Button type="button" value="Check out" onClick={handleClick}></Button>
           </ResultContainer>
         )}
+
+        <AnimatePresence>
+          {isOpenNotification && (
+            <Notification
+              value="The order has been placed!"
+              toggleIsOpenNotification={toggleIsOpenNotification}
+            />
+          )}
+        </AnimatePresence>
       </CartWrapper>
     </StyledCartPage>
   );
-}; //TODO модальное окно "заказ отправлен курьеру"
+};

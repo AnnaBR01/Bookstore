@@ -1,17 +1,11 @@
+import Spinner from "react-spinners/ClipLoader";
+import { useEffect } from "react";
 import { Controller, SubmitHandler, useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
-import { Input } from "../..";
-import Spinner from "react-spinners/ClipLoader";
+import { Input } from "components";
+import { useAppDispatch, useAppSelector, getUserInfo, fetchSignUpUser, resetError } from "store";
+import { ROUTE } from "routes";
 import { ButtonForm, InputError, StyledSignUpForm, Error } from "./styles";
-import {
-  useAppDispatch,
-  useAppSelector,
-  getUserInfo,
-  fetchSignUpUser,
-  resetError,
-} from "../../../store";
-import { ROUTE } from "../../../routes/routes";
-import { useEffect } from "react";
 
 export type SignUpFormValues = {
   email: string;
@@ -46,8 +40,7 @@ export const SignUpForm = () => {
 
   useEffect(() => {
     error && dispatch(resetError());
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [dispatch]);
+  }, [dispatch, error]);
 
   return (
     <StyledSignUpForm action="#" onSubmit={handleSubmit(onSubmit)}>

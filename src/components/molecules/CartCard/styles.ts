@@ -1,6 +1,6 @@
 import styled from "styled-components";
-import { BODY2, Color, H2, H3, Media } from "../../../ui";
-import { MinusIcon, PlusIcon } from "../../../assets";
+import { BODY2, Color, H2, H3, Media } from "ui";
+import { MinusIcon, PlusIcon } from "assets";
 
 const StyledCartCard = styled.li`
   position: relative;

@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import styled from "styled-components";
-import { Color, H3, Media } from "./../../ui";
+import { Color, H3, Media } from "ui";
 
 const StyledAccountPage = styled.div`
   display: flex;

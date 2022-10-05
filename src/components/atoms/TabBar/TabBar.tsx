@@ -1,4 +1,4 @@
-import { useToggle } from "../../../hooks";
+import { useToggle } from "hooks";
 import { Button, StyleTabBar } from "./styles";
 
 interface IProps {

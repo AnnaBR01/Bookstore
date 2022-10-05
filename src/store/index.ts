@@ -1,10 +1,10 @@
-import { changeTheme } from "./features/userSlice";
 import userReducer from "./features/userSlice";
 import booksReducer from "./features/booksSlice";
 import bookDetailsReducer from "./features/bookDetailsSlice";
 import bookFavoritesReducer from "./features/favoritesSlice";
 import cartReducer from "./features/cartSlice";
 import searchReducer from "./features/searchSlice";
+import { changeTheme } from "./features/userSlice";
 import { useAppDispatch, useAppSelector } from "./hooks/hooks";
 import { store } from "./store";
 import { fetchBooks } from "./features/booksSlice";

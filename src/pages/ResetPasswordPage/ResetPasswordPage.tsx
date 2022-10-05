@@ -1,14 +1,11 @@
+import Spinner from "react-spinners/ClipLoader";
 import { useForm, Controller, SubmitHandler } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
-import Spinner from "react-spinners/ClipLoader";
-import {
-  fetchResetPassword,
-  getUserInfo,
-  resetError,
-  useAppDispatch,
-  useAppSelector,
-} from "../../store";
-import { Input } from "../../components/index";
+import { fetchResetPassword, getUserInfo, resetError, useAppDispatch, useAppSelector } from "store";
+import { Input } from "components";
+import { useToggle } from "hooks";
+import { useEffect } from "react";
+import { ROUTE } from "routes";
 import {
   Form,
   ResetTitle,
@@ -19,9 +16,6 @@ import {
   Text,
   Email,
 } from "./styles";
-import { useToggle } from "../../hooks";
-import { useEffect } from "react";
-import { ROUTE } from "../../routes/routes";
 
 export type SignInFormValues = {
   email: string;
@@ -47,8 +41,7 @@ export const ResetPasswordPage = () => {
 
   useEffect(() => {
     error && dispatch(resetError());
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [dispatch]);
+  }, [dispatch, error]);
 
   const handlePage = () => {
     navigate(ROUTE.HOME);

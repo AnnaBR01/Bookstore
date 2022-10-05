@@ -1,4 +1,12 @@
+import Spinner from "react-spinners/ClipLoader";
 import React, { CSSProperties, useEffect } from "react";
+import { useNavigate, useParams } from "react-router-dom";
+import { BookCard, Error, Title } from "components";
+import { useAppSelector, getBooksBySearch, fetchBooksBySearch, useAppDispatch } from "store";
+import { Breakpoint, Color } from "ui";
+import { ArrowLeftPagination, ArrowRightPagination, NothingIcon } from "assets";
+import { ROUTE } from "routes";
+import { useWindowSize } from "hooks";
 import {
   StyledSearchPage,
   StyledError,
@@ -13,14 +21,6 @@ import {
   PageItemButton,
   MiddlePageList,
 } from "./styles";
-import Spinner from "react-spinners/ClipLoader";
-import { useAppSelector, getBooksBySearch, fetchBooksBySearch, useAppDispatch } from "../../store";
-import { BookCard, Error, Title } from "../../components";
-import { Breakpoint, Color } from "../../ui";
-import { ArrowLeftPagination, ArrowRightPagination, NothingIcon } from "../../assets";
-import { useNavigate, useParams } from "react-router-dom";
-import { ROUTE } from "../../routes/routes";
-import { useWindowSize } from "../../hooks";
 
 const override: CSSProperties = {
   margin: "200px auto",

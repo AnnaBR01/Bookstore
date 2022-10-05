@@ -1,5 +1,5 @@
-import { Slider, SecondaryTitle } from "../..";
-import { IBook } from "../../../types/types";
+import { Slider, SecondaryTitle } from "components";
+import { IBook } from "types/types";
 import { StyledSimilarBooks } from "./styles";
 
 interface IProps {

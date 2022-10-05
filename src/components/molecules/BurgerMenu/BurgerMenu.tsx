@@ -1,9 +1,9 @@
+import Spinner from "react-spinners/ClipLoader";
 import { Link } from "react-router-dom";
 import { MouseEvent } from "react";
-import Spinner from "react-spinners/ClipLoader";
-import { Button, Close, SearchHeader } from "../..";
-import { ROUTE } from "../../../routes/routes";
-import { fetchSignOut, getUserInfo, useAppDispatch, useAppSelector } from "../../../store";
+import { Button, Close, SearchHeader } from "components";
+import { ROUTE } from "routes";
+import { fetchSignOut, getUserInfo, useAppDispatch, useAppSelector } from "store";
 import { BurgerHeader, Description, StyledBurgerMenu, WrapperContent, Error } from "./styles";
 
 interface IProps {

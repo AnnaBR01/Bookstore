@@ -1,10 +1,9 @@
 import { useEffect } from "react";
 import { Outlet } from "react-router-dom";
+import { Footer, Header, Rewiews } from "components";
 import { AnimatePresence } from "framer-motion";
-import { useToggle } from "../../../hooks";
-import { Container } from "../../../ui";
-import { Footer, Header, Rewiews } from "../../index";
-
+import { useToggle } from "hooks";
+import { Container } from "ui";
 import { StyledMainTemplate, StyledOutlet } from "./styles";
 
 export const MainTemplate = () => {
@@ -15,8 +14,7 @@ export const MainTemplate = () => {
       toggleIsOpenRewiews();
     }, 50000);
     return () => clearTimeout(handler);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [toggleIsOpenRewiews]);
 
   return (
     <StyledMainTemplate>

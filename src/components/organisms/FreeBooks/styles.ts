@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { Media } from "../../../ui";
+import { Media } from "ui";
 
 const StyledFreeBooks = styled.div`
   display: grid;

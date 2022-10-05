@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { Color, H3, Media } from "../../../ui";
+import { Color, H3, Media } from "ui";
 
 const StyledBurgerMenu = styled.div<{ $isOpen: boolean }>`
   position: absolute;
@@ -16,7 +16,6 @@ const WrapperContent = styled.div`
   grid-gap: 10%;
   grid-template-rows: repeat(auto-fill, 1fr);
   width: 50%;
-
   height: inherit;
   margin-left: auto;
   margin-right: 40px;
@@ -42,7 +41,6 @@ const BurgerHeader = styled.div`
 
 const Description = styled.p`
   text-align: center;
-  font-family: "Bebas Neue";
   font-weight: 700;
   font-size: 32px;
   line-height: 44px;

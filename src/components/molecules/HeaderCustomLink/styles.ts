@@ -1,6 +1,6 @@
 import { PathMatch } from "react-router-dom";
 import styled from "styled-components";
-import { Color } from "../../../ui";
+import { Color } from "ui";
 
 const StyledCustomLink = styled.div<{ $active: PathMatch<string> | null }>`
   display: flex;

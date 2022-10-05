@@ -1,6 +1,9 @@
 import { MouseEvent } from "react";
-import { Close } from "../..";
-import { IBookCart } from "../../../types/types";
+import { Link } from "react-router-dom";
+import { Close } from "components";
+import { IBookCart } from "types/types";
+import { ROUTE } from "routes";
+import { removeFromCart, useAppDispatch, addQuantity, deleteQuantity } from "store";
 import {
   StyledCartCard,
   WrapperImage,
@@ -18,9 +21,6 @@ import {
   Minus,
   Plus,
 } from "./styles";
-import { Link } from "react-router-dom";
-import { ROUTE } from "../../../routes/routes";
-import { removeFromCart, useAppDispatch, addQuantity, deleteQuantity } from "../../../store";
 
 interface IProps {
   book: IBookCart;

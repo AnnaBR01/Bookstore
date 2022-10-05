@@ -31,6 +31,7 @@ import { Rewiews } from "./molecules/Rewiews/Rewiews";
 import { Portal } from "./molecules/Portal/Portal";
 import { PortalTarget } from "./molecules/Portal/Portal";
 import { ScrollToTop } from "./atoms/ScrollToTop/ScrollToTop";
+import { Notification } from "./molecules/Notification/Notification";
 
 export {
   HeaderCustomLink,
@@ -66,4 +67,5 @@ export {
   Portal,
   PortalTarget,
   ScrollToTop,
+  Notification,
 };

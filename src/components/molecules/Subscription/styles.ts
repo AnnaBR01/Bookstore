@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { Color, Media, S1 } from "../../../ui";
+import { Color, Media, S1 } from "ui";
 
 const StyledSubscription = styled.div`
   display: flex;

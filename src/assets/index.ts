@@ -18,6 +18,7 @@ import { ReactComponent as PlusIcon } from "./icons/plus.svg";
 import { ReactComponent as NothingIcon } from "./icons/nothing.svg";
 import { ReactComponent as ArrowLeftPagination } from "./icons/arrow-left-pagination.svg";
 import { ReactComponent as ArrowRightPagination } from "./icons/arrow-right-pagination.svg";
+import notToFound from "./images/sad.png";
 
 export {
   LogoIcon,
@@ -41,3 +42,5 @@ export {
   ArrowLeftPagination,
   ArrowRightPagination,
 };
+
+export { notToFound };

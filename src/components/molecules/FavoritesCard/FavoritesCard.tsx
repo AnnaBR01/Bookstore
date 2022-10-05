@@ -1,8 +1,12 @@
-import { MouseEvent } from "react";
 import ReactStars from "react-rating-stars-component";
-import { ButtonLike } from "../..";
-import { Color } from "../../../ui";
-import { IBookDetails } from "../../../types/types";
+import { MouseEvent } from "react";
+import { Link } from "react-router-dom";
+import { ButtonLike } from "components";
+import { Color } from "ui";
+import { IBookDetails } from "types/types";
+import { useToggle } from "hooks";
+import { removeFavorite, useAppDispatch } from "store";
+import { ROUTE } from "routes";
 import {
   StyledFavoritesCard,
   WrapperImage,
@@ -15,10 +19,6 @@ import {
   Info,
   Like,
 } from "./styles";
-import { useToggle } from "../../../hooks";
-import { removeFavorite, useAppDispatch } from "../../../store";
-import { Link } from "react-router-dom";
-import { ROUTE } from "../../../routes/routes";
 
 interface IProps {
   book: IBookDetails;

@@ -1,6 +1,6 @@
 import styled from "styled-components";
-import { LikeIcon } from "../../../assets";
-import { Color } from "../../../ui";
+import { LikeIcon } from "assets";
+import { Color } from "ui";
 
 const StyledButtonLike = styled.button<{ $isFavorites: boolean }>`
   width: 56px;

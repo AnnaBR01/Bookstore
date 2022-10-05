@@ -3,10 +3,10 @@ import { AccountPage } from "./AccountPage/AccountPage";
 import { CartPage } from "./CartPage/CartPage";
 import { FavoritesPage } from "./FavoritesPage/FavoritesPage";
 import { HomePage } from "./HomePage/HomePage";
-import { NotFoundPage } from "./NotFoundPage";
+import { NotFoundPage } from "./NotFoundPage/NotFoundPage";
 import { SearchPage } from "./SearchPage/SearchPage";
-import { SignInPage } from "./SignInPage";
-import { SignUpPage } from "./SignUpPage";
+import { SignInPage } from "./SignInPage/SignInPage";
+import { SignUpPage } from "./SignUpPage/SignUpPage";
 import { ResetPasswordPage } from "./ResetPasswordPage/ResetPasswordPage";
 
 export {

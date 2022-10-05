@@ -1,3 +1,20 @@
+import Spinner from "react-spinners/ClipLoader";
+import { useEffect } from "react";
+import { ArrowLeft } from "assets";
+import { useNavigate } from "react-router-dom";
+import {
+  fetchUpdateEmailAndPassword,
+  getUserInfo,
+  useAppDispatch,
+  useAppSelector,
+  resetError,
+  fetchSignOut,
+} from "store";
+import { useWindowSize } from "hooks";
+import { Color, Breakpoint } from "ui";
+import { Input, Title, Button } from "components";
+import { Controller, SubmitHandler, useForm } from "react-hook-form";
+import { ROUTE } from "routes";
 import {
   StyledAccountPage,
   ButtonArrow,
@@ -17,23 +34,6 @@ import {
   TitleDescription,
   InfoDescription,
 } from "./styles";
-import { ArrowLeft } from "../../assets";
-import { useNavigate } from "react-router-dom";
-import {
-  fetchUpdateEmailAndPassword,
-  getUserInfo,
-  useAppDispatch,
-  useAppSelector,
-  resetError,
-  fetchSignOut,
-} from "../../store";
-import { useWindowSize } from "../../hooks";
-import { Color, Breakpoint } from "../../ui";
-import { Input, Title, Button } from "../../components";
-import Spinner from "react-spinners/ClipLoader";
-import { Controller, SubmitHandler, useForm } from "react-hook-form";
-import { useEffect } from "react";
-import { ROUTE } from "../../routes/routes";
 
 export type UpdateFormValues = {
   newEmail: string;
@@ -81,8 +81,7 @@ export const AccountPage = () => {
 
   useEffect(() => {
     error && dispatch(resetError());
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [dispatch]);
+  }, [dispatch, error]);
 
   const createdTime = new Date(creationTime);
 
