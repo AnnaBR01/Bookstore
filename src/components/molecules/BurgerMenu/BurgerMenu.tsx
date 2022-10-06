@@ -7,11 +7,10 @@ import { fetchSignOut, getUserInfo, useAppDispatch, useAppSelector } from "store
 import { BurgerHeader, Description, StyledBurgerMenu, WrapperContent, Error } from "./styles";
 
 interface IProps {
-  isOpen: boolean;
   handleBurger: () => void;
 }
 
-export const BurgerMenu = ({ isOpen, handleBurger }: IProps) => {
+export const BurgerMenu = ({ handleBurger }: IProps) => {
   const { isPendingAuth, error, isAuth } = useAppSelector(getUserInfo);
   const dispatch = useAppDispatch();
 
@@ -22,7 +21,13 @@ export const BurgerMenu = ({ isOpen, handleBurger }: IProps) => {
   };
 
   return (
-    <StyledBurgerMenu $isOpen={isOpen} onClick={handleBurger}>
+    <StyledBurgerMenu
+      animate={{ y: 0 }}
+      initial={{ y: "-100%" }}
+      exit={{ y: "-100%" }}
+      transition={{ duration: 2 }}
+      onClick={handleBurger}
+    >
       <WrapperContent onClick={(e: MouseEvent<HTMLElement>) => e.stopPropagation()}>
         <BurgerHeader>
           <Close onClick={handleBurger} />

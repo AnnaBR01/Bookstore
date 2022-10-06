@@ -1,10 +1,11 @@
+import { motion } from "framer-motion";
 import styled from "styled-components";
 import { Color, H3, Media } from "ui";
 
-const StyledBurgerMenu = styled.div<{ $isOpen: boolean }>`
+const StyledBurgerMenu = styled(motion.div)`
   position: absolute;
-  left: 0;
-  top: ${({ $isOpen }) => ($isOpen ? "0" : "-100%")};
+  right: 0;
+  top: 0;
   width: 100%;
   height: 100vh;
   backdrop-filter: blur(2px);
@@ -18,7 +19,6 @@ const WrapperContent = styled.div`
   width: 50%;
   height: inherit;
   margin-left: auto;
-  margin-right: 40px;
   padding-inline: 40px;
   background: ${Color.Light};
   box-shadow: 1px 1px 15px ${Color.Gray};

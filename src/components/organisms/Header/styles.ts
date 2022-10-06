@@ -1,3 +1,4 @@
+import { motion } from "framer-motion";
 import styled from "styled-components";
 import { Color, Media } from "ui";
 
@@ -24,22 +25,18 @@ const StyledHeader = styled.header`
   }
 `;
 
-const ButtonLogo = styled.button`
+const ButtonLogo = styled(motion.button)`
   padding: 10px;
   background: none;
   border: none;
   cursor: pointer;
 `;
 
-const ButtonTheme = styled.button`
+const ButtonTheme = styled(motion.button)`
   padding: 12px;
   background: none;
   border: none;
   cursor: pointer;
-
-  :hover {
-    box-shadow: 1px 1px 15px ${Color.Gray};
-  }
 
   ${Media.LG} {
     margin-left: auto;
@@ -62,7 +59,7 @@ const Item = styled.li`
   align-self: center;
 `;
 
-const ButtonFavorites = styled.button`
+const ButtonFavorites = styled(motion.button)`
   padding: 12px;
   background: none;
   border: none;
@@ -73,14 +70,14 @@ const ButtonFavorites = styled.button`
   }
 `;
 
-const ButtonCart = styled.button`
+const ButtonCart = styled(motion.button)`
   padding: 12px;
   background: none;
   border: none;
   cursor: pointer;
 `;
 
-const ButtonUser = styled.button`
+const ButtonUser = styled(motion.button)`
   padding: 12px;
   background: none;
   border: none;
@@ -91,7 +88,7 @@ const ButtonUser = styled.button`
   }
 `;
 
-const ButtonBurger = styled.button`
+const ButtonBurger = styled(motion.button)`
   padding: 12px;
   background: none;
   border: none;

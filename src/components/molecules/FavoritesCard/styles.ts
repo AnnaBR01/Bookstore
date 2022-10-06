@@ -1,7 +1,8 @@
 import styled from "styled-components";
+import { motion } from "framer-motion";
 import { BODY2, Color, H3, Media } from "ui";
 
-const StyledFavoritesCard = styled.li`
+const StyledFavoritesCard = styled(motion.li)`
   position: relative;
   z-index: 1;
   display: flex;

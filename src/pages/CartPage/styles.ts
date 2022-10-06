@@ -1,3 +1,4 @@
+import { motion } from "framer-motion";
 import styled from "styled-components";
 import { BODY2, Color, H2, H3, Media } from "ui";
 
@@ -15,7 +16,7 @@ const CartWrapper = styled.div`
   flex-direction: column;
 `;
 
-const ButtonArrow = styled.button`
+const ButtonArrow = styled(motion.button)`
   text-align: start;
   width: 50px;
   margin-bottom: 32px;

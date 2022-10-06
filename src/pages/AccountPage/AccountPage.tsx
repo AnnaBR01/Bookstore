@@ -10,9 +10,9 @@ import {
   resetError,
   fetchSignOut,
 } from "store";
-import { useWindowSize } from "hooks";
+import { useToggle, useWindowSize } from "hooks";
 import { Color, Breakpoint } from "ui";
-import { Input, Title, Button } from "components";
+import { Input, Title, Button, Notification } from "components";
 import { Controller, SubmitHandler, useForm } from "react-hook-form";
 import { ROUTE } from "routes";
 import {
@@ -34,6 +34,7 @@ import {
   TitleDescription,
   InfoDescription,
 } from "./styles";
+import { AnimatePresence } from "framer-motion";
 
 export type UpdateFormValues = {
   newEmail: string;
@@ -47,6 +48,7 @@ export const AccountPage = () => {
   const navigate = useNavigate();
   const { width = 0 } = useWindowSize();
   const { email, isPendingAuth, error, creationTime } = useAppSelector(getUserInfo);
+  const [isOpenNotification, toggleIsOpenNotification] = useToggle();
 
   const handlePage = () => {
     navigate(-1);
@@ -66,7 +68,7 @@ export const AccountPage = () => {
     dispatch(fetchUpdateEmailAndPassword(userInfo))
       .unwrap()
       .then(() => {
-        alert("обновлено!"); // TODO error переделать на модальное окно
+        toggleIsOpenNotification();
       })
       .finally(() => {
         reset();
@@ -87,7 +89,7 @@ export const AccountPage = () => {
 
   return (
     <StyledAccountPage>
-      <ButtonArrow onClick={handlePage}>
+      <ButtonArrow onClick={handlePage} whileHover={{ scale: 1.2 }}>
         <ArrowLeft
           width={width < Breakpoint.MD ? "30" : "40"}
           fill={Color.Primary}
@@ -139,7 +141,6 @@ export const AccountPage = () => {
 
         <SubTitle>Password</SubTitle>
         <PasswordContainer>
-          {" "}
           <Controller
             control={control}
             name="password"
@@ -237,6 +238,15 @@ export const AccountPage = () => {
           </ButtonWrapper>
         </ButtonContainer>
       </AccountForm>
+
+      <AnimatePresence>
+        {isOpenNotification && (
+          <Notification
+            value="The order has been placed!"
+            toggleIsOpenNotification={toggleIsOpenNotification}
+          />
+        )}
+      </AnimatePresence>
     </StyledAccountPage>
   );
 };

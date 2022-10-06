@@ -34,6 +34,7 @@ import {
   ButtonTheme,
   WrapperHeader,
 } from "./styles";
+import { AnimatePresence } from "framer-motion";
 
 export const Header = () => {
   const { theme } = useAppSelector(getUserInfo);
@@ -70,14 +71,14 @@ export const Header = () => {
       <Container>
         <StyledHeader>
           <Link to={ROUTE.HOME}>
-            <ButtonLogo>
+            <ButtonLogo whileHover={{ scale: 1.1 }}>
               <LogoIcon width={width < Breakpoint.MD ? "122" : "137"} fill={Color.Primary} />
             </ButtonLogo>
           </Link>
 
           {width > Breakpoint.LG && <SearchHeader />}
 
-          <ButtonTheme onClick={handleTheme}>
+          <ButtonTheme onClick={handleTheme} whileHover={{ scale: 1.1 }}>
             {isDark ? (
               <MoonIcon width="24" fill={Color.Primary} />
             ) : (
@@ -88,7 +89,7 @@ export const Header = () => {
           <List>
             <Item key="1">
               <HeaderCustomLink to={ROUTE.FAVORITES}>
-                <ButtonFavorites>
+                <ButtonFavorites whileHover={{ scale: 1.1 }}>
                   {favoritesBooks.length > 0 ? (
                     <FavoritesActiveIcon width="24" stroke={Color.Primary} />
                   ) : (
@@ -100,7 +101,7 @@ export const Header = () => {
 
             <Item key="2">
               <HeaderCustomLink to={ROUTE.CART}>
-                <ButtonCart>
+                <ButtonCart whileHover={{ scale: 1.1 }}>
                   {cartBooks.length > 0 ? (
                     <CartActiveIcon width="24" stroke={Color.Primary} />
                   ) : (
@@ -112,18 +113,18 @@ export const Header = () => {
 
             <Item key="3">
               <HeaderCustomLink to={ROUTE.ACCOUNT}>
-                <ButtonUser>
+                <ButtonUser whileHover={{ scale: 1.1 }}>
                   <UserIcon width="24" stroke={Color.Primary} />
                 </ButtonUser>
               </HeaderCustomLink>
             </Item>
           </List>
 
-          <ButtonBurger>
+          <ButtonBurger whileHover={{ scale: 1.1 }}>
             <BurgerIcon width="28" height="28" fill={Color.Primary} onClick={handleBurger} />
           </ButtonBurger>
 
-          {isOpen && <BurgerMenu handleBurger={handleBurger} isOpen={isOpen} />}
+          <AnimatePresence>{isOpen && <BurgerMenu handleBurger={handleBurger} />} </AnimatePresence>
         </StyledHeader>
       </Container>
     </WrapperHeader>

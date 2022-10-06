@@ -15,7 +15,7 @@ const StyledAccountPage = styled.div`
   }
 `;
 
-const ButtonArrow = styled.button`
+const ButtonArrow = styled(motion.button)`
   text-align: start;
   width: 50px;
   margin-bottom: 32px;

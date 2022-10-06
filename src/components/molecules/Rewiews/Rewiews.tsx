@@ -51,7 +51,9 @@ export const Rewiews = ({ toggleIsOpenRewiews }: IProps) => {
 
           <Message>{getRewiewMessage(userReview)}</Message>
 
-          <Button onClick={handleRewiews}>Close</Button>
+          <Button onClick={handleRewiews} whileTap={{ scale: 1.1 }}>
+            Close
+          </Button>
         </Modal>
       </StyledRewiews>
     </Portal>

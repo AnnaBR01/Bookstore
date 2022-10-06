@@ -22,11 +22,21 @@ import {
   Plus,
 } from "./styles";
 
+const cartCardVariants = {
+  visible: (index: number) => ({
+    opacity: 1,
+    x: "0",
+    transition: { delay: index * 0.1, duration: 1 },
+  }),
+  hidden: { opacity: 0, x: "-100%" },
+};
+
 interface IProps {
   book: IBookCart;
+  index: number;
 }
 
-export const CartCard = ({ book }: IProps) => {
+export const CartCard = ({ book, index }: IProps) => {
   const dispatch = useAppDispatch();
   const { title, authors, year, image, price, isbn13, quantity } = book;
 
@@ -48,7 +58,13 @@ export const CartCard = ({ book }: IProps) => {
     }
   };
   return (
-    <StyledCartCard>
+    <StyledCartCard
+      whileHover={{ scale: 1.1 }}
+      variants={cartCardVariants}
+      initial="hidden"
+      animate="visible"
+      custom={index}
+    >
       <Link to={`${ROUTE.DETAILS_BOOK}${isbn13}`}>
         <WrapperImage>
           <Image src={image} alt={title} />

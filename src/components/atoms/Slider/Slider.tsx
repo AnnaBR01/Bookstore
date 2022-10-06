@@ -43,7 +43,7 @@ export const Slider = ({ booksArray }: IProps) => {
           if (mouseOver) return;
           timeout = setTimeout(() => {
             slider.next();
-          }, 3000);
+          }, 2000);
         }
         slider.on("created", () => {
           slider.container.addEventListener("mouseover", () => {
@@ -65,10 +65,10 @@ export const Slider = ({ booksArray }: IProps) => {
 
   return (
     <SliderContainer ref={ref} className="keen-slider">
-      {booksArray.map((book) => {
+      {booksArray.map((book, index) => {
         return (
           <StyledSlide className="keen-slider__slide">
-            <BookCard book={book} key={book.isbn13} />
+            <BookCard book={book} key={book.isbn13} index={index} />
           </StyledSlide>
         );
       })}

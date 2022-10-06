@@ -69,7 +69,7 @@ export const CartPage = () => {
   return (
     <StyledCartPage>
       <CartWrapper>
-        <ButtonArrow onClick={handlePage}>
+        <ButtonArrow onClick={handlePage} whileHover={{ scale: 1.2 }}>
           <ArrowLeft
             width={width < Breakpoint.MD ? "30" : "40"}
             fill={Color.Primary}
@@ -81,8 +81,8 @@ export const CartPage = () => {
 
         <CartContainer>
           {currentCartBooks.length !== 0 ? (
-            currentCartBooks.map((book) => {
-              return <CartCard key={book.isbn13} book={book} />;
+            currentCartBooks.map((book, index) => {
+              return <CartCard key={book.isbn13} book={book} index={index} />;
             })
           ) : (
             <Message>

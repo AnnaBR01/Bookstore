@@ -21,7 +21,9 @@ export const Subscription = () => {
 
       <Form action="#" onSubmit={handleSubmit(onSubmit)}>
         <Input type="text" placeholder="Your email" {...register("name")} />
-        <ButtonForm type="submit">Subscribe</ButtonForm>
+        <ButtonForm type="submit" whileTap={{ scale: 1.1 }}>
+          Subscribe
+        </ButtonForm>
       </Form>
       <AnimatePresence>
         {isOpenNotification && (
@@ -29,7 +31,7 @@ export const Subscription = () => {
             value="Subscription is issued!"
             toggleIsOpenNotification={toggleIsOpenNotification}
           />
-        )}{" "}
+        )}
       </AnimatePresence>
     </StyledSubscription>
   );

@@ -14,19 +14,12 @@ export const Notification = ({ value, toggleIsOpenNotification }: IProps) => {
   return (
     <Portal target={PortalTarget.REWIEWS}>
       <StyledNotification
-        animate={{ width: "40%", height: "20%" }}
-        initial={{ width: "0", height: "0" }}
-        exit={{ width: "0", height: "0" }}
-        transition={{ duration: 2 }}
+        animate={{ x: 0 }}
+        initial={{ x: 2500 }}
+        exit={{ x: 2500 }}
+        transition={{ duration: 1 }}
       >
-        <Message
-          animate={{ fontSize: "16px" }}
-          initial={{ fontSize: "0" }}
-          exit={{ fontSize: "0" }}
-          transition={{ duration: 2 }}
-        >
-          {value}
-        </Message>
+        <Message>{value}</Message>
       </StyledNotification>
     </Portal>
   );

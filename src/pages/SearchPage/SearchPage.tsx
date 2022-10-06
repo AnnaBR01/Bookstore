@@ -70,8 +70,8 @@ export const SearchPage = () => {
 
             {booksBySearch.length !== 0 ? (
               <BooksSearchWrapper>
-                {booksBySearch.map((book) => {
-                  return <BookCard book={book} key={book.isbn13} />;
+                {booksBySearch.map((book, index) => {
+                  return <BookCard book={book} key={book.isbn13} index={index} />;
                 })}
               </BooksSearchWrapper>
             ) : (

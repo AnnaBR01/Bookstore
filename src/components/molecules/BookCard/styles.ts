@@ -1,7 +1,8 @@
+import { motion } from "framer-motion";
 import styled from "styled-components";
 import { BODY2, Color, H3, Media } from "ui";
 
-const StyledBookCard = styled.li`
+const StyledBookCard = styled(motion.li)`
   display: flex;
   flex-direction: column;
   justify-content: space-between;

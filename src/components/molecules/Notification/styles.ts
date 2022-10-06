@@ -11,12 +11,20 @@ const StyledNotification = styled(motion.div)`
   justify-content: center;
   align-items: center;
   height: 15%;
-  width: 15%;
+  width: 30%;
   padding: 5px;
   background: ${Color.Green};
+
+  ${Media.LG} {
+    width: 40%;
+  }
+
+  ${Media.MD} {
+    width: 80%;
+  }
 `;
 
-const Message = styled(motion.h3)`
+const Message = styled.h3`
   text-align: center;
   ${H3}
   color: ${Color.PrimaryLight};

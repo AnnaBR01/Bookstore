@@ -32,8 +32,8 @@ export const NewBooksContent = () => {
       )}
 
       <BooksWrapper>
-        {books.map((book) => {
-          return <BookCard book={book} key={book.isbn13} />;
+        {books.map((book, index) => {
+          return <BookCard book={book} index={index} key={book.isbn13} />;
         })}
       </BooksWrapper>
     </StyledNewBooksContent>

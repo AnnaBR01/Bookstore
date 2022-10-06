@@ -29,6 +29,11 @@ import {
   StyledError,
 } from "./styles";
 
+const searchCardVariants = {
+  visible: (index: number) => ({ opacity: 1, scale: 1, transition: { delay: index * 0.1 } }),
+  hidden: { opacity: 0, scale: 1.2 },
+};
+
 interface IProps {
   handleBurger?: () => void;
 }
@@ -86,10 +91,10 @@ export const SearchHeader = ({ handleBurger }: IProps) => {
 
   return (
     <>
-      <Search>
+      <Search whileHover={{ scale: 1.1 }}>
         <SearchInput placeholder="Search..." onChange={onChange} value={value} />
 
-        <ButtonSearch onClick={handleBurger}>
+        <ButtonSearch onClick={handleBurger} whileHover={{ scale: 1.1 }}>
           <SearchIcon width="20" fill={Color.Secondary} onClick={handleSearchPage} />
         </ButtonSearch>
       </Search>
@@ -112,10 +117,17 @@ export const SearchHeader = ({ handleBurger }: IProps) => {
             )}
             {booksBySearch.length > 0 && (
               <SearchList>
-                {booksBySearch.map((book) => {
+                {booksBySearch.map((book, index) => {
                   return (
                     <Link to={`${ROUTE.DETAILS_BOOK}${book.isbn13}`}>
-                      <SearchCard key={book.isbn13}>
+                      <SearchCard
+                        key={book.isbn13}
+                        whileTap={{ scale: 1.1 }}
+                        variants={searchCardVariants}
+                        initial="hidden"
+                        animate="visible"
+                        custom={index}
+                      >
                         <WrapperImage>
                           <Image src={book.image} alt={book.title} />
                         </WrapperImage>

@@ -1,7 +1,8 @@
+import { motion } from "framer-motion";
 import styled from "styled-components";
 import { Color } from "ui";
 
-const StyledButton = styled.button`
+const StyledButton = styled(motion.button)`
   width: 100%;
   color: ${Color.White};
   background: ${Color.Primary};

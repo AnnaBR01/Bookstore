@@ -43,7 +43,7 @@ export const FavoritesBooks = () => {
 
   return (
     <StyledFavoritesBooks>
-      <ButtonArrow onClick={handlePage}>
+      <ButtonArrow onClick={handlePage} whileHover={{ scale: 1.2 }}>
         <ArrowLeft
           width={width < Breakpoint.MD ? "30" : "40"}
           fill={Color.Primary}
@@ -55,8 +55,8 @@ export const FavoritesBooks = () => {
 
       <FavoritesWrapper>
         {currentFavoritesBooks.length !== 0 ? (
-          currentFavoritesBooks.map((book) => {
-            return <FavoritesCard key={book.isbn13} book={book} />;
+          currentFavoritesBooks.map((book, index) => {
+            return <FavoritesCard key={book.isbn13} book={book} index={index} />;
           })
         ) : (
           <Message>

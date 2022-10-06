@@ -1,3 +1,4 @@
+import { motion } from "framer-motion";
 import styled from "styled-components";
 import { Color, Media, S1 } from "ui";
 
@@ -59,7 +60,7 @@ const Input = styled.input`
   }
 `;
 
-const ButtonForm = styled.button`
+const ButtonForm = styled(motion.button)`
   width: 25%;
   color: ${Color.White};
   background: ${Color.Primary};

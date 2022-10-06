@@ -11,7 +11,7 @@ interface IProps {
 
 export const Button = ({ type = "button", value, onClick, children, disabled }: IProps) => {
   return (
-    <StyledButton type={type} onClick={onClick} disabled={disabled}>
+    <StyledButton type={type} onClick={onClick} disabled={disabled} whileTap={{ scale: 1.1 }}>
       {value} {children}
     </StyledButton>
   );

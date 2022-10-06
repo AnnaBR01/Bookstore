@@ -20,11 +20,21 @@ import {
   Like,
 } from "./styles";
 
+const favoritesCardVariants = {
+  visible: (index: number) => ({
+    opacity: 1,
+    x: "0",
+    transition: { delay: index * 0.1, duration: 1 },
+  }),
+  hidden: { opacity: 0, x: "-100%" },
+};
+
 interface IProps {
   book: IBookDetails;
+  index: number;
 }
 
-export const FavoritesCard = ({ book }: IProps) => {
+export const FavoritesCard = ({ book, index }: IProps) => {
   const [isFavorites, toggleIsFavorites] = useToggle(true);
   const dispatch = useAppDispatch();
   const { title, authors, year, image, price, rating, isbn13 } = book;
@@ -36,7 +46,13 @@ export const FavoritesCard = ({ book }: IProps) => {
   };
   return (
     <Link to={`${ROUTE.DETAILS_BOOK}${isbn13}`}>
-      <StyledFavoritesCard>
+      <StyledFavoritesCard
+        whileHover={{ scale: 1.1 }}
+        variants={favoritesCardVariants}
+        initial="hidden"
+        animate="visible"
+        custom={index}
+      >
         <WrapperImage>
           <Image src={image} alt={title} />
         </WrapperImage>

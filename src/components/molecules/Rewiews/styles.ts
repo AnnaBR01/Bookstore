@@ -29,6 +29,10 @@ const Modal = styled.div`
   height: 300px;
   padding: 25px;
   background: ${Color.Green};
+
+  ${Media.MD} {
+    width: 80%;
+  }
 `;
 
 const Title = styled.h2`
@@ -79,7 +83,7 @@ const Message = styled.p`
   color: ${Color.PrimaryLight};
 `;
 
-const Button = styled.button`
+const Button = styled(motion.button)`
   max-width: 30%;
   width: 100%;
   padding: 15px;

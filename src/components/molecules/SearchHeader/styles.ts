@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 import styled from "styled-components";
 import { Color, Media, H3 } from "ui";
 
-const Search = styled.div`
+const Search = styled(motion.div)`
   justify-self: center;
   padding: 12px 16px 12px 20px;
   border: 1px solid ${Color.Secondary};
@@ -47,7 +47,7 @@ const SearchInput = styled.input`
   }
 `;
 
-const ButtonSearch = styled.button`
+const ButtonSearch = styled(motion.button)`
   display: flex;
   align-content: center;
   background: none;
@@ -73,7 +73,7 @@ const SearchList = styled.ul`
   display: grid;
 `;
 
-const SearchCard = styled.li`
+const SearchCard = styled(motion.li)`
   display: flex;
   padding: 20px;
   border-bottom: 1px solid ${Color.Gray};

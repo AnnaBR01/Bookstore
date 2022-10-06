@@ -30,7 +30,7 @@ export const SignInForm = () => {
     dispatch(fetchSignInUser(userInfo))
       .unwrap()
       .then(() => {
-        navigate(`/${ROUTE.ACCOUNT}`); // TODO error переделать на модальное окно
+        navigate(`/${ROUTE.ACCOUNT}`);
       })
       .finally(() => {
         reset();
@@ -39,7 +39,8 @@ export const SignInForm = () => {
 
   useEffect(() => {
     error && dispatch(resetError());
-  }, [dispatch, error]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [dispatch]);
 
   return (
     <StyledSignInForm action="#" onSubmit={handleSubmit(onSubmit)}>
@@ -93,13 +94,13 @@ export const SignInForm = () => {
 
       {errors.password && <InputError>{errors.password.message}</InputError>}
 
-      {error && <Error>{error}</Error>}
-
       <Link to={`/${ROUTE.RESET_PASSWORD}`}>
         <Text>Forgot password ?</Text>
       </Link>
 
-      <ButtonForm type="submit">
+      {error && <Error>{error}</Error>}
+
+      <ButtonForm type="submit" whileTap={{ scale: 1.1 }}>
         Sign in <Spinner loading={isPendingAuth} size={25} />
       </ButtonForm>
     </StyledSignInForm>

@@ -31,7 +31,7 @@ export const SignUpForm = () => {
     dispatch(fetchSignUpUser(userInfo))
       .unwrap()
       .then(() => {
-        navigate(`/${ROUTE.ACCOUNT}`); // TODO error переделать на модальное окно
+        navigate(`/${ROUTE.ACCOUNT}`);
       })
       .finally(() => {
         reset();
@@ -40,7 +40,8 @@ export const SignUpForm = () => {
 
   useEffect(() => {
     error && dispatch(resetError());
-  }, [dispatch, error]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [dispatch]);
 
   return (
     <StyledSignUpForm action="#" onSubmit={handleSubmit(onSubmit)}>
@@ -120,7 +121,7 @@ export const SignUpForm = () => {
 
       {error && <Error>{error}</Error>}
 
-      <ButtonForm type="submit">
+      <ButtonForm type="submit" whileTap={{ scale: 1.1 }}>
         Sign up <Spinner loading={isPendingAuth} size={25} />
       </ButtonForm>
     </StyledSignUpForm>

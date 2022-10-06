@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { motion } from "framer-motion";
 import { H3, Media } from "ui";
 
 const StyledFavoritesBooks = styled.div`
@@ -6,7 +7,7 @@ const StyledFavoritesBooks = styled.div`
   flex-direction: column;
 `;
 
-const ButtonArrow = styled.button`
+const ButtonArrow = styled(motion.button)`
   text-align: start;
   width: 50px;
   margin-bottom: 32px;
