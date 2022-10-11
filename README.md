@@ -3,7 +3,7 @@
 [![Stargazers][stars-shield]][stars-url]
 [![LinkedIn][linkedin-shield]][linkedin-url]
 
-<a href="#readme-top"></a>
+<a name="readme-top"></a>
 
 <br />
 <div align="center">
