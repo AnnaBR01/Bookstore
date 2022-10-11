@@ -27,18 +27,21 @@ const override: CSSProperties = {
 };
 
 export const SearchPage = () => {
-  const { booksBySearch, isLoading, error, debounceSearchValue } = useAppSelector(getBooksBySearch);
+  const { booksBySearch, isLoading, error, debounceSearchValue, total } =
+    useAppSelector(getBooksBySearch);
   const navigate = useNavigate();
   const dispatch = useAppDispatch();
-  const currentPage = useParams().page;
+  const currentPage = useParams().page || 1;
   const { width = 0 } = useWindowSize();
+
+  const countPages = Math.ceil(+total / 10);
 
   const handlePrevPage = () => {
     currentPage && +currentPage !== 1 && navigate(`/${ROUTE.SEARCH}${+currentPage + -1}`);
   };
 
   const handleNextPage = () => {
-    currentPage && +currentPage !== 20 && navigate(`/${ROUTE.SEARCH}${+currentPage + 1}`);
+    currentPage && +currentPage !== countPages && navigate(`/${ROUTE.SEARCH}${+currentPage + 1}`);
   };
 
   const handlePage = (event: any) => {
@@ -66,7 +69,7 @@ export const SearchPage = () => {
 
         {!isLoading && !error && (
           <>
-            {<Info>Found {booksBySearch.length} books</Info>}
+            {<Info>Found {total} books</Info>}
 
             {booksBySearch.length !== 0 ? (
               <BooksSearchWrapper>
@@ -83,133 +86,139 @@ export const SearchPage = () => {
           </>
         )}
       </SearchBooks>
+      {countPages ? (
+        <Pagination>
+          <ButtonArrow
+            onClick={handlePrevPage}
+            disabled={currentPage && currentPage ? +currentPage === 1 : false}
+          >
+            <ArrowLeftPagination width={"25"} fill={Color.Primary} /> Prev
+          </ButtonArrow>
 
-      <Pagination>
-        <ButtonArrow
-          onClick={handlePrevPage}
-          disabled={currentPage && currentPage ? +currentPage === 1 : false}
-        >
-          <ArrowLeftPagination width={"25"} fill={Color.Primary} /> Prev
-        </ButtonArrow>
+          {countPages > 3 && +currentPage <= 3 && width > Breakpoint.MD && (
+            <PageList>
+              <PageItem>
+                <PageItemButton onClick={handlePage} $isActive={+currentPage === 1}>
+                  {+currentPage === 1 && "1"}
+                  {+currentPage === 2 && +currentPage - 1}
+                  {+currentPage === 3 && +currentPage - 2}
+                </PageItemButton>
+              </PageItem>
 
-        {currentPage && +currentPage <= 3 && width > Breakpoint.MD && (
-          <PageList>
-            <PageItem>
-              <PageItemButton onClick={handlePage} $isActive={+currentPage === 1}>
-                {+currentPage === 1 && "1"}
-                {+currentPage === 2 && +currentPage - 1}
-                {+currentPage === 3 && +currentPage - 2}
-              </PageItemButton>
-            </PageItem>
+              <PageItem>
+                <PageItemButton onClick={handlePage} $isActive={+currentPage === 2}>
+                  {+currentPage === 1 && +currentPage + 1}
+                  {+currentPage === 2 && "2"}
+                  {+currentPage === 3 && +currentPage - 1}
+                </PageItemButton>
+              </PageItem>
 
-            <PageItem>
-              <PageItemButton onClick={handlePage} $isActive={+currentPage === 2}>
-                {+currentPage === 1 && +currentPage + 1}
-                {+currentPage === 2 && "2"}
-                {+currentPage === 3 && +currentPage - 1}
-              </PageItemButton>
-            </PageItem>
+              <PageItem>
+                <PageItemButton onClick={handlePage} $isActive={+currentPage === 3}>
+                  {+currentPage === 1 && +currentPage + 2}
+                  {+currentPage === 2 && +currentPage + 1}
+                  {+currentPage === 3 && "3"}
+                </PageItemButton>
+              </PageItem>
+              {+currentPage !== 4 && (
+                <PageItem>
+                  <PageItemButton $isActive={false}>...</PageItemButton>
+                </PageItem>
+              )}
 
-            <PageItem>
-              <PageItemButton onClick={handlePage} $isActive={+currentPage === 3}>
-                {+currentPage === 1 && +currentPage + 2}
-                {+currentPage === 2 && +currentPage + 1}
-                {+currentPage === 3 && "3"}
-              </PageItemButton>
-            </PageItem>
+              <PageItem>
+                <PageItemButton onClick={handlePage} $isActive={false}>
+                  {countPages}
+                </PageItemButton>
+              </PageItem>
+            </PageList>
+          )}
 
-            <PageItem>
-              <PageItemButton $isActive={false}>...</PageItemButton>
-            </PageItem>
+          {+currentPage > 3 && +currentPage < countPages - 2 && width > Breakpoint.MD && (
+            <PageList>
+              <PageItem>
+                <PageItemButton onClick={handlePage} $isActive={false}>
+                  1
+                </PageItemButton>
+              </PageItem>
 
-            <PageItem>
-              <PageItemButton onClick={handlePage} $isActive={false}>
-                20
-              </PageItemButton>
-            </PageItem>
-          </PageList>
-        )}
+              <PageItem>
+                <PageItemButton $isActive={false}>...</PageItemButton>
+              </PageItem>
 
-        {currentPage && +currentPage > 3 && +currentPage < 18 && width > Breakpoint.MD && (
-          <PageList>
-            <PageItem>
-              <PageItemButton onClick={handlePage} $isActive={false}>
-                1
-              </PageItemButton>
-            </PageItem>
+              <PageItem>
+                <PageItemButton onClick={handlePage} $isActive={true}>
+                  {+currentPage}
+                </PageItemButton>
+              </PageItem>
 
-            <PageItem>
-              <PageItemButton $isActive={false}>...</PageItemButton>
-            </PageItem>
+              <PageItem>
+                <PageItemButton $isActive={false}>...</PageItemButton>
+              </PageItem>
 
-            <PageItem>
-              <PageItemButton onClick={handlePage} $isActive={true}>
-                {+currentPage}
-              </PageItemButton>
-            </PageItem>
+              <PageItem>
+                <PageItemButton onClick={handlePage} $isActive={false}>
+                  {countPages}
+                </PageItemButton>
+              </PageItem>
+            </PageList>
+          )}
 
-            <PageItem>
-              <PageItemButton $isActive={false}>...</PageItemButton>
-            </PageItem>
+          {countPages > 5 && +currentPage >= countPages - 2 && width > Breakpoint.MD && (
+            <PageList>
+              <PageItem>
+                <PageItemButton onClick={handlePage} $isActive={false}>
+                  1
+                </PageItemButton>
+              </PageItem>
 
-            <PageItem>
-              <PageItemButton onClick={handlePage} $isActive={false}>
-                20
-              </PageItemButton>
-            </PageItem>
-          </PageList>
-        )}
+              <PageItem>
+                <PageItemButton $isActive={false}>...</PageItemButton>
+              </PageItem>
 
-        {currentPage && +currentPage >= 18 && width > Breakpoint.MD && (
-          <PageList>
-            <PageItem>
-              <PageItemButton onClick={handlePage} $isActive={false}>
-                1
-              </PageItemButton>
-            </PageItem>
+              <PageItem>
+                <PageItemButton onClick={handlePage} $isActive={+currentPage === countPages - 2}>
+                  {+currentPage === countPages - 2 && `${countPages - 2}`}
+                  {+currentPage === countPages - 1 && +currentPage - 1}
+                  {+currentPage === countPages && +currentPage - 2}
+                </PageItemButton>
+              </PageItem>
 
-            <PageItem>
-              <PageItemButton $isActive={false}>...</PageItemButton>
-            </PageItem>
+              <PageItem>
+                <PageItemButton onClick={handlePage} $isActive={+currentPage === countPages - 1}>
+                  {+currentPage === countPages - 2 && +currentPage + 1}
+                  {+currentPage === countPages - 1 && `${countPages - 1}`}
+                  {+currentPage === countPages && +currentPage - 1}
+                </PageItemButton>
+              </PageItem>
 
-            <PageItem>
-              <PageItemButton onClick={handlePage} $isActive={+currentPage === 18}>
-                {+currentPage === 18 && "18"}
-                {+currentPage === 19 && +currentPage - 1}
-                {+currentPage === 20 && +currentPage - 2}
-              </PageItemButton>
-            </PageItem>
+              <PageItem>
+                <PageItemButton onClick={handlePage} $isActive={+currentPage === countPages}>
+                  {+currentPage === countPages - 2 && +currentPage + 2}
+                  {+currentPage === countPages - 1 && +currentPage + 1}
+                  {+currentPage === countPages && `${countPages}`}
+                </PageItemButton>
+              </PageItem>
+            </PageList>
+          )}
 
-            <PageItem>
-              <PageItemButton onClick={handlePage} $isActive={+currentPage === 19}>
-                {+currentPage === 18 && +currentPage + 1}
-                {+currentPage === 19 && "19"}
-                {+currentPage === 20 && +currentPage - 1}
-              </PageItemButton>
-            </PageItem>
+          {(width < Breakpoint.MD || countPages <= 3) && (
+            <MiddlePageList>
+              Page {currentPage} of {countPages ? countPages : 1}
+            </MiddlePageList>
+          )}
 
-            <PageItem>
-              <PageItemButton onClick={handlePage} $isActive={+currentPage === 20}>
-                {+currentPage === 18 && +currentPage + 2}
-                {+currentPage === 19 && +currentPage + 1}
-                {+currentPage === 20 && "20"}
-              </PageItemButton>
-            </PageItem>
-          </PageList>
-        )}
-
-        {currentPage && width < Breakpoint.MD && (
-          <MiddlePageList>Page {currentPage} of 20</MiddlePageList>
-        )}
-
-        <ButtonArrow
-          onClick={handleNextPage}
-          disabled={currentPage && currentPage ? +currentPage === 20 : false}
-        >
-          Next
-          <ArrowRightPagination width={"25"} fill={Color.Primary} />
-        </ButtonArrow>
-      </Pagination>
+          <ButtonArrow
+            onClick={handleNextPage}
+            disabled={countPages ? +currentPage === countPages : false}
+          >
+            Next
+            <ArrowRightPagination width={"25"} fill={Color.Primary} />
+          </ButtonArrow>
+        </Pagination>
+      ) : (
+        ""
+      )}
     </StyledSearchPage>
   );
 };

@@ -67,8 +67,8 @@ export const Slider = ({ booksArray }: IProps) => {
     <SliderContainer ref={ref} className="keen-slider">
       {booksArray.map((book, index) => {
         return (
-          <StyledSlide className="keen-slider__slide">
-            <BookCard book={book} key={book.isbn13} index={index} />
+          <StyledSlide className="keen-slider__slide" key={book.isbn13}>
+            <BookCard book={book} index={index} />
           </StyledSlide>
         );
       })}

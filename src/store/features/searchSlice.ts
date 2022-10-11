@@ -8,6 +8,7 @@ interface SearchBooksState {
   isLoading: boolean;
   error: null | string;
   debounceSearchValue: string;
+  total: string;
 }
 
 const initialState: SearchBooksState = {
@@ -15,6 +16,7 @@ const initialState: SearchBooksState = {
   isLoading: false,
   error: null,
   debounceSearchValue: "",
+  total: "",
 };
 
 const fetchBooksBySearch = createAsyncThunk<
@@ -51,6 +53,7 @@ const searchSlice = createSlice({
       state.isLoading = false;
       if (payload.books) {
         state.booksBySearch = payload.books;
+        state.total = payload.total;
       }
     });
     builder.addCase(fetchBooksBySearch.rejected, (state, { payload }) => {

@@ -119,9 +119,8 @@ export const SearchHeader = ({ handleBurger }: IProps) => {
               <SearchList>
                 {booksBySearch.map((book, index) => {
                   return (
-                    <Link to={`${ROUTE.DETAILS_BOOK}${book.isbn13}`}>
+                    <Link to={`${ROUTE.DETAILS_BOOK}${book.isbn13}`} key={book.isbn13}>
                       <SearchCard
-                        key={book.isbn13}
                         whileTap={{ scale: 1.1 }}
                         variants={searchCardVariants}
                         initial="hidden"
