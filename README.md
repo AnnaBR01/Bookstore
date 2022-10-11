@@ -3,6 +3,8 @@
 [![Stargazers][stars-shield]][stars-url]
 [![LinkedIn][linkedin-shield]][linkedin-url]
 
+<a href="#readme-top"></a>
+
 <br />
 <div align="center">
   <a href="https://github.com/AnnaBR01/bookstore/tree/develop">
@@ -65,9 +67,9 @@ This section should list any major frameworks/libraries used to bootstrap your p
 - [![Axios][axios-http.com]][axios-url]
 - [![Firebase][firebase.google.com]][firebase-url]
 - [![Redux Persist][github.com/rt2zz/redux-persist]][persist-url]
-- [![react-rating-stars-component][https://github.com/voronianski/react-star-rating-component]][react-rating-stars-component-url]
-- [![keen-slider][https://keen-slider.io/]][keen-slider-url]
-- [![react-spinners][https://github.com/davidhu2000/react-spinners]][react-spinners-url]
+- [![react-rating-stars-component][react-rating-stars-component.com]][react-rating-stars-component-url]
+- [![keen-slider][keen-slider.com]][keen-slider-url]
+- [![react-spinners][react-spinners.com]][react-spinners-url]
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -95,33 +97,33 @@ This is an example of how to list things you need to use the software and how to
 
 Upon entering the site you will land at the Homepage, where the user sees the first 20 books provided by the open database (IT Bookstore API (version 1.0)).
 
-<img src="images/home-page.PNG" alt="Home Page">
+<img src="images/home-page.PNG" alt="Home Page" align="center">
 
 On the Home page you can use a quick search.
 
-<img src="images/quick-search.PNG" alt="Search Page">
+<img src="images/quick-search.PNG" alt="Search Page" align="center">
 
 Upon clicking on the loupe you will be navigated to the Search page displaying current books search.
 
-<img src="images/search-page.PNG" alt="Search Page">
+<img src="images/search-page.PNG" alt="Search Page" align="center">
 
 Each book has its own dedicated page, which provides you with all the relevant info on the particular entry, as well as the list of the specifically tailored reccomendations.
 
-<img src="images/details-page-1.PNG" alt="Details Page">
-<img src="images/details-page-2.PNG" alt="Details Page">
+<img src="images/details-page-1.PNG" alt="Details Page" align="center">
+<img src="images/details-page-2.PNG" alt="Details Page" align="center">
 
 In order to get access to more features, you will have to create your own user account. For this proceed to the sign up page through the corresponding link.
 
-<img src="images/sign-in-page.PNG" alt="Sign In Page">
+<img src="images/sign-in-page.PNG" alt="Sign In Page" align="center">
 
 Upon registration you'll get access to more features. Such as the ability to form the list of your favourite books or add books to the cart. You can search for books on these pages.
 
-<img src="images/favorites-page.PNG" alt="Favorites Page">
-<img src="images/cart-page.PNG" alt="Cart Page">
+<img src="images/favorites-page.PNG" alt="Favorites Page" align="center">
+<img src="images/cart-page.PNG" alt="Cart Page" align="center">
 
 Additionally, application provides you with functionality to configure your user profile by changing your email, password or color mode.
 
-<img src="images/account-page.PNG" alt="Account Page">
+<img src="images/account-page.PNG" alt="Account Page" align="center">
 
 All other features of the site you can find out by testing it.
 
