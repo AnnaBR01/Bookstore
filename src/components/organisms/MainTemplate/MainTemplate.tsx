@@ -12,7 +12,7 @@ export const MainTemplate = () => {
   useEffect(() => {
     const handler = setTimeout(() => {
       toggleIsOpenRewiews();
-    }, 50000);
+    }, 240000);
     return () => clearTimeout(handler);
   }, [toggleIsOpenRewiews]);
 
