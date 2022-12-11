@@ -8,6 +8,7 @@ import { SearchPage } from "./SearchPage/SearchPage";
 import { SignInPage } from "./SignInPage/SignInPage";
 import { SignUpPage } from "./SignUpPage/SignUpPage";
 import { ResetPasswordPage } from "./ResetPasswordPage/ResetPasswordPage";
+import { WelcomePage } from "./WelcomePage/WelcomePage";
 
 export {
   DetailsBookPage,
@@ -20,4 +21,5 @@ export {
   SignInPage,
   SignUpPage,
   ResetPasswordPage,
+  WelcomePage,
 };

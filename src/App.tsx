@@ -12,6 +12,7 @@ import {
   SignInPage,
   SignUpPage,
   ResetPasswordPage,
+  WelcomePage,
 } from "pages";
 import { ROUTE } from "routes/routes";
 import { store } from "store";
@@ -22,6 +23,7 @@ export const App = () => {
       <Routes>
         <Route path={ROUTE.HOME} element={<MainTemplate />}>
           <Route index element={<HomePage />} />
+          <Route path={ROUTE.WELCOME} element={<WelcomePage />} />
           <Route path={`${ROUTE.SEARCH}:page`} element={<SearchPage />} />
           <Route path={`${ROUTE.DETAILS_BOOK}:id`} element={<DetailsBookPage />} />
 
